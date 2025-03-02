@@ -34,16 +34,16 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #035096;
-  --bs-secondary: #6c757d;
+  --bs-primary: #1573ca;
+  --bs-secondary: #ccd2d6
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: rgb(245, 152, 12);
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 3, 80, 150;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-primary-rgb: 21, 115, 202;
+  --bs-secondary-rgb: 204, 210, 214;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 245, 152, 12;
@@ -97,7 +97,7 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-gray-400);
+  color: var(--bs-gray-200);
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
@@ -118,7 +118,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   line-height: 1.2;
-  color: var(--bs-gray-600);
+  color: var(--bs-gray-400);
 }
 
 h1, .h1 {
@@ -187,6 +187,7 @@ address {
 ol,
 ul {
   padding-left: 2rem;
+  color: var(--bs-gray-500);
 }
 
 ol,
@@ -305,7 +306,10 @@ a > code {
 }
 
 a.social-icon.link-youtube:hover {background-color: #a52834 !important;}
-a.social-icon.link-buymeacoffee:hover {background-color: #ffd800 !important;}
+a.social-icon.link-twitch:hover {background-color: #4200a2 !important;}
+a.social-icon.link-itchio:hover {background-color: #fa5c5c !important; color: #222222 !important}
+a.social-icon.link-buymeacoffee:hover {background-color: #ffdd00 !important; color: #292929 !important;}
+a.social-icon.link-github:hover {background-color: #292929 !important}
 
 kbd {
   padding: 0.1875rem 0.375rem;
@@ -10812,6 +10816,7 @@ textarea.form-control-lg {
     font-size: 1.5rem !important;
   }
 }
+
 @media print {
   .d-print-inline {
     display: inline !important;
@@ -10867,6 +10872,7 @@ h5,
 h6,
 .h6 {
   text-transform: uppercase;
+  color: var(--bs-gray-400);
 }
 
 h1, .h1 {
@@ -10875,6 +10881,7 @@ h1, .h1 {
 
 p.lead {
   font-size: 1.15rem;
+  color: var(--bs-gray-400);
   font-weight: 400;
 }
 
@@ -10990,4 +10997,23 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+}
+
+.project-div {
+  margin: 10px 10px 10px 10px;
+  height: 300px;
+  width: 300px;
+  float: left;
+}
+
+.project-img {
+  filter: grayscale(100%) opacity(80%);
+  width: 300px;
+  height: 300px;
+}
+
+.project-img:hover {
+  filter: grayscale(0%) opacity(100%);
+  width: 300px;
+  height: 300px;
 }

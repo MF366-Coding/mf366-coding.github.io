@@ -11000,20 +11000,20 @@ section.resume-section .resume-section-content {
 }
 
 .project-div {
-  margin: 10px 10px 10px 10px;
-  height: 300px;
-  width: 300px;
+  margin: 15px 15px 15px 15px;
+  height: 200px;
+  width: 200px;
   float: left;
 }
 
 .project-img {
   filter: grayscale(100%) opacity(80%);
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .project-img:hover {
   filter: grayscale(0%) opacity(100%);
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }

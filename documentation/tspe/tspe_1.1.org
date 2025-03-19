@@ -1,4 +1,4 @@
-#+TITLE: Terminal Supaplex Editor Official Documentation
+#+TITLE: Terminal Supaplex Editor Official Documentation (Work in Progress)
 #+DESCRIPTION: The official documentation for TSpE - Terminal Supaplex Editor.
 #+AUTHOR: Matthew (MF366)
 
@@ -7,12 +7,18 @@
 #+TOC: headlines 2
 
 * About the Documentation
-The page/docuemnt you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It, along with the software itself, is made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+The page/document you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It, along with the software itself, is made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
 
 ** Licensing (Docs)
 #+BEGIN_QUOTE
-This section is about the LICENSE of this document. For TSpE's LICENSE, see section 2.1: [[Licensing (TSpE)]].
+This section is about the LICENSE of this document. For TSpE's LICENSE, see section 2.1: [[Licensing (TSpE)][Licensing (TSpE)]].
 #+END_QUOTE
+
+This documentation is licensed under the *GNU Free Documentation License (GFDL)*. Therefore, all edits, reuses and whatnot of this documentation (valid for both ~Org~ and ~HTML~ versions of the docs) must comply with GFDL's terms and conditions.
+
+** Contributing
+If you wish to contribute to the documentation, I'd really appreciate it. However, there are some rules and guidelines you must follow:
+- TODO
 
 * What is TSpE?
 #+BEGIN_QUOTE
@@ -26,6 +32,9 @@ Fully made in Python, it is capable of handling basic Supaplex level format (no 
 While it's sadly not very extensible, its easy-to-understand =settings.json=, the main file you'll be using - as a user - to enhance your experience.
 
 Without further ado, let's jump into the second topic: *How to install TSpE*.
+
+** Licensing (TSpE)
+TODO
 
 * How to install TSpE
 Lorem ipsum etc etc...

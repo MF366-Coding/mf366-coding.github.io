@@ -1,0 +1,31 @@
+#+TITLE: Terminal Supaplex Editor Official Documentation
+#+DESCRIPTION: The official documentation for TSpE - Terminal Supaplex Editor.
+#+AUTHOR: Matthew (MF366)
+
+#+OPTIONS: toc:nil
+
+#+TOC: headlines 2
+
+* About the Documentation
+The page/docuemnt you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It, along with the software itself, is made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+
+** Licensing (Docs)
+#+BEGIN_QUOTE
+This section is about the LICENSE of this document. For TSpE's LICENSE, see section 2.1: [[Licensing (TSpE)]].
+#+END_QUOTE
+
+* What is TSpE?
+#+BEGIN_QUOTE
+For its entirety, this documentation assumes the user knows: what Supaplex is and how to, later on, "use" the levels in software such as Megaplex, or just Supaplex Online. It's highly recommended to have a certain degree of experience around the terminal.
+#+END_QUOTE
+
+Terminal Supaplex Editor - or *TSpE* for short - is one of the most recent Supaplex level editors to have the *terminal* as the main /"target"/.
+
+Fully made in Python, it is capable of handling basic Supaplex level format (no Megaplex support yet) and is bundled with tons of useful features, one of which is the ability to test the level that's being edited with *Supaplex Online*, the main platform for uploading levels and playing other people's ones.
+
+While it's sadly not very extensible, its easy-to-understand =settings.json=, the main file you'll be using - as a user - to enhance your experience.
+
+Without further ado, let's jump into the second topic: *How to install TSpE*.
+
+* How to install TSpE
+Lorem ipsum etc etc...

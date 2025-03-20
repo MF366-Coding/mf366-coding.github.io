@@ -22,7 +22,7 @@ If you wish to contribute to the documentation, I'd really appreciate it. Howeve
 - *If it ain’t broken, don’t redesign it.* Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it's very objective.
 - *Editing the HTML export is like painting a screenshot — impressive, but pointless.* Make /Pull Requests/ for the ~Org~ files, not the ~HTML~ ones.
 - *Fixing typos is noble; flooding PRs with them is chaos.* Typo squatting is perfectly fine and helpful, but don't make too many /Pull Requests/ to fix typos in a row, as it causes unnecessary spam. The best alternative is to "bundle" several typo fixes in one PR.
-- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][real_mf366@yahoo.com]].
+- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][~real_mf366@yahoo.com~]].
 
 If those rules did not scare you away, the GitHub repository is [[https://github.com/MF366-Coding/mf366-coding.github.io][right here]]. Thanks ahead for your contributions.
 
@@ -40,7 +40,8 @@ While it's sadly not very extensible, its easy-to-understand =settings.json=, th
 Without further ado, let's jump into the second topic: *How to install TSpE*.
 
 ** Licensing (TSpE)
-TODO
+TSpE itself is licensed under the [[https://www.gnu.org/licenses/gpl-3.0.txt][*GNU General Public License (GPL v3.0)*]]. All forks, modifications and whatnot of the program must comply with GPL's terms and conditions.
 
 * How to install TSpE
-Lorem ipsum etc etc...
+#+TODO: XXX
+Lorem ipsum...

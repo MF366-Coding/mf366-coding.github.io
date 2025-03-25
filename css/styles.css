@@ -10999,6 +10999,14 @@ section.resume-section .resume-section-content {
   }
 }
 
+a img {
+  filter: brightness(100%);
+}
+
+a:hover img {
+  filter: brightness(150%);
+}
+
 .project-div {
   margin: 15px 15px 15px 15px;
   height: 200px;
@@ -11032,4 +11040,9 @@ section.resume-section .resume-section-content {
 .screenshot:hover {
   filter: grayscale(0%) opacity(100%);
   width: 300px;
+}
+
+.list-inline-item img {
+  width: 41.15px;
+  padding-bottom: 7.5px;
 }

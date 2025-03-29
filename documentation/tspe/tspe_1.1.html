@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-20 qui 21:57 -->
+<!-- 2025-03-29 sáb 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terminal Supaplex Editor Official Documentation (Work in Progress)</title>
@@ -202,34 +202,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1362697">1. About the Documentation</a>
+<li><a href="#org1f06ac4">1. About the Documentation</a>
 <ul>
-<li><a href="#org23885a1">1.1. Licensing (Docs)</a></li>
-<li><a href="#orgbafef59">1.2. Contributing</a></li>
+<li><a href="#org9741a46">1.1. Licensing (Docs)</a></li>
+<li><a href="#org2dce579">1.2. Contributing</a></li>
 </ul>
 </li>
-<li><a href="#org8f47d1d">2. What is TSpE?</a>
+<li><a href="#org5096ab8">2. What is TSpE?</a>
 <ul>
-<li><a href="#orgd602faf">2.1. Licensing (TSpE)</a></li>
+<li><a href="#org415ddb4">2.1. Licensing (TSpE)</a></li>
 </ul>
 </li>
-<li><a href="#org2788a0b">3. How to install TSpE</a></li>
+<li><a href="#org85f56d0">3. How to install TSpE</a>
+<ul>
+<li><a href="#org62e4807">3.1. Requirements</a></li>
+<li><a href="#org6dd787f">3.2. The Main File</a></li>
+<li><a href="#orgf6bf381">3.3. <span class="todo TODO">TODO</span> </a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1362697" class="outline-2">
-<h2 id="org1362697"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div id="outline-container-org1f06ac4" class="outline-2">
+<h2 id="org1f06ac4"><span class="section-number-2">1.</span> About the Documentation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The page/document you are currently looking at is the <b>Official Documentation for Terminal Supaplex Editor a.k.a. TSpE</b>. It, along with the software itself, is made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
 </p>
 </div>
-<div id="outline-container-org23885a1" class="outline-3">
-<h3 id="org23885a1"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div id="outline-container-org9741a46" class="outline-3">
+<h3 id="org9741a46"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
 <div class="outline-text-3" id="text-1-1">
 <blockquote>
 <p>
-This section is about the LICENSE of this document. For TSpE&rsquo;s LICENSE, see section 2.1: <a href="#orgd602faf">Licensing (TSpE)</a>.
+This section is about the LICENSE of this document. For TSpE&rsquo;s LICENSE, see section 2.1: <a href="#org415ddb4">Licensing (TSpE)</a>.
 </p>
 </blockquote>
 
@@ -238,8 +244,8 @@ This documentation is licensed under the <a href="https://www.gnu.org/licenses/f
 </p>
 </div>
 </div>
-<div id="outline-container-orgbafef59" class="outline-3">
-<h3 id="orgbafef59"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div id="outline-container-org2dce579" class="outline-3">
+<h3 id="org2dce579"><span class="section-number-3">1.2.</span> Contributing</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
@@ -258,8 +264,8 @@ If those rules did not scare you away, the GitHub repository is <a href="https:/
 </div>
 </div>
 </div>
-<div id="outline-container-org8f47d1d" class="outline-2">
-<h2 id="org8f47d1d"><span class="section-number-2">2.</span> What is TSpE?</h2>
+<div id="outline-container-org5096ab8" class="outline-2">
+<h2 id="org5096ab8"><span class="section-number-2">2.</span> What is TSpE?</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -283,8 +289,8 @@ While it&rsquo;s sadly not very extensible, its easy-to-understand <code>setting
 Without further ado, let&rsquo;s jump into the second topic: <b>How to install TSpE</b>.
 </p>
 </div>
-<div id="outline-container-orgd602faf" class="outline-3">
-<h3 id="orgd602faf"><span class="section-number-3">2.1.</span> Licensing (TSpE)</h3>
+<div id="outline-container-org415ddb4" class="outline-3">
+<h3 id="org415ddb4"><span class="section-number-3">2.1.</span> Licensing (TSpE)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 TSpE itself is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt"><b>GNU General Public License (GPL v3.0)</b></a>. All forks, modifications and whatnot of the program must comply with GPL&rsquo;s terms and conditions.
@@ -292,18 +298,70 @@ TSpE itself is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.
 </div>
 </div>
 </div>
-<div id="outline-container-org2788a0b" class="outline-2">
-<h2 id="org2788a0b"><span class="section-number-2">3.</span> How to install TSpE</h2>
+<div id="outline-container-org85f56d0" class="outline-2">
+<h2 id="org85f56d0"><span class="section-number-2">3.</span> How to install TSpE</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Lorem ipsum&#x2026;
+TSpE does not require any installation - as long as <a href="https://python.org"><b>Python 3</b></a> is installed on your device.
 </p>
+</div>
+<div id="outline-container-org62e4807" class="outline-3">
+<h3 id="org62e4807"><span class="section-number-3">3.1.</span> Requirements</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+To get started with TSpE, you&rsquo;ll first need some modules. Thankfully, TSpE comes with a file called <code>requirements.txt</code> that contains a list of modules that can be instaled with PIP.
+</p>
+
+<p>
+<b>On Unix-based systems:</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pip install -r requirements.txt --upgrade
+</pre>
+</div>
+
+<p>
+<b>On Windows (assuming Python&rsquo;s installed):</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">python -m pip install -r requirements --upgrade
+</pre>
+</div>
+
+<p>
+After the installation of the requirements is finished, we can move to the next step: running <code>main.py</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org6dd787f" class="outline-3">
+<h3 id="org6dd787f"><span class="section-number-3">3.2.</span> The Main File</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The file you&rsquo;ll want to run to use TSpE is named <code>main.py</code> and is placed on the root project folder for TSpE.
+</p>
+
+<p>
+When you find it, run:
+</p>
+<ul class="org-ul">
+<li><code>python3 main.py</code> on <b>Unix-based systems</b></li>
+<li><code>python main.py</code> on <b>Windows</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf6bf381" class="outline-3">
+<h3 id="orgf6bf381"><span class="section-number-3">3.3.</span> <span class="todo TODO">TODO</span> </h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+TODO
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matthew (MF366)</p>
-<p class="date">Created: 2025-03-20 qui 21:57</p>
+<p class="date">Created: 2025-03-29 sáb 18:52</p>
 </div>
 </body>
 </html>

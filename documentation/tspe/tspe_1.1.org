@@ -43,5 +43,29 @@ Without further ado, let's jump into the second topic: *How to install TSpE*.
 TSpE itself is licensed under the [[https://www.gnu.org/licenses/gpl-3.0.txt][*GNU General Public License (GPL v3.0)*]]. All forks, modifications and whatnot of the program must comply with GPL's terms and conditions.
 
 * How to install TSpE
-#+TODO: XXX
-Lorem ipsum...
+TSpE does not require any installation - as long as [[https://python.org][*Python 3*]] is installed on your device.
+
+** Requirements
+To get started with TSpE, you'll first need some modules. Thankfully, TSpE comes with a file called ~requirements.txt~ that contains a list of modules that can be instaled with PIP.
+
+*On Unix-based systems:*
+#+BEGIN_SRC shell
+pip install -r requirements.txt --upgrade
+#+END_SRC
+
+*On Windows (assuming Python's installed):*
+#+BEGIN_SRC shell
+python -m pip install -r requirements --upgrade
+#+END_SRC
+
+After the installation of the requirements is finished, we can move to the next step: running =main.py=.
+
+** The Main File
+The file you'll want to run to use TSpE is named ~main.py~ and is placed on the root project folder for TSpE.
+
+When you find it, run:
+- =python3 main.py= on *Unix-based systems*
+- =python main.py= on *Windows*
+
+** TODO
+TODO

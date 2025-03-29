@@ -55,9 +55,9 @@
   --bs-body-color-rgb: 213, 222, 240;
   --bs-body-bg-rgb: 21, 25, 29;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-font-monospace: "Kode Mono", "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: Muli, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --bs-body-font-family: "Kode Mono", Muli, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -10908,6 +10908,7 @@ p.lead {
 @media (min-width: 992px) {
   #sideNav {
     padding-left: 0;
+    font-weight: 700;
     padding-right: 0;
     text-align: center;
     position: fixed;
@@ -10926,6 +10927,13 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
+    filter: brightness(100%);
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+  #sideNav .navbar-brand .img-profile:hover {
+    max-width: 10rem;
+    max-height: 10rem;
+    filter: brightness(150%);
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
   #sideNav .navbar-collapse {
@@ -10999,12 +11007,14 @@ section.resume-section .resume-section-content {
   }
 }
 
-a img {
-  filter: brightness(100%);
+a .skill-img {
+  transition: transform .5s ease-in-out;
+  filter: brightness(100%) hue-rotate(0deg) invert(0%);
 }
 
-a:hover img {
-  filter: brightness(150%);
+a:hover .skill-img {
+  transform: rotate(360deg);
+  filter: brightness(125%) hue-rotate(80deg);
 }
 
 .project-div {
@@ -11015,12 +11025,15 @@ a:hover img {
 }
 
 .project-img {
+  transition: border-radius .5s ease-in-out;
+  border-radius: 50px;
   filter: grayscale(100%) opacity(80%);
   width: 200px;
   height: 200px;
 }
 
 .project-img:hover {
+  border-radius: 20px;
   filter: grayscale(0%) opacity(100%);
   width: 200px;
   height: 200px;
@@ -11033,11 +11046,14 @@ a:hover img {
 }
 
 .screenshot {
+  transition: border-radius .5s ease-in-out;
+  border-radius: 30px;
   filter: grayscale(100%) opacity(80%);
   width: 300px;
 }
 
 .screenshot:hover {
+  border-radius: 20px;
   filter: grayscale(0%) opacity(100%);
   width: 300px;
 }

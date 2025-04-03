@@ -7,7 +7,7 @@
 #+TOC: headlines 2
 
 * About the Documentation
-The page/document you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It, along with the software itself, is made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+The page/document you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
 
 ** Licensing (Docs)
 #+BEGIN_QUOTE

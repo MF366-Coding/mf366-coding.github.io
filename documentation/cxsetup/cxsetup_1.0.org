@@ -1,1 +1,159 @@
 #+title: CXSetup Official Documentation
+#+description: The official documentation for the CX Setup language.
+#+author: Matthew (MF366)
+
+#+options: toc:nil
+
+#+TOC: headlines 2
+
+* About the Documentation
+The page/document you are currently looking at is the *Official Documentation for the CX Setup scripting language*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+
+** Licensing (Docs)
+This documentation is licensed under the [[https://www.gnu.org/licenses/fdl-1.3.txt][*GNU Free Documentation License (GFDL)*]]. Therefore, all edits, reuses and whatnot of this documentation (valid for both ~Org~ and ~HTML~ versions of the docs) must comply with GFDL's terms and conditions.
+
+** Contributing
+If you wish to contribute to the documentation, I'd really appreciate it. However, there are some rules and guidelines you must follow:
+- *KISS: Keep It Simple, Stupid.* Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.
+- *If it ain’t broken, don’t redesign it.* Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it's very objective.
+- *Editing the HTML export is like painting a screenshot — impressive, but pointless.* Make /Pull Requests/ for the ~Org~ files, not the ~HTML~ ones.
+- *Fixing typos is noble; flooding PRs with them is chaos.* Typo squatting is perfectly fine and helpful, but don't make too many /Pull Requests/ to fix typos in a row, as it causes unnecessary spam. The best alternative is to "bundle" several typo fixes in one PR.
+- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][~real_mf366@yahoo.com~]].
+
+If those rules did not scare you away, the GitHub repository is [[https://github.com/MF366-Coding/mf366-coding.github.io][right here]]. Thanks ahead for your contributions.
+
+* Comments
+Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
+
+#+begin_src
+// This is a comment
+// This is another comment
+# This is a syntax error
+<!-- So is this -->
+// Comments must start with //
+// They also last until the end of the line, semicolon or not
+#+end_src
+
+* Data Types
+Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
+
+The available data types are:
+- *Bytes* (rarely used - cannot be represented without a cache grab)
+- *String* (text data - ="Hello, World"=)
+- *Character* (single character - ="a"=)
+- *Integer* (whole number, can be positive or negative - =5=)
+- *Float* (decimal number - =3.14=)
+
+* Keywords
+In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
+
+Here is an example of keywords in use:
+#+begin_src
+// COUT outputs something to the screen with no newline
+COUT ?? "Hello, World!";
+
+// Let's try doing a neofetch
+RUN ?? "neofetch";
+#+end_src
+
+Below are the available keywords in CXSetup.
+
+------------------------------------------------------------
+
+** =COUT=
+Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
+
+| Summary                 | Arguments                                                     | Returns | Exceptions | Example                  |
+|-------------------------+---------------------------------------------------------------+---------+------------+--------------------------|
+| Outputs text to ~stdout~. | Accepts any amount of string arguments as the text to output. | None    | None       | =COUT ?? "Hello, World!";= |
+
+** =ENDL= and =ENDL2=
+These ones are also extremely simple: all they do is output new lines to the screen. =ENDL= outputs 1 newline, while =ENDL2= outputs 2.
+
+| Summary                                             | Arguments                              | Returns | Exceptions | Example      |
+|-----------------------------------------------------+----------------------------------------+---------+------------+--------------|
+| Outputs newlines to ~stdout~ (1 if =ENDL=, 2 if =ENDL2=). | Does not accept or need any arguments. | None    | None       | =ENDL; ENDL2;= |
+
+** =STYLE=, =FORE= and =BACK=
+These 3 keywords all serve the same general purpose: styling text. To better understand them, they've been split into 3 tables, one for each.
+
+| =STYLE=                                                          | Arguments                                                                                                                                            | Returns | Exceptions                          | Example            |
+|----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+---------+-------------------------------------+--------------------|
+| Applies a style to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";=). | Accepts one string argument representing the style to apply (must be one of: ~DIM~, ~RESET~, ~RESET_ALL~, ~BRIGHT~, ~NORMAL~). ~RESET~ is the same as ~RESET_ALL~. | None    | ~ValueError~ - invalid style argument | =STYLE ?? "BRIGHT";= |
+
+| =FORE=                                                                                          | Arguments                                                                                                                                                                                                                                                          | Returns | Exceptions                                     | Example           |
+|-----------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+------------------------------------------------+-------------------|
+| Applies a foreground color to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";= or =FORE ?? "RESET";=). | Accepts one string argument representing the color to apply (must be one of: ~RESET~, ~BLACK~, ~BLUE~, ~GREEN~, ~YELLOW~, ~MAGENTA~, ~RED~, ~CYAN~, ~WHITE~, ~LIGHTBLACK_EX~, ~LIGHTBLUE_EX~, ~LIGHTGREEN_EX~, ~LIGHTYELLOW_EX~, ~LIGHTMAGENTA_EX~, ~LIGHTRED_EX~, ~LIGHTCYAN_EX~, ~LIGHTWHITE_EX~). | None    | ~ValueError~ - invalid foreground color argument | =FORE ?? "YELLOW";= |
+
+| =BACK=                                                                                          | Arguments                                                                                                                                                                                                                                                          | Returns | Exceptions                                     | Example                 |
+|-----------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+------------------------------------------------+-------------------------|
+| Applies a background color to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";= or =BACK ?? "RESET";=). | Accepts one string argument representing the color to apply (must be one of: ~RESET~, ~BLACK~, ~BLUE~, ~GREEN~, ~YELLOW~, ~MAGENTA~, ~RED~, ~CYAN~, ~WHITE~, ~LIGHTBLACK_EX~, ~LIGHTBLUE_EX~, ~LIGHTGREEN_EX~, ~LIGHTYELLOW_EX~, ~LIGHTMAGENTA_EX~, ~LIGHTRED_EX~, ~LIGHTCYAN_EX~, ~LIGHTWHITE_EX~). | None    | ~ValueError~ - invalid background color argument | =BACK ?? "LIGHTBLUE_EX";= |
+
+** =TERMINATE=
+This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
+
+| Summary                                                  | Arguments                                  | Returns | Exceptions                             | Example                         |
+|----------------------------------------------------------+--------------------------------------------+---------+----------------------------------------+---------------------------------|
+| Terminates the execution of the current CX Setup script. | ~ExitCode~ - optional integer, defaults to 0 | None    | ~TypeError~ - ~ExitCode~ is not an integer | =TERMINATE ?? 4; // error code 4= |
+
+** =CIN= (0 arguments overload)
+This is the overload of =CIN= that requires no arguments.
+
+=CIN= is the most basic tool for getting input from the user (more specifically, ~stdin~).
+
+| Summary                            | Arguments                                                                                                                                            | Returns         | Exceptions | Example                                   |
+|------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~). | This is the 0 arguments overload. For the other overloads, look up ~CIN (x arguments overload)~ in the *Table of Contents*, where ~x~ is either 0, 1 or 2. | The user input. | None       | =CIN; // this will get input from the user= |
+
+** =CIN= (1 argument overload)
+This is the overload of =CIN= that requires 1 argument.
+
+Sometimes, you might need to set a character limit on a user's input. That way, even if they type more than that, only the first ~x~ characters actually get cached.
+
+#+begin_center
+If the character limit is set to *0 or a negative number*, it will be ignored and it'll be the same as calling =CIN= with no arguments at all.
+#+end_center
+
+| Summary                                                              | Arguments                                         | Returns                                                             | Exceptions | Example                                                                 |
+|----------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------+------------+-------------------------------------------------------------------------|
+| Reads input from the user (~stdin~), while applying a character limit. | ~CharLimit~ - integer, the character limit to apply | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4; // this will cache the first 4 characters of the user's input= |
+
+** =RUN=
+Given CXSetup is used in ContenterX's setup scripts, it's kind of an obligation for it to allow the creator of the script to *run subprocesses* programatically.
+
+| Summary                                   | Arguments                                                                                                                                                                    | Returns | Exceptions                                                                     | Example                                                                    |
+|-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------|
+| Runs a command with arguments (optional). | At least 1 argument must be given. The first argument is the *command/process* and the others are the arguments. Split the process's arguments across different =RUN= arguments. | None    | ~InternalError~ - split process arguments across different arguments (see below) | =RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs"; // this will install Emacs. If you're root, that is :)= |
+
+*** The Number 1 cause of error when using =RUN=
+The following statements are all incorrect:
+#+begin_src
+RUN ?? "sudo apt install emacs";
+RUN ?? "sudo" ?? "apt install emacs";
+RUN ?? "sudo apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt install" ?? "emacs";
+RUN ?? "sudo apt install" ? "emacs";
+#+end_src
+
+The reason for it is that arguments for the process must be splitted across arguments for =RUN=.
+
+The correct way to do this installation would be:
+#+begin_src
+RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
+#+end_src
+
+** =CIN= (2 arguments overload)
+This is the overload of =CIN= that requires 2 arguments.
+
+Other than setting a character limit, this overload also allows you to set a custom prompt message for the input.
+
+The only disadvantage is that applying a character limit becomes mandatory. However, you can get past that due to how the character limit works.
+
+#+begin_center
+If the character limit is *0 or a negative number*, no limit will be applied.
+#+end_center
+
+| Summary                                                                                                                | Arguments                                                                     | Returns                                                             | Exceptions | Example                                   |
+|------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~), while applying a character limit (if applicable) and using a custom prompt message. | ~CharLimit~ - integer; ~PromptMessage~ - string, the custom prompt message to use | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4 ?? "Only 4 characters please: ";= |

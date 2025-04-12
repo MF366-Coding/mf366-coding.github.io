@@ -1,11 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Coming Soon</title>
+<!-- 2025-04-12 sáb 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CXSetup Official Documentation</title>
+<meta name="author" content="Matthew (MF366)" />
+<meta name="description" content="The official documentation for the CX Setup language." />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
 </head>
 <body>
-<h1><a href="https://mf366-coding.github.io/">Not Available Yet!! (Coming Soon)</a></h1>
-<p>Click the link to go to the home page.</p>
+<div id="content" class="content">
+<h1 class="title">CXSetup Official Documentation</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd3ca42b">1. About the Documentation</a>
+<ul>
+<li><a href="#org82c0d4f">1.1. Licensing (Docs)</a></li>
+<li><a href="#org61cbd85">1.2. Contributing</a></li>
+</ul>
+</li>
+<li><a href="#org20d178d">2. Comments</a></li>
+<li><a href="#orgbee14d9">3. Data Types</a></li>
+<li><a href="#org12168b4">4. Keywords</a>
+<ul>
+<li><a href="#org4a66568">4.1. <code>COUT</code></a></li>
+<li><a href="#org052c40b">4.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
+<li><a href="#org50cb8ec">4.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
+<li><a href="#orga1080ae">4.4. <code>TERMINATE</code></a></li>
+<li><a href="#orgf774fd2">4.5. <code>CIN</code> (0 arguments overload)</a></li>
+<li><a href="#orga2b7742">4.6. <code>CIN</code> (1 argument overload)</a></li>
+<li><a href="#org19f6f66">4.7. <code>RUN</code></a></li>
+<li><a href="#org88daca3">4.8. <code>CIN</code> (2 arguments overload)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd3ca42b" class="outline-2">
+<h2 id="orgd3ca42b"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The page/document you are currently looking at is the <b>Official Documentation for the CX Setup scripting language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
+</p>
+</div>
+<div id="outline-container-org82c0d4f" class="outline-3">
+<h3 id="org82c0d4f"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
+</p>
+</div>
+</div>
+<div id="outline-container-org61cbd85" class="outline-3">
+<h3 id="org61cbd85"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
+</p>
+<ul class="org-ul">
+<li><b>KISS: Keep It Simple, Stupid.</b> Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.</li>
+<li><b>If it ain’t broken, don’t redesign it.</b> Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it&rsquo;s very objective.</li>
+<li><b>Editing the HTML export is like painting a screenshot — impressive, but pointless.</b> Make <i>Pull Requests</i> for the <code>Org</code> files, not the <code>HTML</code> ones.</li>
+<li><b>Fixing typos is noble; flooding PRs with them is chaos.</b> Typo squatting is perfectly fine and helpful, but don&rsquo;t make too many <i>Pull Requests</i> to fix typos in a row, as it causes unnecessary spam. The best alternative is to &ldquo;bundle&rdquo; several typo fixes in one PR.</li>
+<li><b>There are no stupid questions — only unanswered ones (and I try to avoid those).</b> If you have any questions, don&rsquo;t hesitate to ask, as I try to reply to all. You can use the following e-mail: <a href="mailto:real_mf366@yahoo.com"><code>real_mf366@yahoo.com</code></a>.</li>
+</ul>
+
+<p>
+If those rules did not scare you away, the GitHub repository is <a href="https://github.com/MF366-Coding/mf366-coding.github.io">right here</a>. Thanks ahead for your contributions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org20d178d" class="outline-2">
+<h2 id="org20d178d"><span class="section-number-2">2.</span> Comments</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">// This is a comment
+// This is another comment
+# This is a syntax error
+&lt;!-- So is this --&gt;
+// Comments must start with //
+// They also last until the end of the line, semicolon or not
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbee14d9" class="outline-2">
+<h2 id="orgbee14d9"><span class="section-number-2">3.</span> Data Types</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
+</p>
+
+<p>
+The available data types are:
+</p>
+<ul class="org-ul">
+<li><b>Bytes</b> (rarely used - cannot be represented without a cache grab)</li>
+<li><b>String</b> (text data - <code>"Hello, World"</code>)</li>
+<li><b>Character</b> (single character - <code>"a"</code>)</li>
+<li><b>Integer</b> (whole number, can be positive or negative - <code>5</code>)</li>
+<li><b>Float</b> (decimal number - <code>3.14</code>)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org12168b4" class="outline-2">
+<h2 id="org12168b4"><span class="section-number-2">4.</span> Keywords</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
+</p>
+
+<p>
+Here is an example of keywords in use:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">// COUT outputs something to the screen with no newline
+COUT ?? "Hello, World!";
+
+// Let's try doing a neofetch
+RUN ?? "neofetch";
+</pre>
+</div>
+
+<p>
+Below are the available keywords in CXSetup.
+</p>
+
+<hr />
+</div>
+<div id="outline-container-org4a66568" class="outline-3">
+<h3 id="org4a66568"><span class="section-number-3">4.1.</span> <code>COUT</code></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Outputs text to <code>stdout</code>.</td>
+<td class="org-left">Accepts any amount of string arguments as the text to output.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>COUT ?? "Hello, World!";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org052c40b" class="outline-3">
+<h3 id="org052c40b"><span class="section-number-3">4.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+These ones are also extremely simple: all they do is output new lines to the screen. <code>ENDL</code> outputs 1 newline, while <code>ENDL2</code> outputs 2.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Outputs newlines to <code>stdout</code> (1 if <code>ENDL</code>, 2 if <code>ENDL2</code>).</td>
+<td class="org-left">Does not accept or need any arguments.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ENDL; ENDL2;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org50cb8ec" class="outline-3">
+<h3 id="org50cb8ec"><span class="section-number-3">4.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+These 3 keywords all serve the same general purpose: styling text. To better understand them, they&rsquo;ve been split into 3 tables, one for each.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>STYLE</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a style to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code>).</td>
+<td class="org-left">Accepts one string argument representing the style to apply (must be one of: <code>DIM</code>, <code>RESET</code>, <code>RESET_ALL</code>, <code>BRIGHT</code>, <code>NORMAL</code>). <code>RESET</code> is the same as <code>RESET_ALL</code>.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid style argument</td>
+<td class="org-left"><code>STYLE ?? "BRIGHT";</code></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>FORE</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a foreground color to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code> or <code>FORE ?? "RESET";</code>).</td>
+<td class="org-left">Accepts one string argument representing the color to apply (must be one of: <code>RESET</code>, <code>BLACK</code>, <code>BLUE</code>, <code>GREEN</code>, <code>YELLOW</code>, <code>MAGENTA</code>, <code>RED</code>, <code>CYAN</code>, <code>WHITE</code>, <code>LIGHTBLACK_EX</code>, <code>LIGHTBLUE_EX</code>, <code>LIGHTGREEN_EX</code>, <code>LIGHTYELLOW_EX</code>, <code>LIGHTMAGENTA_EX</code>, <code>LIGHTRED_EX</code>, <code>LIGHTCYAN_EX</code>, <code>LIGHTWHITE_EX</code>).</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid foreground color argument</td>
+<td class="org-left"><code>FORE ?? "YELLOW";</code></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>BACK</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a background color to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code> or <code>BACK ?? "RESET";</code>).</td>
+<td class="org-left">Accepts one string argument representing the color to apply (must be one of: <code>RESET</code>, <code>BLACK</code>, <code>BLUE</code>, <code>GREEN</code>, <code>YELLOW</code>, <code>MAGENTA</code>, <code>RED</code>, <code>CYAN</code>, <code>WHITE</code>, <code>LIGHTBLACK_EX</code>, <code>LIGHTBLUE_EX</code>, <code>LIGHTGREEN_EX</code>, <code>LIGHTYELLOW_EX</code>, <code>LIGHTMAGENTA_EX</code>, <code>LIGHTRED_EX</code>, <code>LIGHTCYAN_EX</code>, <code>LIGHTWHITE_EX</code>).</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid background color argument</td>
+<td class="org-left"><code>BACK ?? "LIGHTBLUE_EX";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga1080ae" class="outline-3">
+<h3 id="orga1080ae"><span class="section-number-3">4.4.</span> <code>TERMINATE</code></h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Terminates the execution of the current CX Setup script.</td>
+<td class="org-left"><code>ExitCode</code> - optional integer, defaults to 0</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>TypeError</code> - <code>ExitCode</code> is not an integer</td>
+<td class="org-left"><code>TERMINATE ?? 4; // error code 4</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgf774fd2" class="outline-3">
+<h3 id="orgf774fd2"><span class="section-number-3">4.5.</span> <code>CIN</code> (0 arguments overload)</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+This is the overload of <code>CIN</code> that requires no arguments.
+</p>
+
+<p>
+<code>CIN</code> is the most basic tool for getting input from the user (more specifically, <code>stdin</code>).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>).</td>
+<td class="org-left">This is the 0 arguments overload. For the other overloads, look up <code>CIN (x arguments overload)</code> in the <b>Table of Contents</b>, where <code>x</code> is either 0, 1 or 2.</td>
+<td class="org-left">The user input.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN; // this will get input from the user</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga2b7742" class="outline-3">
+<h3 id="orga2b7742"><span class="section-number-3">4.6.</span> <code>CIN</code> (1 argument overload)</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+This is the overload of <code>CIN</code> that requires 1 argument.
+</p>
+
+<p>
+Sometimes, you might need to set a character limit on a user&rsquo;s input. That way, even if they type more than that, only the first <code>x</code> characters actually get cached.
+</p>
+
+<div class="org-center">
+<p>
+If the character limit is set to <b>0 or a negative number</b>, it will be ignored and it&rsquo;ll be the same as calling <code>CIN</code> with no arguments at all.
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), while applying a character limit.</td>
+<td class="org-left"><code>CharLimit</code> - integer, the character limit to apply</td>
+<td class="org-left">The user input, with the character limit applied if greater than 0.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN ?? 4; // this will cache the first 4 characters of the user's input</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org19f6f66" class="outline-3">
+<h3 id="org19f6f66"><span class="section-number-3">4.7.</span> <code>RUN</code></h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run subprocesses</b> programatically.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Runs a command with arguments (optional).</td>
+<td class="org-left">At least 1 argument must be given. The first argument is the <b>command/process</b> and the others are the arguments. Split the process&rsquo;s arguments across different <code>RUN</code> arguments.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>InternalError</code> - split process arguments across different arguments (see below)</td>
+<td class="org-left"><code>RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs"; // this will install Emacs. If you're root, that is :)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-org32886d3" class="outline-4">
+<h4 id="org32886d3"><span class="section-number-4">4.7.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
+<div class="outline-text-4" id="text-4-7-1">
+<p>
+The following statements are all incorrect:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">RUN ?? "sudo apt install emacs";
+RUN ?? "sudo" ?? "apt install emacs";
+RUN ?? "sudo apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt install" ?? "emacs";
+RUN ?? "sudo apt install" ? "emacs";
+</pre>
+</div>
+
+<p>
+The reason for it is that arguments for the process must be splitted across arguments for <code>RUN</code>.
+</p>
+
+<p>
+The correct way to do this installation would be:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org88daca3" class="outline-3">
+<h3 id="org88daca3"><span class="section-number-3">4.8.</span> <code>CIN</code> (2 arguments overload)</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+This is the overload of <code>CIN</code> that requires 2 arguments.
+</p>
+
+<p>
+Other than setting a character limit, this overload also allows you to set a custom prompt message for the input.
+</p>
+
+<p>
+The only disadvantage is that applying a character limit becomes mandatory. However, you can get past that due to how the character limit works.
+</p>
+
+<div class="org-center">
+<p>
+If the character limit is <b>0 or a negative number</b>, no limit will be applied.
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), while applying a character limit (if applicable) and using a custom prompt message.</td>
+<td class="org-left"><code>CharLimit</code> - integer; <code>PromptMessage</code> - string, the custom prompt message to use</td>
+<td class="org-left">The user input, with the character limit applied if greater than 0.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN ?? 4 ?? "Only 4 characters please: ";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matthew (MF366)</p>
+<p class="date">Created: 2025-04-12 sáb 20:16</p>
+</div>
 </body>
 </html>

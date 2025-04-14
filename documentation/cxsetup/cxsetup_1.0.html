@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-12 sáb 20:16 -->
+<!-- 2025-04-14 seg 19:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CXSetup Official Documentation</title>
@@ -202,46 +202,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd3ca42b">1. About the Documentation</a>
+<li><a href="#org3b1f4fd">1. About the Documentation</a>
 <ul>
-<li><a href="#org82c0d4f">1.1. Licensing (Docs)</a></li>
-<li><a href="#org61cbd85">1.2. Contributing</a></li>
+<li><a href="#org5c740e7">1.1. Licensing (Docs)</a></li>
+<li><a href="#org944fc5b">1.2. Contributing</a></li>
 </ul>
 </li>
-<li><a href="#org20d178d">2. Comments</a></li>
-<li><a href="#orgbee14d9">3. Data Types</a></li>
-<li><a href="#org12168b4">4. Keywords</a>
+<li><a href="#org7e2b531">2. Comments</a></li>
+<li><a href="#org3f60627">3. Data Types</a></li>
+<li><a href="#orgd71e205">4. Keywords</a>
 <ul>
-<li><a href="#org4a66568">4.1. <code>COUT</code></a></li>
-<li><a href="#org052c40b">4.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
-<li><a href="#org50cb8ec">4.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
-<li><a href="#orga1080ae">4.4. <code>TERMINATE</code></a></li>
-<li><a href="#orgf774fd2">4.5. <code>CIN</code> (0 arguments overload)</a></li>
-<li><a href="#orga2b7742">4.6. <code>CIN</code> (1 argument overload)</a></li>
-<li><a href="#org19f6f66">4.7. <code>RUN</code></a></li>
-<li><a href="#org88daca3">4.8. <code>CIN</code> (2 arguments overload)</a></li>
+<li><a href="#org9a10935">4.1. <code>COUT</code></a></li>
+<li><a href="#org10bd267">4.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
+<li><a href="#orga9bafa2">4.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
+<li><a href="#org2f0709f">4.4. <code>TERMINATE</code></a></li>
+<li><a href="#org3c4e4c4">4.5. <code>CIN</code> (0 arguments overload)</a></li>
+<li><a href="#org74254f0">4.6. <code>CIN</code> (1 argument overload)</a></li>
+<li><a href="#org44bd558">4.7. <code>RUN</code></a></li>
+<li><a href="#orgc7206c8">4.8. <code>CIN</code> (2 arguments overload)</a></li>
+<li><a href="#orgd9aa06e">4.9. <code>GETPASS</code></a></li>
+<li><a href="#orga57db79">4.10. <code>SAFECIN</code> (1 argument overload)</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd3ca42b" class="outline-2">
-<h2 id="orgd3ca42b"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div id="outline-container-org3b1f4fd" class="outline-2">
+<h2 id="org3b1f4fd"><span class="section-number-2">1.</span> About the Documentation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The page/document you are currently looking at is the <b>Official Documentation for the CX Setup scripting language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
 </p>
 </div>
-<div id="outline-container-org82c0d4f" class="outline-3">
-<h3 id="org82c0d4f"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div id="outline-container-org5c740e7" class="outline-3">
+<h3 id="org5c740e7"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
 </p>
 </div>
 </div>
-<div id="outline-container-org61cbd85" class="outline-3">
-<h3 id="org61cbd85"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div id="outline-container-org944fc5b" class="outline-3">
+<h3 id="org944fc5b"><span class="section-number-3">1.2.</span> Contributing</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
@@ -260,8 +262,8 @@ If those rules did not scare you away, the GitHub repository is <a href="https:/
 </div>
 </div>
 </div>
-<div id="outline-container-org20d178d" class="outline-2">
-<h2 id="org20d178d"><span class="section-number-2">2.</span> Comments</h2>
+<div id="outline-container-org7e2b531" class="outline-2">
+<h2 id="org7e2b531"><span class="section-number-2">2.</span> Comments</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
@@ -278,8 +280,8 @@ Just like in any other scripting language, CXSetup allows comments, albeit only 
 </div>
 </div>
 </div>
-<div id="outline-container-orgbee14d9" class="outline-2">
-<h2 id="orgbee14d9"><span class="section-number-2">3.</span> Data Types</h2>
+<div id="outline-container-org3f60627" class="outline-2">
+<h2 id="org3f60627"><span class="section-number-2">3.</span> Data Types</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
@@ -297,8 +299,8 @@ The available data types are:
 </ul>
 </div>
 </div>
-<div id="outline-container-org12168b4" class="outline-2">
-<h2 id="org12168b4"><span class="section-number-2">4.</span> Keywords</h2>
+<div id="outline-container-orgd71e205" class="outline-2">
+<h2 id="orgd71e205"><span class="section-number-2">4.</span> Keywords</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
@@ -322,8 +324,8 @@ Below are the available keywords in CXSetup.
 
 <hr />
 </div>
-<div id="outline-container-org4a66568" class="outline-3">
-<h3 id="org4a66568"><span class="section-number-3">4.1.</span> <code>COUT</code></h3>
+<div id="outline-container-org9a10935" class="outline-3">
+<h3 id="org9a10935"><span class="section-number-3">4.1.</span> <code>COUT</code></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
@@ -364,8 +366,8 @@ Quite possibly, one of the simplest keywords. Outputs something to the screen wi
 </table>
 </div>
 </div>
-<div id="outline-container-org052c40b" class="outline-3">
-<h3 id="org052c40b"><span class="section-number-3">4.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
+<div id="outline-container-org10bd267" class="outline-3">
+<h3 id="org10bd267"><span class="section-number-3">4.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 These ones are also extremely simple: all they do is output new lines to the screen. <code>ENDL</code> outputs 1 newline, while <code>ENDL2</code> outputs 2.
@@ -406,8 +408,8 @@ These ones are also extremely simple: all they do is output new lines to the scr
 </table>
 </div>
 </div>
-<div id="outline-container-org50cb8ec" class="outline-3">
-<h3 id="org50cb8ec"><span class="section-number-3">4.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
+<div id="outline-container-orga9bafa2" class="outline-3">
+<h3 id="orga9bafa2"><span class="section-number-3">4.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 These 3 keywords all serve the same general purpose: styling text. To better understand them, they&rsquo;ve been split into 3 tables, one for each.
@@ -516,8 +518,8 @@ These 3 keywords all serve the same general purpose: styling text. To better und
 </table>
 </div>
 </div>
-<div id="outline-container-orga1080ae" class="outline-3">
-<h3 id="orga1080ae"><span class="section-number-3">4.4.</span> <code>TERMINATE</code></h3>
+<div id="outline-container-org2f0709f" class="outline-3">
+<h3 id="org2f0709f"><span class="section-number-3">4.4.</span> <code>TERMINATE</code></h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
@@ -558,8 +560,8 @@ This is the keyword responsible for terminating the script safely instead of wai
 </table>
 </div>
 </div>
-<div id="outline-container-orgf774fd2" class="outline-3">
-<h3 id="orgf774fd2"><span class="section-number-3">4.5.</span> <code>CIN</code> (0 arguments overload)</h3>
+<div id="outline-container-org3c4e4c4" class="outline-3">
+<h3 id="org3c4e4c4"><span class="section-number-3">4.5.</span> <code>CIN</code> (0 arguments overload)</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 This is the overload of <code>CIN</code> that requires no arguments.
@@ -604,8 +606,8 @@ This is the overload of <code>CIN</code> that requires no arguments.
 </table>
 </div>
 </div>
-<div id="outline-container-orga2b7742" class="outline-3">
-<h3 id="orga2b7742"><span class="section-number-3">4.6.</span> <code>CIN</code> (1 argument overload)</h3>
+<div id="outline-container-org74254f0" class="outline-3">
+<h3 id="org74254f0"><span class="section-number-3">4.6.</span> <code>CIN</code> (1 argument overload)</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 This is the overload of <code>CIN</code> that requires 1 argument.
@@ -656,8 +658,8 @@ If the character limit is set to <b>0 or a negative number</b>, it will be ignor
 </table>
 </div>
 </div>
-<div id="outline-container-org19f6f66" class="outline-3">
-<h3 id="org19f6f66"><span class="section-number-3">4.7.</span> <code>RUN</code></h3>
+<div id="outline-container-org44bd558" class="outline-3">
+<h3 id="org44bd558"><span class="section-number-3">4.7.</span> <code>RUN</code></h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run subprocesses</b> programatically.
@@ -697,8 +699,8 @@ Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an
 </tbody>
 </table>
 </div>
-<div id="outline-container-org32886d3" class="outline-4">
-<h4 id="org32886d3"><span class="section-number-4">4.7.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
+<div id="outline-container-org993f471" class="outline-4">
+<h4 id="org993f471"><span class="section-number-4">4.7.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
 <div class="outline-text-4" id="text-4-7-1">
 <p>
 The following statements are all incorrect:
@@ -727,8 +729,8 @@ The correct way to do this installation would be:
 </div>
 </div>
 </div>
-<div id="outline-container-org88daca3" class="outline-3">
-<h3 id="org88daca3"><span class="section-number-3">4.8.</span> <code>CIN</code> (2 arguments overload)</h3>
+<div id="outline-container-orgc7206c8" class="outline-3">
+<h3 id="orgc7206c8"><span class="section-number-3">4.8.</span> <code>CIN</code> (2 arguments overload)</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 This is the overload of <code>CIN</code> that requires 2 arguments.
@@ -783,11 +785,157 @@ If the character limit is <b>0 or a negative number</b>, no limit will be applie
 </table>
 </div>
 </div>
+<div id="outline-container-orgd9aa06e" class="outline-3">
+<h3 id="orgd9aa06e"><span class="section-number-3">4.9.</span> <code>GETPASS</code></h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+Sometimes, you may need to be more discreet with your inputs. For example, it&rsquo;s not really a great idea to get <b>passwords</b> with <code>CIN</code>, since it shows what is being typed.
+</p>
+
+<p>
+<code>GETPASS</code> solves such issue. With this keyword, you can safely get passwords without showing them on screen. This keyword&rsquo;s only limitation is, unironically, the fact it cannot be limited to a certain number of characters (any amount is accepted).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>) with <code>echo</code> disabled, meaning it does not show on screen what is being typed by the user.</td>
+<td class="org-left"><code>PromptMessage</code> - mandatory string, the custom prompt message to use</td>
+<td class="org-left">The user input.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>GETPASS ?? "Insert your password, please: ";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga57db79" class="outline-3">
+<h3 id="orga57db79"><span class="section-number-3">4.10.</span> <code>SAFECIN</code> (1 argument overload)</h3>
+<div class="outline-text-3" id="text-4-10">
+<p>
+<code>CIN</code> has yet another big issue: when it is given a character limit, it makes sure the input doesn&rsquo;t go beyond the limit. However, it does <b>not</b> make sure the input has the specified length.
+</p>
+
+<p>
+This might not seem problematic, but it becomes when <b>cache grabs</b> are involved. Cache grabs will be a matter of discussing later, due to their complexity. However, here is a small representation of the issue.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Your input please: "</span>;
+Your input please: Good
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Good
+</pre>
+</div>
+
+<p>
+No issue at first. Well let&rsquo;s move on to the second example.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+Input: Ok
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Ok
+&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+Input: A
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+OkA
+</pre>
+</div>
+
+<p>
+Now, imagine the first input was done to ask for the path of a very important file. But, before the file is used, another input is done.
+</p>
+
+<p>
+Now, CXSetup would think the file is named <code>OkA</code>, when it is actually named <code>Ok</code>.
+</p>
+
+<p>
+To avoid this issue, we can safely use <code>SAFECIN</code>. To make sure the input is as long as we want it to be, <code>SAFECIN</code> pads the right of the input with spaces (if necessary) until the length of the input matches.
+</p>
+
+<p>
+Then, when doing the cache grab, we can trim the spaces if necessary.
+</p>
+
+<p>
+Here&rsquo;s our example, but <i>refined</i>. To better illustrate it, the meaningful whitespaces have been represented as <code>[SPACE]</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">4</span>;
+An input is required (press Enter to ignore it): Ok
+&gt;&gt;&gt; CIN;
+An input is required (press Enter to ignore it): A
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Ok[SPACE][SPACE]
+&gt;&gt; COUT ?? c0:4l:1:3:b; // the little b means trim both sides - we<span style="color: #7984D1;">'ll talk about it soon</span>
+<span style="color: #7984D1;">Ok</span>
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), making sure its length matches the character limit we apply.</td>
+<td class="org-left"><code>CharLimit</code> - integer, length of the input</td>
+<td class="org-left">The user input, with length matching the <code>CharLimit</code>.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SAFECIN ?? 4;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matthew (MF366)</p>
-<p class="date">Created: 2025-04-12 sáb 20:16</p>
+<p class="date">Created: 2025-04-14 seg 19:46</p>
 </div>
 </body>
 </html>

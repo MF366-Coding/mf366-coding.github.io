@@ -157,3 +157,60 @@ If the character limit is *0 or a negative number*, no limit will be applied.
 | Summary                                                                                                                | Arguments                                                                     | Returns                                                             | Exceptions | Example                                   |
 |------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+------------+-------------------------------------------|
 | Reads input from the user (~stdin~), while applying a character limit (if applicable) and using a custom prompt message. | ~CharLimit~ - integer; ~PromptMessage~ - string, the custom prompt message to use | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4 ?? "Only 4 characters please: ";= |
+
+** =GETPASS=
+Sometimes, you may need to be more discreet with your inputs. For example, it's not really a great idea to get *passwords* with =CIN=, since it shows what is being typed.
+
+=GETPASS= solves such issue. With this keyword, you can safely get passwords without showing them on screen. This keyword's only limitation is, unironically, the fact it cannot be limited to a certain number of characters (any amount is accepted).
+
+| Summary                                                                                                                   | Arguments                                                          | Returns         | Exceptions | Example                                      |
+|---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------+------------+----------------------------------------------|
+| Reads input from the user (~stdin~) with ~echo~ disabled, meaning it does not show on screen what is being typed by the user. | ~PromptMessage~ - mandatory string, the custom prompt message to use | The user input. | None       | =GETPASS ?? "Insert your password, please: ";= |
+
+** =SAFECIN= (1 argument overload)
+=CIN= has yet another big issue: when it is given a character limit, it makes sure the input doesn't go beyond the limit. However, it does *not* make sure the input has the specified length.
+
+This might not seem problematic, but it becomes when *cache grabs* are involved. Cache grabs will be a matter of discussing later, due to their complexity. However, here is a small representation of the issue.
+
+#+begin_src bash
+>>> CIN ?? 4 ?? "Your input please: ";
+Your input please: Good
+>>> COUT ?? c0:4l:1:3:n;
+Good
+#+end_src
+
+No issue at first. Well let's move on to the second example.
+#+begin_src bash
+>>> CIN ?? 4 ?? "Input: ";
+Input: Ok
+>>> COUT ?? c0:4l:1:3:n;
+Ok
+>>> CIN ?? 1 ?? "Input: ";
+Input: A
+>>> COUT ?? c0:4l:1:3:n;
+OkA
+#+end_src
+
+Now, imagine the first input was done to ask for the path of a very important file. But, before the file is used, another input is done.
+
+Now, CXSetup would think the file is named =OkA=, when it is actually named =Ok=.
+
+To avoid this issue, we can safely use =SAFECIN=. To make sure the input is as long as we want it to be, =SAFECIN= pads the right of the input with spaces (if necessary) until the length of the input matches.
+
+Then, when doing the cache grab, we can trim the spaces if necessary.
+
+Here's our example, but /refined/. To better illustrate it, the meaningful whitespaces have been represented as ~[SPACE]~.
+#+begin_src bash
+>>> SAFECIN ?? 4;
+An input is required (press Enter to ignore it): Ok
+>>> CIN;
+An input is required (press Enter to ignore it): A
+>>> COUT ?? c0:4l:1:3:n;
+Ok[SPACE][SPACE]
+>> COUT ?? c0:4l:1:3:b; // the little b means trim both sides - we'll talk about it soon
+Ok
+#+end_src
+
+| Summary                                                                                         | Arguments                                | Returns                                             | Exceptions | Example       |
+|-------------------------------------------------------------------------------------------------+------------------------------------------+-----------------------------------------------------+------------+---------------|
+| Reads input from the user (~stdin~), making sure its length matches the character limit we apply. | ~CharLimit~ - integer, length of the input | The user input, with length matching the ~CharLimit~. | None       | =SAFECIN ?? 4;= |

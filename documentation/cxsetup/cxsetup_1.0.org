@@ -214,3 +214,193 @@ Ok
 | Summary                                                                                         | Arguments                                | Returns                                             | Exceptions | Example       |
 |-------------------------------------------------------------------------------------------------+------------------------------------------+-----------------------------------------------------+------------+---------------|
 | Reads input from the user (~stdin~), making sure its length matches the character limit we apply. | ~CharLimit~ - integer, length of the input | The user input, with length matching the ~CharLimit~. | None       | =SAFECIN ?? 4;= |
+
+** =SAFECIN= (2 arguments overload)
+Sometimes, it might also be useful to specify exactly what input must be given.
+
+For example, which of these scenarios is clearer from the user side (a.k.a. by someone who doesn't see the underlying script), A or B?
+
+*Scenario A:*
+#+begin_src bash
+Your input, please:
+#+end_src
+
+*Scenario B:*
+#+begin_src bash
+Please insert a valid path to the configuration file:
+#+end_src
+
+| Summary                                                                                                                                    | Arguments                                                                           | Returns                                             | Exceptions | Example                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~), making sure its length matches the character limit we apply. Is compatible with custom prompt messages. | ~CharLimit~ - integer; ~PromptMessage~ - string, the prompt message to show to the user | The user input, with length matching the ~CharLimit~. | None       | =SAFECIN ?? 8 ?? "Your username please: ";= |
+
+** =ECHO=
+#+begin_quote
+~ECHO~ does not write to the screen by default. It is used to write to a file instead. If you wish to output to ~stdout~, please use [[=COUT=][the =COUT= keyword]].
+#+end_quote
+
+Another useful feature in a scripting language is the ability to write to a file. Even though =ECHO= is limited, it is still a very good option when it comes to writing to files.
+
+Note that *=ECHO= does not overwrite files*. In fact, there are 2 special cases and a more generic one:
+1. *Generic Case:* =ECHO= sucessfully writes to a file.
+2. *~FileExistsError~:* =ECHO= fails and throws an Exception. This happens if the file already exists.
+3. *Reverts to =COUT=:* Yes, in theory, you /can/ use =ECHO= instead of =COUT=, if you give =ECHO= an empty string instead of an actual filepath. However, it's not really that good of an idea.
+
+| Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions                        | Example                                 |
+|------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+-----------------------------------+-----------------------------------------|
+| Writes to a file or reverts back to =COUT= if the filepath is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the filepath to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | ~FileExistsError~ - the file exists | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+
+** =ECHORDIE=
+A more extreme version of =ECHO=, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
+
+| Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions | Example                                 |
+|------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+------------+-----------------------------------------|
+| Writes to a file or reverts back to =COUT= if the filepath is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the filepath to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | None       | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+
+** =PIPRUN=, =PKGRUN=, =NPMRUN=
+The main issue with =RUN= is the fact it ends up *hardcoding* values.
+
+For example:
+#+begin_src bash
+RUN ?? "pip" ?? "install" ?? "simple_webbrowser";
+#+end_src
+
+What if we want the system to tells us exactly what version of ~pip~, ~npm~ or the package manager to use?
+The solution is extremely easy.
+#+begin_src bash
+PIPRUN ?? "install" ?? "simple_webbrowser";
+#+end_src
+
+All of these work essentially the same way as =RUN= (they're wrappers), so their tables have been omitted (see [[=RUN=][the =RUN= command]] for more information).
+
+** =REQUIRES=
+Another important thing when it comes to installing software are requirements!
+
+Note that =REQUIRES= merely defines requirements, it does not install them.
+
+Due to the slight complexity of one of its arguments, instead of just showing the table we'll also show a demonstration with comments.
+#+begin_src bash
+>>> REQUIRES ?? 0 ?? "neofetch"; // the 0 stands for "Install using system package manager"
+>>> REQUIRES ?? 0 ?? "cowsay"; // worth mentioning the command does not output anything or install anything
+>>> REQUIRES ?? 1 ?? "MF366-Coding/WPlugZ-CLI"; // the 1 uses ContenterX itself to install ("Install using ContenterX")
+>>> REQUIRES ?? 2 ?? "NCapybaraLib"; // the 2 stands for "Install using pip"
+>>> REQUIRES ?? 3 ?? "express"; // source number 3 stands for "Install using npm"
+>>> REQUIRES ?? 4 ?? "https://github.com/MF366-Coding/WriterClassic/releases/download/v11.0.0/WriterClassic_v11.0.0_SetupWizard_x64.exe"; // source number 4 stands for "Get binary from a direct link" - you'll be using this a lot in Windows
+>>> REQUIRES ?? 5 ?? "sl"; // this is a ValueError - only sources [0,4] are available
+#+end_src
+
+So, in summary:
+| First Argument | Meaning                                        |
+|----------------+------------------------------------------------|
+|              0 | Install using the system's package manager.    |
+|              1 | Install using ContenterX.                      |
+|              2 | Instal using ~pip.~                              |
+|              3 | Install using ~npm~.                             |
+|              4 | Download a binary via a direct link.           |
+|  Anything else | ~ValueError~: only sources 0 to 4 are available. |
+
+| Summary                                                  | Arguments                                                                                                                  | Returns | Exceptions                     | Example                      |
+|----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------+------------------------------|
+| Marks something as a dependency but does not install it. | ~Source~ - integer, the /source/ to use; ~DependencyName~ - string, the name of the dependency (or its link if the ~Source~ is ~4~). | None    | ~ValueError~ - invalid source ID | =REQUIRES ?? 0 ?? "neofetch";= |
+
+** =REQINSTALL=
+After marking all the dependencies you need, it's time to install them. And that's exactly what this command does. Now, you can call =REQINSTALL= more than once in the same script, but keep in mind that after each call, the list of dependencies is wiped clean.
+
+| Summary                                  | Arguments | Returns | Exceptions                                                             | Example     |
+|------------------------------------------+-----------+---------+------------------------------------------------------------------------+-------------|
+| Installs previously marked dependencies. | None      | None    | ~SyntaxError~ - =REQINSTALL= takes 0 arguments, but more than 0 were given | =REQINSTALL;= |
+
+* Cache
+We have not discussed all keywords yet, but they operate on something slightly more complex: *cache*.
+
+Instead of variables, in CXSetup, you have cache. We've already discussed certain commands that modify it (such as =CIN=), but what more can be done with it?
+
+** Reading
+There's a whole new syntax when it comes to accessing caches. Its official name is *cache grabbing*.
+
+A cache grab can have any data type, since it does not matter which command saved the cache.
+
+For example, you can do a =CIN= operation, which saves a *string*. But that hardly matters, because you can access that same cache as if it were an integer.
+
+The syntax for cache grabs is the following and can be sed as arguments for keywords:
+#+begin_src
+AB:CD:E:F:G
+#+end_src
+
+So what does each letter stand for? Let's see:
+- *A:* this must always be set to a lowercase *C* (~c~).
+- *B:* an integer. This is used as the start index for the cache grab. For example, ~0~ in this case means *start from the beggining*.
+- *C:* an integer. Can be an *end index* or the *length of the cache grab*. For example, ~5~ can either mean *end at the index before 5 (4)* or *end 5 bytes after the starting index (with 0 as the starting index, it would be 5)*.
+- *D:* a single character, must be one of ~l~ or ~e~. This is the value that decides whther value *C* is interpreed as the *end index* (~e~) or the *length of the cache grab* (~l~).
+- *E:* an integer. Represents the *step value*. This represets the pattern to perform. Let's say we're cache grabbing ~Hello, World!~. Using a *step value* of 1 (default), we'd get ~Hello, World!~ but a *step value of 2* would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, ~Hlo ol!~.
+- *F:* an integer. Represents the data type the cache grab must be casted as. (See table below.)
+- *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
+
+Here's an example:
+#+begin_src bash
+>>> SAFECIN ?? 6 ?? "6 characters only please: ";
+6 characters only please: Hello!
+>>> COUT ?? c0:6l:1:3:b; // the first 6 characters, no pattern, output as string, trim both sides
+Hello!
+#+end_src
+
+| *D* Value (Interpret Value *C* as) | Meaning                                        |
+|--------------------------------+------------------------------------------------|
+| ~l~                              | *Length of the cache grab.*                      |
+| ~e~                              | *End index.*                                     |
+| Anything Else                  | ~ValueError~: only ~l~ and ~e~ are allowed as values |
+
+| *F* Value (DataType Conversion) | Meaning                                                                                                                     |
+|-------------------------------+-----------------------------------------------------------------------------------------------------------------------------|
+|                             0 | *Void* - uncompatible, will throw an error.                                                                                   |
+|                             1 | *Integer* - a whole number                                                                                                    |
+|                             2 | *Floating point* - requires *EXACTLY* 4 bytes for a successful cache grab conversion. Any more or any less will throw an error. |
+|                             3 | *String*                                                                                                                      |
+|                             4 | *Boolean* - a True or False value. If the bytes are not empty, it will *ALWAYS* be True.                                        |
+|                             5 | *Single Character* - a single character, not widely used                                                                      |
+|                            6+ | *Bytes/Garbage Values* - the bytes themselves - not widely used                                                               |
+|                   -1 or lower | ~ValueError~: only positive values are allowed                                                                                |
+
+| *G* Value (Trim Direction) | Meaning                                                                                                     |
+|--------------------------+-------------------------------------------------------------------------------------------------------------|
+| ~n~                        | *Don't trim.* IF dealing with anything other than strings, this is the only option that won't raise an error. |
+| ~l~                        | *Trim left.* Trim whitespace characters to the left of the string.                                            |
+| ~r~                        | *Trim right.* Trim whitespace characters to the right of the string.                                          |
+| ~b~                        | *Trim both sides.* Trim whitespace characters at both ends of the string.                                     |
+| Anything Else            | ~ValueError~: only ~n~, ~l~, ~r~ and ~b~ are allowed as values                                                        |
+
+** Writing
+Writing can only be done through keywords, albeit in 2 different ways:
+- *Directly:* A direct modification involves the script creator themselves using a method that does not require any sort of confirmation from the user when it comes to modifying the cache.
+- *Indirectly:* An indirect modification involves obtaining input from the user.
+
+*** Keywords that Write to the Cache Directly
+- [[=CLEAR=][*=CLEAR=*]] - clears the cache
+- [[=SET=][*=SET=*]] - writes to the cache
+
+**** =CLEAR=
+This command clears the cache (fills it with empty bytes).
+
+| Summary           | Arguments | Returns | Exceptions                                                        | Example |
+|-------------------+-----------+---------+-------------------------------------------------------------------+---------|
+| Clears the cache. | None      | None    | ~SyntaxError~ - =CLEAR= takes 0 arguments, but more than 0 were given | =CLEAR;=  |
+
+**** =SET=
+This command writes a value to the cache.
+
+| Summary                      | Arguments                                                        | Returns | Exceptions | Example      |
+|------------------------------+------------------------------------------------------------------+---------+------------+--------------|
+| Writes a value to the cache. | ~Value~ - the value to write to the cache, can be of any data type | None    | None       | =SET ?? 44.5;= |
+
+*** List of Keywords that Write to the Cache Indirectly
+- [[=CIN= (2 arguments overload)][*=CIN= (any of the overloads)*]] - writes user input to cache
+- [[=GETPASS=][*=GETPASS=*]] - writes user input to cache
+- [[=SAFECIN= (2 arguments overload)][*=SAFECIN= (any of the overloads)*]] - writes user input to cache
+
+** Benefits of caching
+Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
+- *Constants.* The equivalent to constants would be this (at the start of the script): =SET ?? 7;= and accessing it like this: =c0:1l:1:1:n=.
+- *User Feedback.* Hey, the user knows best, right? You can obtain filepaths, make decisions and much more, based on the user input.
+
+* Environment Variables
+TODO

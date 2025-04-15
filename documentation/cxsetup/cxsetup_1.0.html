@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-15 ter 17:12 -->
+<!-- 2025-04-15 ter 17:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CXSetup Official Documentation</title>
@@ -202,62 +202,72 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org16b7492">1. About the Documentation</a>
+<li><a href="#org0100d77">1. About the Documentation</a>
 <ul>
-<li><a href="#org5b61fc5">1.1. Licensing (Docs)</a></li>
-<li><a href="#org69a2b20">1.2. Contributing</a></li>
+<li><a href="#org5221fb0">1.1. Licensing (Docs)</a></li>
+<li><a href="#org9e9be15">1.2. Contributing</a></li>
 </ul>
 </li>
-<li><a href="#orge46a36c">2. Comments</a></li>
-<li><a href="#org115791a">3. Data Types</a></li>
-<li><a href="#org2e3af5b">4. Keywords</a>
+<li><a href="#org30f7bab">2. Comments</a></li>
+<li><a href="#org97f6b29">3. Data Types</a></li>
+<li><a href="#org00b8837">4. Keywords</a>
 <ul>
-<li><a href="#org0d40e86">4.1. <code>COUT</code></a></li>
-<li><a href="#org84c5887">4.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
-<li><a href="#org9dff135">4.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
-<li><a href="#orgc954bae">4.4. <code>TERMINATE</code></a></li>
-<li><a href="#orgb8e71be">4.5. <code>CIN</code> (0 arguments overload)</a></li>
-<li><a href="#org5fb1c46">4.6. <code>CIN</code> (1 argument overload)</a></li>
-<li><a href="#org22024b6">4.7. <code>RUN</code></a></li>
-<li><a href="#orgf6cdaeb">4.8. <code>CIN</code> (2 arguments overload)</a></li>
-<li><a href="#org4bbea38">4.9. <code>GETPASS</code></a></li>
-<li><a href="#org2473b4f">4.10. <code>SAFECIN</code> (1 argument overload)</a></li>
-<li><a href="#orgbe55776">4.11. <code>SAFECIN</code> (2 arguments overload)</a></li>
-<li><a href="#org4d0d649">4.12. <code>ECHO</code></a></li>
-<li><a href="#org4b24e3c">4.13. <code>ECHORDIE</code></a></li>
-<li><a href="#orgd0522bf">4.14. <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></a></li>
-<li><a href="#org26a8b6d">4.15. <code>REQUIRES</code></a></li>
-<li><a href="#org6420b4c">4.16. <code>REQINSTALL</code></a></li>
+<li><a href="#org3fb62c6">4.1. <code>COUT</code></a></li>
+<li><a href="#org3ca20af">4.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
+<li><a href="#org31be253">4.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
+<li><a href="#org63419d7">4.4. <code>TERMINATE</code></a></li>
+<li><a href="#orge1ba393">4.5. <code>CIN</code> (0 arguments overload)</a></li>
+<li><a href="#org998ac6a">4.6. <code>CIN</code> (1 argument overload)</a></li>
+<li><a href="#orge79f261">4.7. <code>RUN</code></a>
+<ul>
+<li><a href="#org629a93e">4.7.1. The Number 1 cause of error when using <code>RUN</code></a></li>
 </ul>
 </li>
-<li><a href="#org62e97f8">5. Cache</a>
-<ul>
-<li><a href="#org637d8e3">5.1. Reading</a></li>
-<li><a href="#org1783d48">5.2. Writing</a></li>
-<li><a href="#org34b597e">5.3. Benefits of caching</a></li>
+<li><a href="#orgcbbef04">4.8. <code>CIN</code> (2 arguments overload)</a></li>
+<li><a href="#org9f5cd3e">4.9. <code>GETPASS</code></a></li>
+<li><a href="#org11bdbbb">4.10. <code>SAFECIN</code> (1 argument overload)</a></li>
+<li><a href="#org0007bb7">4.11. <code>SAFECIN</code> (2 arguments overload)</a></li>
+<li><a href="#org203452f">4.12. <code>ECHO</code></a></li>
+<li><a href="#org2551a83">4.13. <code>ECHORDIE</code></a></li>
+<li><a href="#orgb2eec3e">4.14. <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></a></li>
+<li><a href="#org5285d96">4.15. <code>REQUIRES</code></a></li>
+<li><a href="#org693d44e">4.16. <code>REQINSTALL</code></a></li>
 </ul>
 </li>
-<li><a href="#orge70dc23">6. Environment Variables</a></li>
+<li><a href="#org3c1bd1a">5. Cache</a>
+<ul>
+<li><a href="#orge2f995b">5.1. Reading</a></li>
+<li><a href="#org4843ecc">5.2. Writing</a>
+<ul>
+<li><a href="#org8368a01">5.2.1. Keywords that Write to the Cache Directly</a></li>
+<li><a href="#org93504c6">5.2.2. List of Keywords that Write to the Cache Indirectly</a></li>
+</ul>
+</li>
+<li><a href="#orgb6e3c12">5.3. Benefits of caching</a></li>
+</ul>
+</li>
+<li><a href="#org21087d8">6. Environment Variables</a></li>
+<li><a href="#org2af0931">7. Polarity</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org16b7492" class="outline-2">
-<h2 id="org16b7492"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div id="outline-container-org0100d77" class="outline-2">
+<h2 id="org0100d77"><span class="section-number-2">1.</span> About the Documentation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The page/document you are currently looking at is the <b>Official Documentation for the CX Setup scripting language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
 </p>
 </div>
-<div id="outline-container-org5b61fc5" class="outline-3">
-<h3 id="org5b61fc5"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div id="outline-container-org5221fb0" class="outline-3">
+<h3 id="org5221fb0"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
 </p>
 </div>
 </div>
-<div id="outline-container-org69a2b20" class="outline-3">
-<h3 id="org69a2b20"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div id="outline-container-org9e9be15" class="outline-3">
+<h3 id="org9e9be15"><span class="section-number-3">1.2.</span> Contributing</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
@@ -276,8 +286,8 @@ If those rules did not scare you away, the GitHub repository is <a href="https:/
 </div>
 </div>
 </div>
-<div id="outline-container-orge46a36c" class="outline-2">
-<h2 id="orge46a36c"><span class="section-number-2">2.</span> Comments</h2>
+<div id="outline-container-org30f7bab" class="outline-2">
+<h2 id="org30f7bab"><span class="section-number-2">2.</span> Comments</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
@@ -294,8 +304,8 @@ Just like in any other scripting language, CXSetup allows comments, albeit only 
 </div>
 </div>
 </div>
-<div id="outline-container-org115791a" class="outline-2">
-<h2 id="org115791a"><span class="section-number-2">3.</span> Data Types</h2>
+<div id="outline-container-org97f6b29" class="outline-2">
+<h2 id="org97f6b29"><span class="section-number-2">3.</span> Data Types</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
@@ -313,8 +323,8 @@ The available data types are:
 </ul>
 </div>
 </div>
-<div id="outline-container-org2e3af5b" class="outline-2">
-<h2 id="org2e3af5b"><span class="section-number-2">4.</span> Keywords</h2>
+<div id="outline-container-org00b8837" class="outline-2">
+<h2 id="org00b8837"><span class="section-number-2">4.</span> Keywords</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
@@ -338,8 +348,8 @@ Below are the available keywords in CXSetup.
 
 <hr />
 </div>
-<div id="outline-container-org0d40e86" class="outline-3">
-<h3 id="org0d40e86"><span class="section-number-3">4.1.</span> <code>COUT</code></h3>
+<div id="outline-container-org3fb62c6" class="outline-3">
+<h3 id="org3fb62c6"><span class="section-number-3">4.1.</span> <code>COUT</code></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
@@ -380,8 +390,8 @@ Quite possibly, one of the simplest keywords. Outputs something to the screen wi
 </table>
 </div>
 </div>
-<div id="outline-container-org84c5887" class="outline-3">
-<h3 id="org84c5887"><span class="section-number-3">4.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
+<div id="outline-container-org3ca20af" class="outline-3">
+<h3 id="org3ca20af"><span class="section-number-3">4.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 These ones are also extremely simple: all they do is output new lines to the screen. <code>ENDL</code> outputs 1 newline, while <code>ENDL2</code> outputs 2.
@@ -422,8 +432,8 @@ These ones are also extremely simple: all they do is output new lines to the scr
 </table>
 </div>
 </div>
-<div id="outline-container-org9dff135" class="outline-3">
-<h3 id="org9dff135"><span class="section-number-3">4.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
+<div id="outline-container-org31be253" class="outline-3">
+<h3 id="org31be253"><span class="section-number-3">4.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 These 3 keywords all serve the same general purpose: styling text. To better understand them, they&rsquo;ve been split into 3 tables, one for each.
@@ -532,8 +542,8 @@ These 3 keywords all serve the same general purpose: styling text. To better und
 </table>
 </div>
 </div>
-<div id="outline-container-orgc954bae" class="outline-3">
-<h3 id="orgc954bae"><span class="section-number-3">4.4.</span> <code>TERMINATE</code></h3>
+<div id="outline-container-org63419d7" class="outline-3">
+<h3 id="org63419d7"><span class="section-number-3">4.4.</span> <code>TERMINATE</code></h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
@@ -574,8 +584,8 @@ This is the keyword responsible for terminating the script safely instead of wai
 </table>
 </div>
 </div>
-<div id="outline-container-orgb8e71be" class="outline-3">
-<h3 id="orgb8e71be"><span class="section-number-3">4.5.</span> <code>CIN</code> (0 arguments overload)</h3>
+<div id="outline-container-orge1ba393" class="outline-3">
+<h3 id="orge1ba393"><span class="section-number-3">4.5.</span> <code>CIN</code> (0 arguments overload)</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 This is the overload of <code>CIN</code> that requires no arguments.
@@ -620,8 +630,8 @@ This is the overload of <code>CIN</code> that requires no arguments.
 </table>
 </div>
 </div>
-<div id="outline-container-org5fb1c46" class="outline-3">
-<h3 id="org5fb1c46"><span class="section-number-3">4.6.</span> <code>CIN</code> (1 argument overload)</h3>
+<div id="outline-container-org998ac6a" class="outline-3">
+<h3 id="org998ac6a"><span class="section-number-3">4.6.</span> <code>CIN</code> (1 argument overload)</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 This is the overload of <code>CIN</code> that requires 1 argument.
@@ -672,11 +682,11 @@ If the character limit is set to <b>0 or a negative number</b>, it will be ignor
 </table>
 </div>
 </div>
-<div id="outline-container-org22024b6" class="outline-3">
-<h3 id="org22024b6"><span class="section-number-3">4.7.</span> <code>RUN</code></h3>
+<div id="outline-container-orge79f261" class="outline-3">
+<h3 id="orge79f261"><span class="section-number-3">4.7.</span> <code>RUN</code></h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
-Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run subprocesses</b> programatically.
+Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run sub-processes</b> programatically.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -713,8 +723,8 @@ Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an
 </tbody>
 </table>
 </div>
-<div id="outline-container-org71735e9" class="outline-4">
-<h4 id="org71735e9"><span class="section-number-4">4.7.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
+<div id="outline-container-org629a93e" class="outline-4">
+<h4 id="org629a93e"><span class="section-number-4">4.7.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
 <div class="outline-text-4" id="text-4-7-1">
 <p>
 The following statements are all incorrect:
@@ -730,7 +740,7 @@ RUN ?? "sudo apt install" ? "emacs";
 </div>
 
 <p>
-The reason for it is that arguments for the process must be splitted across arguments for <code>RUN</code>.
+The reason for it is that arguments for the process must be split across arguments for <code>RUN</code>.
 </p>
 
 <p>
@@ -743,8 +753,8 @@ The correct way to do this installation would be:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf6cdaeb" class="outline-3">
-<h3 id="orgf6cdaeb"><span class="section-number-3">4.8.</span> <code>CIN</code> (2 arguments overload)</h3>
+<div id="outline-container-orgcbbef04" class="outline-3">
+<h3 id="orgcbbef04"><span class="section-number-3">4.8.</span> <code>CIN</code> (2 arguments overload)</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 This is the overload of <code>CIN</code> that requires 2 arguments.
@@ -799,8 +809,8 @@ If the character limit is <b>0 or a negative number</b>, no limit will be applie
 </table>
 </div>
 </div>
-<div id="outline-container-org4bbea38" class="outline-3">
-<h3 id="org4bbea38"><span class="section-number-3">4.9.</span> <code>GETPASS</code></h3>
+<div id="outline-container-org9f5cd3e" class="outline-3">
+<h3 id="org9f5cd3e"><span class="section-number-3">4.9.</span> <code>GETPASS</code></h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 Sometimes, you may need to be more discreet with your inputs. For example, it&rsquo;s not really a great idea to get <b>passwords</b> with <code>CIN</code>, since it shows what is being typed.
@@ -845,8 +855,8 @@ Sometimes, you may need to be more discreet with your inputs. For example, it&rs
 </table>
 </div>
 </div>
-<div id="outline-container-org2473b4f" class="outline-3">
-<h3 id="org2473b4f"><span class="section-number-3">4.10.</span> <code>SAFECIN</code> (1 argument overload)</h3>
+<div id="outline-container-org11bdbbb" class="outline-3">
+<h3 id="org11bdbbb"><span class="section-number-3">4.10.</span> <code>SAFECIN</code> (1 argument overload)</h3>
 <div class="outline-text-3" id="text-4-10">
 <p>
 <code>CIN</code> has yet another big issue: when it is given a character limit, it makes sure the input doesn&rsquo;t go beyond the limit. However, it does <b>not</b> make sure the input has the specified length.
@@ -896,7 +906,7 @@ Then, when doing the cache grab, we can trim the spaces if necessary.
 </p>
 
 <p>
-Here&rsquo;s our example, but <i>refined</i>. To better illustrate it, the meaningful whitespaces have been represented as <code>[SPACE]</code>.
+Here&rsquo;s our example, but <i>refined</i>. To better illustrate it, the meaningful whitespace characters have been represented as <code>[SPACE]</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">4</span>;
@@ -945,8 +955,8 @@ Ok[SPACE][SPACE]
 </table>
 </div>
 </div>
-<div id="outline-container-orgbe55776" class="outline-3">
-<h3 id="orgbe55776"><span class="section-number-3">4.11.</span> <code>SAFECIN</code> (2 arguments overload)</h3>
+<div id="outline-container-org0007bb7" class="outline-3">
+<h3 id="org0007bb7"><span class="section-number-3">4.11.</span> <code>SAFECIN</code> (2 arguments overload)</h3>
 <div class="outline-text-3" id="text-4-11">
 <p>
 Sometimes, it might also be useful to specify exactly what input must be given.
@@ -1007,12 +1017,12 @@ For example, which of these scenarios is clearer from the user side (a.k.a. by s
 </table>
 </div>
 </div>
-<div id="outline-container-org4d0d649" class="outline-3">
-<h3 id="org4d0d649"><span class="section-number-3">4.12.</span> <code>ECHO</code></h3>
+<div id="outline-container-org203452f" class="outline-3">
+<h3 id="org203452f"><span class="section-number-3">4.12.</span> <code>ECHO</code></h3>
 <div class="outline-text-3" id="text-4-12">
 <blockquote>
 <p>
-<code>ECHO</code> does not write to the screen by default. It is used to write to a file instead. If you wish to output to <code>stdout</code>, please use <a href="#org0d40e86">the <code>COUT</code> keyword</a>.
+<code>ECHO</code> does not write to the screen by default. It is used to write to a file instead. If you wish to output to <code>stdout</code>, please use <a href="#org3fb62c6">the <code>COUT</code> keyword</a>.
 </p>
 </blockquote>
 
@@ -1024,9 +1034,9 @@ Another useful feature in a scripting language is the ability to write to a file
 Note that <b><code>ECHO</code> does not overwrite files</b>. In fact, there are 2 special cases and a more generic one:
 </p>
 <ol class="org-ol">
-<li><b>Generic Case:</b> <code>ECHO</code> sucessfully writes to a file.</li>
+<li><b>Generic Case:</b> <code>ECHO</code> successfully writes to a file.</li>
 <li><b><code>FileExistsError</code>:</b> <code>ECHO</code> fails and throws an Exception. This happens if the file already exists.</li>
-<li><b>Reverts to <code>COUT</code>:</b> Yes, in theory, you <i>can</i> use <code>ECHO</code> instead of <code>COUT</code>, if you give <code>ECHO</code> an empty string instead of an actual filepath. However, it&rsquo;s not really that good of an idea.</li>
+<li><b>Reverts to <code>COUT</code>:</b> Yes, in theory, you <i>can</i> use <code>ECHO</code> instead of <code>COUT</code>, if you give <code>ECHO</code> an empty string instead of an actual file path. However, it&rsquo;s not really that good of an idea.</li>
 </ol>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1054,8 +1064,8 @@ Note that <b><code>ECHO</code> does not overwrite files</b>. In fact, there are 
 </thead>
 <tbody>
 <tr>
-<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the filepath is an empty string.</td>
-<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the filepath to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
+<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the file path is an empty string.</td>
+<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the file path to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
 <td class="org-left">None</td>
 <td class="org-left"><code>FileExistsError</code> - the file exists</td>
 <td class="org-left"><code>ECHO ?? "Hello, World!" ?? "hello.txt";</code></td>
@@ -1064,8 +1074,8 @@ Note that <b><code>ECHO</code> does not overwrite files</b>. In fact, there are 
 </table>
 </div>
 </div>
-<div id="outline-container-org4b24e3c" class="outline-3">
-<h3 id="org4b24e3c"><span class="section-number-3">4.13.</span> <code>ECHORDIE</code></h3>
+<div id="outline-container-org2551a83" class="outline-3">
+<h3 id="org2551a83"><span class="section-number-3">4.13.</span> <code>ECHORDIE</code></h3>
 <div class="outline-text-3" id="text-4-13">
 <p>
 A more extreme version of <code>ECHO</code>, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
@@ -1096,8 +1106,8 @@ A more extreme version of <code>ECHO</code>, this one is fine with the possibili
 </thead>
 <tbody>
 <tr>
-<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the filepath is an empty string.</td>
-<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the filepath to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
+<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the file path is an empty string.</td>
+<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the file path to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
 <td class="org-left">None</td>
 <td class="org-left">None</td>
 <td class="org-left"><code>ECHO ?? "Hello, World!" ?? "hello.txt";</code></td>
@@ -1106,8 +1116,8 @@ A more extreme version of <code>ECHO</code>, this one is fine with the possibili
 </table>
 </div>
 </div>
-<div id="outline-container-orgd0522bf" class="outline-3">
-<h3 id="orgd0522bf"><span class="section-number-3">4.14.</span> <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></h3>
+<div id="outline-container-orgb2eec3e" class="outline-3">
+<h3 id="orgb2eec3e"><span class="section-number-3">4.14.</span> <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></h3>
 <div class="outline-text-3" id="text-4-14">
 <p>
 The main issue with <code>RUN</code> is the fact it ends up <b>hardcoding</b> values.
@@ -1131,12 +1141,12 @@ The solution is extremely easy.
 </div>
 
 <p>
-All of these work essentially the same way as <code>RUN</code> (they&rsquo;re wrappers), so their tables have been omitted (see <a href="#org22024b6">the <code>RUN</code> command</a> for more information).
+All of these work essentially the same way as <code>RUN</code> (they&rsquo;re wrappers), so their tables have been omitted (see <a href="#orge79f261">the <code>RUN</code> command</a> for more information).
 </p>
 </div>
 </div>
-<div id="outline-container-org26a8b6d" class="outline-3">
-<h3 id="org26a8b6d"><span class="section-number-3">4.15.</span> <code>REQUIRES</code></h3>
+<div id="outline-container-org5285d96" class="outline-3">
+<h3 id="org5285d96"><span class="section-number-3">4.15.</span> <code>REQUIRES</code></h3>
 <div class="outline-text-3" id="text-4-15">
 <p>
 Another important thing when it comes to installing software are requirements!
@@ -1190,7 +1200,7 @@ So, in summary:
 
 <tr>
 <td class="org-right">2</td>
-<td class="org-left">Instal using <code>pip.</code></td>
+<td class="org-left">Install using <code>pip.</code></td>
 </tr>
 
 <tr>
@@ -1209,6 +1219,8 @@ So, in summary:
 </tr>
 </tbody>
 </table>
+
+<hr />
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1245,8 +1257,8 @@ So, in summary:
 </table>
 </div>
 </div>
-<div id="outline-container-org6420b4c" class="outline-3">
-<h3 id="org6420b4c"><span class="section-number-3">4.16.</span> <code>REQINSTALL</code></h3>
+<div id="outline-container-org693d44e" class="outline-3">
+<h3 id="org693d44e"><span class="section-number-3">4.16.</span> <code>REQINSTALL</code></h3>
 <div class="outline-text-3" id="text-4-16">
 <p>
 After marking all the dependencies you need, it&rsquo;s time to install them. And that&rsquo;s exactly what this command does. Now, you can call <code>REQINSTALL</code> more than once in the same script, but keep in mind that after each call, the list of dependencies is wiped clean.
@@ -1288,8 +1300,8 @@ After marking all the dependencies you need, it&rsquo;s time to install them. An
 </div>
 </div>
 </div>
-<div id="outline-container-org62e97f8" class="outline-2">
-<h2 id="org62e97f8"><span class="section-number-2">5.</span> Cache</h2>
+<div id="outline-container-org3c1bd1a" class="outline-2">
+<h2 id="org3c1bd1a"><span class="section-number-2">5.</span> Cache</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 We have not discussed all keywords yet, but they operate on something slightly more complex: <b>cache</b>.
@@ -1299,8 +1311,8 @@ We have not discussed all keywords yet, but they operate on something slightly m
 Instead of variables, in CXSetup, you have cache. We&rsquo;ve already discussed certain commands that modify it (such as <code>CIN</code>), but what more can be done with it?
 </p>
 </div>
-<div id="outline-container-org637d8e3" class="outline-3">
-<h3 id="org637d8e3"><span class="section-number-3">5.1.</span> Reading</h3>
+<div id="outline-container-orge2f995b" class="outline-3">
+<h3 id="orge2f995b"><span class="section-number-3">5.1.</span> Reading</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 There&rsquo;s a whole new syntax when it comes to accessing caches. Its official name is <b>cache grabbing</b>.
@@ -1315,7 +1327,7 @@ For example, you can do a <code>CIN</code> operation, which saves a <b>string</b
 </p>
 
 <p>
-The syntax for cache grabs is the following and can be sed as arguments for keywords:
+The syntax for cache grabs is the following and can be used as arguments for keywords:
 </p>
 <div class="org-src-container">
 <pre class="src src-nil">AB:CD:E:F:G
@@ -1327,10 +1339,10 @@ So what does each letter stand for? Let&rsquo;s see:
 </p>
 <ul class="org-ul">
 <li><b>A:</b> this must always be set to a lowercase <b>C</b> (<code>c</code>).</li>
-<li><b>B:</b> an integer. This is used as the start index for the cache grab. For example, <code>0</code> in this case means <b>start from the beggining</b>.</li>
+<li><b>B:</b> an integer. This is used as the start index for the cache grab. For example, <code>0</code> in this case means <b>start from the beginning</b>.</li>
 <li><b>C:</b> an integer. Can be an <b>end index</b> or the <b>length of the cache grab</b>. For example, <code>5</code> can either mean <b>end at the index before 5 (4)</b> or <b>end 5 bytes after the starting index (with 0 as the starting index, it would be 5)</b>.</li>
-<li><b>D:</b> a single character, must be one of <code>l</code> or <code>e</code>. This is the value that decides whther value <b>C</b> is interpreed as the <b>end index</b> (<code>e</code>) or the <b>length of the cache grab</b> (<code>l</code>).</li>
-<li><b>E:</b> an integer. Represents the <b>step value</b>. This represets the pattern to perform. Let&rsquo;s say we&rsquo;re cache grabbing <code>Hello, World!</code>. Using a <b>step value</b> of 1 (default), we&rsquo;d get <code>Hello, World!</code> but a <b>step value of 2</b> would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, <code>Hlo ol!</code>.</li>
+<li><b>D:</b> a single character, must be one of <code>l</code> or <code>e</code>. This is the value that decides whether value <b>C</b> is interpreted as the <b>end index</b> (<code>e</code>) or the <b>length of the cache grab</b> (<code>l</code>).</li>
+<li><b>E:</b> an integer. Represents the <b>step value</b>. This represents the pattern to perform. Let&rsquo;s say we&rsquo;re cache grabbing <code>Hello, World!</code>. Using a <b>step value</b> of 1 (default), we&rsquo;d get <code>Hello, World!</code> but a <b>step value of 2</b> would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, <code>Hlo ol!</code>.</li>
 <li><b>F:</b> an integer. Represents the data type the cache grab must be casted as. (See table below.)</li>
 <li><b>G:</b> a single character, must be one of <code>b</code>, <code>r</code>, <code>l</code>, <code>n</code>. This value must always be set to <code>n</code> if we&rsquo;re not dealing with cache grabbed strings. If it&rsquo;s strings we&rsquo;re dealing with, however, we can use this value to decide whether spaces should be trimmed or not (<code>n</code> is trim none), and from what direction (<code>r</code> is trim right, <code>l</code> is trim left and <code>b</code> is trim both sides). This is useful when used alongside <code>SAFECIN</code>, for example (since it pads the input with spaces).</li>
 </ul>
@@ -1378,6 +1390,8 @@ Hello!
 </tbody>
 </table>
 
+<hr />
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1388,14 +1402,14 @@ Hello!
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right"><b>F</b> Value (DataType Conversion)</th>
+<th scope="col" class="org-right"><b>F</b> Value (Data Type Conversion)</th>
 <th scope="col" class="org-left">Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-right">0</td>
-<td class="org-left"><b>Void</b> - uncompatible, will throw an error.</td>
+<td class="org-left"><b>Void</b> - incompatible, will throw an error.</td>
 </tr>
 
 <tr>
@@ -1434,6 +1448,8 @@ Hello!
 </tr>
 </tbody>
 </table>
+
+<hr />
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1478,8 +1494,8 @@ Hello!
 </table>
 </div>
 </div>
-<div id="outline-container-org1783d48" class="outline-3">
-<h3 id="org1783d48"><span class="section-number-3">5.2.</span> Writing</h3>
+<div id="outline-container-org4843ecc" class="outline-3">
+<h3 id="org4843ecc"><span class="section-number-3">5.2.</span> Writing</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Writing can only be done through keywords, albeit in 2 different ways:
@@ -1489,16 +1505,16 @@ Writing can only be done through keywords, albeit in 2 different ways:
 <li><b>Indirectly:</b> An indirect modification involves obtaining input from the user.</li>
 </ul>
 </div>
-<div id="outline-container-orgfcc7290" class="outline-4">
-<h4 id="orgfcc7290"><span class="section-number-4">5.2.1.</span> Keywords that Write to the Cache Directly</h4>
+<div id="outline-container-org8368a01" class="outline-4">
+<h4 id="org8368a01"><span class="section-number-4">5.2.1.</span> Keywords that Write to the Cache Directly</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <ul class="org-ul">
-<li><a href="#org5df5e91"><b><code>CLEAR</code></b></a> - clears the cache</li>
-<li><a href="#org273368b"><b><code>SET</code></b></a> - writes to the cache</li>
+<li><a href="#org45f9f89"><b><code>CLEAR</code></b></a> - clears the cache</li>
+<li><a href="#orgf5dce85"><b><code>SET</code></b></a> - writes to the cache</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org5df5e91"></a><code>CLEAR</code><br />
+<li><a id="org45f9f89"></a><code>CLEAR</code><br />
 <div class="outline-text-5" id="text-5-2-1-1">
 <p>
 This command clears the cache (fills it with empty bytes).
@@ -1539,7 +1555,7 @@ This command clears the cache (fills it with empty bytes).
 </table>
 </div>
 </li>
-<li><a id="org273368b"></a><code>SET</code><br />
+<li><a id="orgf5dce85"></a><code>SET</code><br />
 <div class="outline-text-5" id="text-5-2-1-2">
 <p>
 This command writes a value to the cache.
@@ -1582,33 +1598,64 @@ This command writes a value to the cache.
 </li>
 </ol>
 </div>
-<div id="outline-container-org3eb54cf" class="outline-4">
-<h4 id="org3eb54cf"><span class="section-number-4">5.2.2.</span> List of Keywords that Write to the Cache Indirectly</h4>
+<div id="outline-container-org93504c6" class="outline-4">
+<h4 id="org93504c6"><span class="section-number-4">5.2.2.</span> List of Keywords that Write to the Cache Indirectly</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <ul class="org-ul">
-<li><a href="#orgf6cdaeb"><b><code>CIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
-<li><a href="#org4bbea38"><b><code>GETPASS</code></b></a> - writes user input to cache</li>
-<li><a href="#orgbe55776"><b><code>SAFECIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+<li><a href="#orgcbbef04"><b><code>CIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+<li><a href="#org9f5cd3e"><b><code>GETPASS</code></b></a> - writes user input to cache</li>
+<li><a href="#org0007bb7"><b><code>SAFECIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org34b597e" class="outline-3">
-<h3 id="org34b597e"><span class="section-number-3">5.3.</span> Benefits of caching</h3>
+<div id="outline-container-orgb6e3c12" class="outline-3">
+<h3 id="orgb6e3c12"><span class="section-number-3">5.3.</span> Benefits of caching</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
 </p>
 <ul class="org-ul">
 <li><b>Constants.</b> The equivalent to constants would be this (at the start of the script): <code>SET ?? 7;</code> and accessing it like this: <code>c0:1l:1:1:n</code>.</li>
-<li><b>User Feedback.</b> Hey, the user knows best, right? You can obtain filepaths, make decisions and much more, based on the user input.</li>
+<li><b>User Feedback.</b> Hey, the user knows best, right? You can obtain file paths, make decisions and much more, based on the user input.</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orge70dc23" class="outline-2">
-<h2 id="orge70dc23"><span class="section-number-2">6.</span> Environment Variables</h2>
+<div id="outline-container-org21087d8" class="outline-2">
+<h2 id="org21087d8"><span class="section-number-2">6.</span> Environment Variables</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
+</p>
+
+<p>
+Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; COUT ?? v<span style="color: #7984D1;">'HOME'</span>; // For this example, we<span style="color: #7984D1;">'re on Linux</span>
+<span style="color: #7984D1;">/home/username</span>
+<span style="color: #7984D1;">&gt;&gt;&gt; COUT ?? v'</span>VAR_THAT_DOESNT_EXIST<span style="color: #7984D1;">';</span>
+<span style="color: #7984D1;">VAR_THAT_DOESNT_EXIST</span>
+</pre>
+</div>
+
+<p>
+Syntax:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">v<span style="color: #7984D1;">'VARNAME'</span>
+</pre>
+</div>
+
+<p>
+This is a great way to find values such as home directories, that are OS and usually machine-dependent.
+</p>
+</div>
+</div>
+<div id="outline-container-org2af0931" class="outline-2">
+<h2 id="org2af0931"><span class="section-number-2">7.</span> Polarity</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 TODO
 </p>
@@ -1617,7 +1664,7 @@ TODO
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matthew (MF366)</p>
-<p class="date">Created: 2025-04-15 ter 17:12</p>
+<p class="date">Created: 2025-04-15 ter 17:48</p>
 </div>
 </body>
 </html>

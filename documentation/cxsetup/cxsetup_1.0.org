@@ -4,7 +4,7 @@
 
 #+options: toc:nil
 
-#+TOC: headlines 2
+#+TOC: headlines 3
 
 * About the Documentation
 The page/document you are currently looking at is the *Official Documentation for the CX Setup scripting language*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
@@ -119,7 +119,7 @@ If the character limit is set to *0 or a negative number*, it will be ignored an
 | Reads input from the user (~stdin~), while applying a character limit. | ~CharLimit~ - integer, the character limit to apply | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4; // this will cache the first 4 characters of the user's input= |
 
 ** =RUN=
-Given CXSetup is used in ContenterX's setup scripts, it's kind of an obligation for it to allow the creator of the script to *run subprocesses* programatically.
+Given CXSetup is used in ContenterX's setup scripts, it's kind of an obligation for it to allow the creator of the script to *run sub-processes* programatically.
 
 | Summary                                   | Arguments                                                                                                                                                                    | Returns | Exceptions                                                                     | Example                                                                    |
 |-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------|
@@ -136,7 +136,7 @@ RUN ?? "sudo" ?? "apt install" ?? "emacs";
 RUN ?? "sudo apt install" ? "emacs";
 #+end_src
 
-The reason for it is that arguments for the process must be splitted across arguments for =RUN=.
+The reason for it is that arguments for the process must be split across arguments for =RUN=.
 
 The correct way to do this installation would be:
 #+begin_src
@@ -199,7 +199,7 @@ To avoid this issue, we can safely use =SAFECIN=. To make sure the input is as l
 
 Then, when doing the cache grab, we can trim the spaces if necessary.
 
-Here's our example, but /refined/. To better illustrate it, the meaningful whitespaces have been represented as ~[SPACE]~.
+Here's our example, but /refined/. To better illustrate it, the meaningful whitespace characters have been represented as ~[SPACE]~.
 #+begin_src bash
 >>> SAFECIN ?? 4;
 An input is required (press Enter to ignore it): Ok
@@ -242,20 +242,20 @@ Please insert a valid path to the configuration file:
 Another useful feature in a scripting language is the ability to write to a file. Even though =ECHO= is limited, it is still a very good option when it comes to writing to files.
 
 Note that *=ECHO= does not overwrite files*. In fact, there are 2 special cases and a more generic one:
-1. *Generic Case:* =ECHO= sucessfully writes to a file.
+1. *Generic Case:* =ECHO= successfully writes to a file.
 2. *~FileExistsError~:* =ECHO= fails and throws an Exception. This happens if the file already exists.
-3. *Reverts to =COUT=:* Yes, in theory, you /can/ use =ECHO= instead of =COUT=, if you give =ECHO= an empty string instead of an actual filepath. However, it's not really that good of an idea.
+3. *Reverts to =COUT=:* Yes, in theory, you /can/ use =ECHO= instead of =COUT=, if you give =ECHO= an empty string instead of an actual file path. However, it's not really that good of an idea.
 
 | Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions                        | Example                                 |
 |------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+-----------------------------------+-----------------------------------------|
-| Writes to a file or reverts back to =COUT= if the filepath is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the filepath to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | ~FileExistsError~ - the file exists | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+| Writes to a file or reverts back to =COUT= if the file path is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the file path to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | ~FileExistsError~ - the file exists | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
 
 ** =ECHORDIE=
 A more extreme version of =ECHO=, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
 
 | Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions | Example                                 |
 |------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+------------+-----------------------------------------|
-| Writes to a file or reverts back to =COUT= if the filepath is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the filepath to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | None       | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+| Writes to a file or reverts back to =COUT= if the file path is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the file path to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | None       | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
 
 ** =PIPRUN=, =PKGRUN=, =NPMRUN=
 The main issue with =RUN= is the fact it ends up *hardcoding* values.
@@ -294,10 +294,12 @@ So, in summary:
 |----------------+------------------------------------------------|
 |              0 | Install using the system's package manager.    |
 |              1 | Install using ContenterX.                      |
-|              2 | Instal using ~pip.~                              |
+|              2 | Install using ~pip.~                              |
 |              3 | Install using ~npm~.                             |
 |              4 | Download a binary via a direct link.           |
 |  Anything else | ~ValueError~: only sources 0 to 4 are available. |
+
+--------------------------------------
 
 | Summary                                                  | Arguments                                                                                                                  | Returns | Exceptions                     | Example                      |
 |----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------+------------------------------|
@@ -322,17 +324,17 @@ A cache grab can have any data type, since it does not matter which command save
 
 For example, you can do a =CIN= operation, which saves a *string*. But that hardly matters, because you can access that same cache as if it were an integer.
 
-The syntax for cache grabs is the following and can be sed as arguments for keywords:
+The syntax for cache grabs is the following and can be used as arguments for keywords:
 #+begin_src
 AB:CD:E:F:G
 #+end_src
 
 So what does each letter stand for? Let's see:
 - *A:* this must always be set to a lowercase *C* (~c~).
-- *B:* an integer. This is used as the start index for the cache grab. For example, ~0~ in this case means *start from the beggining*.
+- *B:* an integer. This is used as the start index for the cache grab. For example, ~0~ in this case means *start from the beginning*.
 - *C:* an integer. Can be an *end index* or the *length of the cache grab*. For example, ~5~ can either mean *end at the index before 5 (4)* or *end 5 bytes after the starting index (with 0 as the starting index, it would be 5)*.
-- *D:* a single character, must be one of ~l~ or ~e~. This is the value that decides whther value *C* is interpreed as the *end index* (~e~) or the *length of the cache grab* (~l~).
-- *E:* an integer. Represents the *step value*. This represets the pattern to perform. Let's say we're cache grabbing ~Hello, World!~. Using a *step value* of 1 (default), we'd get ~Hello, World!~ but a *step value of 2* would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, ~Hlo ol!~.
+- *D:* a single character, must be one of ~l~ or ~e~. This is the value that decides whether value *C* is interpreted as the *end index* (~e~) or the *length of the cache grab* (~l~).
+- *E:* an integer. Represents the *step value*. This represents the pattern to perform. Let's say we're cache grabbing ~Hello, World!~. Using a *step value* of 1 (default), we'd get ~Hello, World!~ but a *step value of 2* would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, ~Hlo ol!~.
 - *F:* an integer. Represents the data type the cache grab must be casted as. (See table below.)
 - *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
 
@@ -350,9 +352,11 @@ Hello!
 | ~e~                              | *End index.*                                     |
 | Anything Else                  | ~ValueError~: only ~l~ and ~e~ are allowed as values |
 
-| *F* Value (DataType Conversion) | Meaning                                                                                                                     |
+--------------------------
+
+| *F* Value (Data Type Conversion) | Meaning                                                                                                                     |
 |-------------------------------+-----------------------------------------------------------------------------------------------------------------------------|
-|                             0 | *Void* - uncompatible, will throw an error.                                                                                   |
+|                             0 | *Void* - incompatible, will throw an error.                                                                                   |
 |                             1 | *Integer* - a whole number                                                                                                    |
 |                             2 | *Floating point* - requires *EXACTLY* 4 bytes for a successful cache grab conversion. Any more or any less will throw an error. |
 |                             3 | *String*                                                                                                                      |
@@ -360,6 +364,8 @@ Hello!
 |                             5 | *Single Character* - a single character, not widely used                                                                      |
 |                            6+ | *Bytes/Garbage Values* - the bytes themselves - not widely used                                                               |
 |                   -1 or lower | ~ValueError~: only positive values are allowed                                                                                |
+
+-------------------------
 
 | *G* Value (Trim Direction) | Meaning                                                                                                     |
 |--------------------------+-------------------------------------------------------------------------------------------------------------|
@@ -400,7 +406,31 @@ This command writes a value to the cache.
 ** Benefits of caching
 Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
 - *Constants.* The equivalent to constants would be this (at the start of the script): =SET ?? 7;= and accessing it like this: =c0:1l:1:1:n=.
-- *User Feedback.* Hey, the user knows best, right? You can obtain filepaths, make decisions and much more, based on the user input.
+- *User Feedback.* Hey, the user knows best, right? You can obtain file paths, make decisions and much more, based on the user input.
 
 * Environment Variables
+Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
+
+Example:
+#+begin_src bash
+>>> COUT ?? v'HOME'; // For this example, we're on Linux
+/home/username
+>>> COUT ?? v'VAR_THAT_DOESNT_EXIST';
+VAR_THAT_DOESNT_EXIST
+#+end_src
+
+Syntax:
+#+begin_src bash
+v'VARNAME'
+#+end_src
+
+This is a great way to find values such as home directories, that are OS and usually machine-dependent.
+
+* Polarity
 TODO
+
+#  LocalWords:  toc GFDL's COUT ENDL2 LIGHTBLACK LIGHTBLUE LIGHTGREEN LIGHTRED
+#  LocalWords:  LIGHTYELLOW LIGHTMAGENTA LIGHTCYAN LIGHTWHITE CIN CharLimit OkA
+#  LocalWords:  InternalError PromptMessage GETPASS SAFECIN FileExistsError npm
+#  LocalWords:  DataToWrite FilePath ECHORDIE PIPRUN PKGRUN NPMRUN REQINSTALL
+#  LocalWords:  DependencyName Hlo ol

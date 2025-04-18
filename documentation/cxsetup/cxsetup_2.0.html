@@ -1,0 +1,2406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-18 sex 20:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CX Setup Official Documentation (v2.0.N)</title>
+<meta name="author" content="Matthew (MF366)" />
+<meta name="description" content="The official documentation for the CX Setup language." />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">CX Setup Official Documentation (v2.0.N)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org12a1424">1. About the Documentation</a>
+<ul>
+<li><a href="#orga7860a5">1.1. Licensing (Docs)</a></li>
+<li><a href="#orgc5f43e0">1.2. Contributing</a></li>
+</ul>
+</li>
+<li><a href="#org7f5ab6a">2. Comments</a></li>
+<li><a href="#org939bfe8">3. Data Types</a></li>
+<li><a href="#org95fd2c0">4. String Escape Characters (v2.0.0+)</a></li>
+<li><a href="#org9b3b251">5. Keywords</a>
+<ul>
+<li><a href="#orgf2272af">5.1. <code>COUT</code></a></li>
+<li><a href="#orgf88dd12">5.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
+<li><a href="#org7fa5351">5.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
+<li><a href="#org58ce561">5.4. <code>TERMINATE</code> (0/1 argument overload)</a></li>
+<li><a href="#orgb650a97">5.5. <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</a></li>
+<li><a href="#org2404d3f">5.6. <code>CIN</code> (0 arguments overload)</a></li>
+<li><a href="#orgf9f6ccb">5.7. <code>CIN</code> (1 argument overload)</a></li>
+<li><a href="#orgf6cb061">5.8. <code>RUN</code></a>
+<ul>
+<li><a href="#org3550942">5.8.1. The Number 1 cause of error when using <code>RUN</code></a></li>
+</ul>
+</li>
+<li><a href="#orge130f5f">5.9. <code>CIN</code> (2 arguments overload)</a></li>
+<li><a href="#org0659034">5.10. <code>GETPASS</code></a></li>
+<li><a href="#orga9025d4">5.11. <code>SAFECIN</code> (1 argument overload)</a></li>
+<li><a href="#org2bf3de1">5.12. <code>SAFECIN</code> (2 arguments overload)</a></li>
+<li><a href="#orga9ee762">5.13. <code>ECHO</code></a></li>
+<li><a href="#org18db1ec">5.14. <code>ECHORDIE</code></a></li>
+<li><a href="#org90caf46">5.15. <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></a></li>
+<li><a href="#org2cea8c0">5.16. <code>REQUIRES</code></a></li>
+<li><a href="#orgcc9485b">5.17. <code>REQINSTALL</code></a></li>
+</ul>
+</li>
+<li><a href="#org800da90">6. Cache</a>
+<ul>
+<li><a href="#orgf762dec">6.1. Reading</a></li>
+<li><a href="#org11100cb">6.2. Writing</a>
+<ul>
+<li><a href="#org10b0fc3">6.2.1. Keywords that Write to the Cache Directly</a></li>
+<li><a href="#org5e607ee">6.2.2. List of Keywords that Write to the Cache Indirectly</a></li>
+</ul>
+</li>
+<li><a href="#org26b895e">6.3. Benefits of caching</a></li>
+</ul>
+</li>
+<li><a href="#org5ebd060">7. Environment Variables</a></li>
+<li><a href="#org9203040">8. CX Vars (v2.0.0+)</a></li>
+<li><a href="#org2134bd2">9. Polarity</a>
+<ul>
+<li><a href="#org2e99972">9.1. Defining code paths</a></li>
+<li><a href="#org7a96580">9.2. <code>RESET</code></a></li>
+<li><a href="#orga32937e">9.3. <code>INVERT</code></a></li>
+<li><a href="#org8d8b53d">9.4. <code>YAYORNAY</code></a></li>
+<li><a href="#orgdff97b5">9.5. Other polarity-related keywords</a></li>
+</ul>
+</li>
+<li><a href="#org7a32fd1">10. Mathematical Operations (v2.0.0+)</a></li>
+<li><a href="#orga353f59">11. File Operations (v2.0.0+)</a></li>
+<li><a href="#org17ec4fa">12. Cache Size Declaration</a></li>
+<li><a href="#org40bcf0a">13. Examples</a>
+<ul>
+<li><a href="#orge8976cc">13.1. Writing Hello, World! to a file called cxsetup-playground</a></li>
+<li><a href="#orga022007">13.2. Global Cheat Sheet (for v1.0.0)</a></li>
+</ul>
+</li>
+<li><a href="#org5129cef">14. Other tools</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org12a1424" class="outline-2">
+<h2 id="org12a1424"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The page/document you are currently looking at is the <b>Official Documentation for the CX Setup scripting language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
+</p>
+</div>
+<div id="outline-container-orga7860a5" class="outline-3">
+<h3 id="orga7860a5"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc5f43e0" class="outline-3">
+<h3 id="orgc5f43e0"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
+</p>
+<ul class="org-ul">
+<li><b>KISS: Keep It Simple, Stupid.</b> Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.</li>
+<li><b>If it ain’t broken, don’t redesign it.</b> Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it&rsquo;s very objective.</li>
+<li><b>Editing the HTML export is like painting a screenshot — impressive, but pointless.</b> Make <i>Pull Requests</i> for the <code>Org</code> files, not the <code>HTML</code> ones.</li>
+<li><b>Fixing typos is noble; flooding PRs with them is chaos.</b> Typo squatting is perfectly fine and helpful, but don&rsquo;t make too many <i>Pull Requests</i> to fix typos in a row, as it causes unnecessary spam. The best alternative is to &ldquo;bundle&rdquo; several typo fixes in one PR.</li>
+<li><b>There are no stupid questions — only unanswered ones (and I try to avoid those).</b> If you have any questions, don&rsquo;t hesitate to ask, as I try to reply to all. You can use the following e-mail: <a href="mailto:real_mf366@yahoo.com"><code>real_mf366@yahoo.com</code></a>.</li>
+</ul>
+
+<p>
+If those rules did not scare you away, the GitHub repository is <a href="https://github.com/MF366-Coding/mf366-coding.github.io">right here</a>. Thanks ahead for your contributions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7f5ab6a" class="outline-2">
+<h2 id="org7f5ab6a"><span class="section-number-2">2.</span> Comments</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">// This is a comment
+// This is another comment
+# This is a syntax error
+&lt;!-- So is this --&gt;
+// Comments must start with //
+// They also last until the end of the line, semicolon or not
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org939bfe8" class="outline-2">
+<h2 id="org939bfe8"><span class="section-number-2">3.</span> Data Types</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
+</p>
+
+<p>
+The available data types are:
+</p>
+<ul class="org-ul">
+<li><b>Bytes</b> (rarely used - cannot be represented without a cache grab)</li>
+<li><b>String</b> (text data - <code>"Hello, World"</code>)</li>
+<li><b>Character</b> (single character - <code>"a"</code>)</li>
+<li><b>Integer</b> (whole number, can be positive or negative - <code>5</code>)</li>
+<li><b>Float</b> (decimal number - <code>3.14</code>)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org95fd2c0" class="outline-2">
+<h2 id="org95fd2c0"><span class="section-number-2">4.</span> String Escape Characters (v2.0.0+)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+This new feature available in version 2.0.0 and above is extremely useful when you need to create strings with characters <b>CX Setup</b> would otherwise consider to be special.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Escape Character</th>
+<th scope="col" class="org-left">Conversion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>\S</code></td>
+<td class="org-left"><b>Semicolon</b> (<code>;</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\?</code></td>
+<td class="org-left"><b>Question Mark</b> (<code>?</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\2</code></td>
+<td class="org-left"><b>Double Quotes</b> (<code>"</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\\</code></td>
+<td class="org-left"><b>Backslash</b> (<code>\</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org9b3b251" class="outline-2">
+<h2 id="org9b3b251"><span class="section-number-2">5.</span> Keywords</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
+</p>
+
+<p>
+Here is an example of keywords in use:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">// COUT outputs something to the screen with no newline
+COUT ?? "Hello, World!";
+
+// Let's try doing a neofetch
+RUN ?? "neofetch";
+</pre>
+</div>
+
+<p>
+Below are the available keywords in CXSetup.
+</p>
+
+<hr />
+</div>
+<div id="outline-container-orgf2272af" class="outline-3">
+<h3 id="orgf2272af"><span class="section-number-3">5.1.</span> <code>COUT</code></h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Outputs text to <code>stdout</code>.</td>
+<td class="org-left">Accepts any amount of string arguments as the text to output.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>COUT ?? "Hello, World!";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgf88dd12" class="outline-3">
+<h3 id="orgf88dd12"><span class="section-number-3">5.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+These ones are also extremely simple: all they do is output new lines to the screen. <code>ENDL</code> outputs 1 newline, while <code>ENDL2</code> outputs 2.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Outputs newlines to <code>stdout</code> (1 if <code>ENDL</code>, 2 if <code>ENDL2</code>).</td>
+<td class="org-left">Does not accept or need any arguments.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ENDL; ENDL2;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7fa5351" class="outline-3">
+<h3 id="org7fa5351"><span class="section-number-3">5.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+These 3 keywords all serve the same general purpose: styling text. To better understand them, they&rsquo;ve been split into 3 tables, one for each.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>STYLE</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a style to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code>).</td>
+<td class="org-left">Accepts one string argument representing the style to apply (must be one of: <code>DIM</code>, <code>RESET</code>, <code>RESET_ALL</code>, <code>BRIGHT</code>, <code>NORMAL</code>). <code>RESET</code> is the same as <code>RESET_ALL</code>.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid style argument</td>
+<td class="org-left"><code>STYLE ?? "BRIGHT";</code></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>FORE</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a foreground color to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code> or <code>FORE ?? "RESET";</code>).</td>
+<td class="org-left">Accepts one string argument representing the color to apply (must be one of: <code>RESET</code>, <code>BLACK</code>, <code>BLUE</code>, <code>GREEN</code>, <code>YELLOW</code>, <code>MAGENTA</code>, <code>RED</code>, <code>CYAN</code>, <code>WHITE</code>, <code>LIGHTBLACK_EX</code>, <code>LIGHTBLUE_EX</code>, <code>LIGHTGREEN_EX</code>, <code>LIGHTYELLOW_EX</code>, <code>LIGHTMAGENTA_EX</code>, <code>LIGHTRED_EX</code>, <code>LIGHTCYAN_EX</code>, <code>LIGHTWHITE_EX</code>).</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid foreground color argument</td>
+<td class="org-left"><code>FORE ?? "YELLOW";</code></td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>BACK</code></th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Applies a background color to <code>stdout</code> (lasts until <code>STYLE ?? "RESET_ALL";</code> or <code>BACK ?? "RESET";</code>).</td>
+<td class="org-left">Accepts one string argument representing the color to apply (must be one of: <code>RESET</code>, <code>BLACK</code>, <code>BLUE</code>, <code>GREEN</code>, <code>YELLOW</code>, <code>MAGENTA</code>, <code>RED</code>, <code>CYAN</code>, <code>WHITE</code>, <code>LIGHTBLACK_EX</code>, <code>LIGHTBLUE_EX</code>, <code>LIGHTGREEN_EX</code>, <code>LIGHTYELLOW_EX</code>, <code>LIGHTMAGENTA_EX</code>, <code>LIGHTRED_EX</code>, <code>LIGHTCYAN_EX</code>, <code>LIGHTWHITE_EX</code>).</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid background color argument</td>
+<td class="org-left"><code>BACK ?? "LIGHTBLUE_EX";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org58ce561" class="outline-3">
+<h3 id="org58ce561"><span class="section-number-3">5.4.</span> <code>TERMINATE</code> (0/1 argument overload)</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Terminates the execution of the current CX Setup script.</td>
+<td class="org-left"><code>ExitCode</code> - optional integer, defaults to 0</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>TypeError</code> - <code>ExitCode</code> is not an integer</td>
+<td class="org-left"><code>TERMINATE ?? 4; // error code 4</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgb650a97" class="outline-3">
+<h3 id="orgb650a97"><span class="section-number-3">5.5.</span> <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+New in v2.0.0, this overload of <code>TERMINATE</code> allows for more verbosity.
+</p>
+
+<p>
+It can be given a custom exit message that will be shown if the <code>ExitCode</code> is <b>not</b> 0.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Terminates the execution of the current CX Setup script.</td>
+<td class="org-left"><code>ExitCode</code> - integer; <code>CustomMessage</code> - string;</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>TypeError</code> - <code>ExitCode</code> is not an integer / <code>CustomMessage</code> is not a string/char</td>
+<td class="org-left"><code>TERMINATE ?? 4 ?? "Something unexpected happened!"; // error code 4</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org2404d3f" class="outline-3">
+<h3 id="org2404d3f"><span class="section-number-3">5.6.</span> <code>CIN</code> (0 arguments overload)</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+This is the overload of <code>CIN</code> that requires no arguments.
+</p>
+
+<p>
+<code>CIN</code> is the most basic tool for getting input from the user (more specifically, <code>stdin</code>).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>).</td>
+<td class="org-left">This is the 0 arguments overload. For the other overloads, look up <code>CIN (x arguments overload)</code> in the <b>Table of Contents</b>, where <code>x</code> is either 0, 1 or 2.</td>
+<td class="org-left">The user input.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN; // this will get input from the user</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgf9f6ccb" class="outline-3">
+<h3 id="orgf9f6ccb"><span class="section-number-3">5.7.</span> <code>CIN</code> (1 argument overload)</h3>
+<div class="outline-text-3" id="text-5-7">
+<p>
+This is the overload of <code>CIN</code> that requires 1 argument.
+</p>
+
+<p>
+Sometimes, you might need to set a character limit on a user&rsquo;s input. That way, even if they type more than that, only the first <code>x</code> characters actually get cached.
+</p>
+
+<div class="org-center">
+<p>
+If the character limit is set to <b>0 or a negative number</b>, it will be ignored and it&rsquo;ll be the same as calling <code>CIN</code> with no arguments at all.
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), while applying a character limit.</td>
+<td class="org-left"><code>CharLimit</code> - integer, the character limit to apply</td>
+<td class="org-left">The user input, with the character limit applied if greater than 0.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN ?? 4; // this will cache the first 4 characters of the user's input</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgf6cb061" class="outline-3">
+<h3 id="orgf6cb061"><span class="section-number-3">5.8.</span> <code>RUN</code></h3>
+<div class="outline-text-3" id="text-5-8">
+<p>
+Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run sub-processes</b> programatically.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Runs a command with arguments (optional).</td>
+<td class="org-left">At least 1 argument must be given. The first argument is the <b>command/process</b> and the others are the arguments. Split the process&rsquo;s arguments across different <code>RUN</code> arguments.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>InternalError</code> - split process arguments across different arguments (see below)</td>
+<td class="org-left"><code>RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs"; // this will install Emacs. If you're root, that is :)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-org3550942" class="outline-4">
+<h4 id="org3550942"><span class="section-number-4">5.8.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
+<div class="outline-text-4" id="text-5-8-1">
+<p>
+The following statements are all incorrect:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">RUN ?? "sudo apt install emacs";
+RUN ?? "sudo" ?? "apt install emacs";
+RUN ?? "sudo apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt install" ?? "emacs";
+RUN ?? "sudo apt install" ? "emacs";
+</pre>
+</div>
+
+<p>
+The reason for it is that arguments for the process must be split across arguments for <code>RUN</code>.
+</p>
+
+<p>
+The correct way to do this installation would be:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge130f5f" class="outline-3">
+<h3 id="orge130f5f"><span class="section-number-3">5.9.</span> <code>CIN</code> (2 arguments overload)</h3>
+<div class="outline-text-3" id="text-5-9">
+<p>
+This is the overload of <code>CIN</code> that requires 2 arguments.
+</p>
+
+<p>
+Other than setting a character limit, this overload also allows you to set a custom prompt message for the input.
+</p>
+
+<p>
+The only disadvantage is that applying a character limit becomes mandatory. However, you can get past that due to how the character limit works.
+</p>
+
+<div class="org-center">
+<p>
+If the character limit is <b>0 or a negative number</b>, no limit will be applied.
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), while applying a character limit (if applicable) and using a custom prompt message.</td>
+<td class="org-left"><code>CharLimit</code> - integer; <code>PromptMessage</code> - string, the custom prompt message to use</td>
+<td class="org-left">The user input, with the character limit applied if greater than 0.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>CIN ?? 4 ?? "Only 4 characters please: ";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org0659034" class="outline-3">
+<h3 id="org0659034"><span class="section-number-3">5.10.</span> <code>GETPASS</code></h3>
+<div class="outline-text-3" id="text-5-10">
+<p>
+Sometimes, you may need to be more discreet with your inputs. For example, it&rsquo;s not really a great idea to get <b>passwords</b> with <code>CIN</code>, since it shows what is being typed.
+</p>
+
+<p>
+<code>GETPASS</code> solves such issue. With this keyword, you can safely get passwords without showing them on screen. This keyword&rsquo;s only limitation is, unironically, the fact it cannot be limited to a certain number of characters (any amount is accepted).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>) with <code>echo</code> disabled, meaning it does not show on screen what is being typed by the user.</td>
+<td class="org-left"><code>PromptMessage</code> - mandatory string, the custom prompt message to use</td>
+<td class="org-left">The user input.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>GETPASS ?? "Insert your password, please: ";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga9025d4" class="outline-3">
+<h3 id="orga9025d4"><span class="section-number-3">5.11.</span> <code>SAFECIN</code> (1 argument overload)</h3>
+<div class="outline-text-3" id="text-5-11">
+<p>
+<code>CIN</code> has yet another big issue: when it is given a character limit, it makes sure the input doesn&rsquo;t go beyond the limit. However, it does <b>not</b> make sure the input has the specified length.
+</p>
+
+<p>
+This might not seem problematic, but it becomes when <b>cache grabs</b> are involved. Cache grabs will be a matter of discussing later, due to their complexity. However, here is a small representation of the issue.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Your input please: "</span>;
+Your input please: Good
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Good
+</pre>
+</div>
+
+<p>
+No issue at first. Well let&rsquo;s move on to the second example.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+Input: Ok
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Ok
+&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+Input: A
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+OkA
+</pre>
+</div>
+
+<p>
+Now, imagine the first input was done to ask for the path of a very important file. But, before the file is used, another input is done.
+</p>
+
+<p>
+Now, CXSetup would think the file is named <code>OkA</code>, when it is actually named <code>Ok</code>.
+</p>
+
+<p>
+To avoid this issue, we can safely use <code>SAFECIN</code>. To make sure the input is as long as we want it to be, <code>SAFECIN</code> pads the right of the input with spaces (if necessary) until the length of the input matches.
+</p>
+
+<p>
+Then, when doing the cache grab, we can trim the spaces if necessary.
+</p>
+
+<p>
+Here&rsquo;s our example, but <i>refined</i>. To better illustrate it, the meaningful whitespace characters have been represented as <code>[SPACE]</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">4</span>;
+An input is required (press Enter to ignore it): Ok
+&gt;&gt;&gt; CIN;
+An input is required (press Enter to ignore it): A
+&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+Ok[SPACE][SPACE]
+&gt;&gt; COUT ?? c0:4l:1:3:b; // the little b means trim both sides - we<span style="color: #7984D1;">'ll talk about it soon</span>
+<span style="color: #7984D1;">Ok</span>
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), making sure its length matches the character limit we apply.</td>
+<td class="org-left"><code>CharLimit</code> - integer, length of the input</td>
+<td class="org-left">The user input, with length matching the <code>CharLimit</code>.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SAFECIN ?? 4;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org2bf3de1" class="outline-3">
+<h3 id="org2bf3de1"><span class="section-number-3">5.12.</span> <code>SAFECIN</code> (2 arguments overload)</h3>
+<div class="outline-text-3" id="text-5-12">
+<p>
+Sometimes, it might also be useful to specify exactly what input must be given.
+</p>
+
+<p>
+For example, which of these scenarios is clearer from the user side (a.k.a. by someone who doesn&rsquo;t see the underlying script), A or B?
+</p>
+
+<p>
+<b>Scenario A:</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">Your input, please:
+</pre>
+</div>
+
+<p>
+<b>Scenario B:</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">Please insert a valid path to the configuration file:
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Reads input from the user (<code>stdin</code>), making sure its length matches the character limit we apply. Is compatible with custom prompt messages.</td>
+<td class="org-left"><code>CharLimit</code> - integer; <code>PromptMessage</code> - string, the prompt message to show to the user</td>
+<td class="org-left">The user input, with length matching the <code>CharLimit</code>.</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SAFECIN ?? 8 ?? "Your username please: ";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga9ee762" class="outline-3">
+<h3 id="orga9ee762"><span class="section-number-3">5.13.</span> <code>ECHO</code></h3>
+<div class="outline-text-3" id="text-5-13">
+<blockquote>
+<p>
+<code>ECHO</code> does not write to the screen by default. It is used to write to a file instead. If you wish to output to <code>stdout</code>, please use <a href="#orgf2272af">the <code>COUT</code> keyword</a>.
+</p>
+</blockquote>
+
+<p>
+Another useful feature in a scripting language is the ability to write to a file. Even though <code>ECHO</code> is limited, it is still a very good option when it comes to writing to files.
+</p>
+
+<p>
+Note that <b><code>ECHO</code> does not overwrite files</b>. In fact, there are 2 special cases and a more generic one:
+</p>
+<ol class="org-ol">
+<li><b>Generic Case:</b> <code>ECHO</code> successfully writes to a file.</li>
+<li><b><code>FileExistsError</code>:</b> <code>ECHO</code> fails and throws an Exception. This happens if the file already exists.</li>
+<li><b>Reverts to <code>COUT</code>:</b> Yes, in theory, you <i>can</i> use <code>ECHO</code> instead of <code>COUT</code>, if you give <code>ECHO</code> an empty string instead of an actual file path. However, it&rsquo;s not really that good of an idea.</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the file path is an empty string.</td>
+<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the file path to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>FileExistsError</code> - the file exists</td>
+<td class="org-left"><code>ECHO ?? "Hello, World!" ?? "hello.txt";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org18db1ec" class="outline-3">
+<h3 id="org18db1ec"><span class="section-number-3">5.14.</span> <code>ECHORDIE</code></h3>
+<div class="outline-text-3" id="text-5-14">
+<p>
+A more extreme version of <code>ECHO</code>, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Writes to a file or reverts back to <code>COUT</code> if the file path is an empty string.</td>
+<td class="org-left"><code>DataToWrite</code> - string, the data to write; <code>FilePath</code> - string, the file path to write to (if empty, reverts back to <code>COUT ?? /DataToWrite/;</code>)</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ECHO ?? "Hello, World!" ?? "hello.txt";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org90caf46" class="outline-3">
+<h3 id="org90caf46"><span class="section-number-3">5.15.</span> <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></h3>
+<div class="outline-text-3" id="text-5-15">
+<p>
+The main issue with <code>RUN</code> is the fact it ends up <b>hardcoding</b> values.
+</p>
+
+<p>
+For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">RUN ?? <span style="color: #7984D1;">"pip"</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"simple_webbrowser"</span>;
+</pre>
+</div>
+
+<p>
+What if we want the system to tells us exactly what version of <code>pip</code>, <code>npm</code> or the package manager to use?
+The solution is extremely easy.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">PIPRUN ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"simple_webbrowser"</span>;
+</pre>
+</div>
+
+<p>
+All of these work essentially the same way as <code>RUN</code> (they&rsquo;re wrappers), so their tables have been omitted (see <a href="#orgf6cb061">the <code>RUN</code> command</a> for more information).
+</p>
+</div>
+</div>
+<div id="outline-container-org2cea8c0" class="outline-3">
+<h3 id="org2cea8c0"><span class="section-number-3">5.16.</span> <code>REQUIRES</code></h3>
+<div class="outline-text-3" id="text-5-16">
+<p>
+Another important thing when it comes to installing software are requirements!
+</p>
+
+<p>
+Note that <code>REQUIRES</code> merely defines requirements, it does not install them.
+</p>
+
+<p>
+Due to the slight complexity of one of its arguments, instead of just showing the table we&rsquo;ll also show a demonstration with comments.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? <span style="color: #7984D1;">"neofetch"</span>; // the <span style="color: #ffd400; font-weight: bold;">0</span> stands for <span style="color: #7984D1;">"Install using system package manager"</span>
+&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? <span style="color: #7984D1;">"cowsay"</span>; // worth mentioning the command does not output anything or install anything
+&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"MF366-Coding/WPlugZ-CLI"</span>; // the <span style="color: #ffd400; font-weight: bold;">1</span> uses ContenterX itself to install (<span style="color: #7984D1;">"Install using ContenterX"</span>)
+&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">2</span> ?? <span style="color: #7984D1;">"NCapybaraLib"</span>; // the <span style="color: #ffd400; font-weight: bold;">2</span> stands for <span style="color: #7984D1;">"Install using pip"</span>
+&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">3</span> ?? <span style="color: #7984D1;">"express"</span>; // source number <span style="color: #ffd400; font-weight: bold;">3</span> stands for <span style="color: #7984D1;">"Install using npm"</span>
+&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"https://github.com/MF366-Coding/WriterClassic/releases/download/v11.0.0/WriterClassic_v11.0.0_SetupWizard_x64.exe"</span>; // source number <span style="color: #ffd400; font-weight: bold;">4</span> stands for <span style="color: #7984D1;">"Get binary from a direct link"</span> - you<span style="color: #7984D1;">'ll be using this a lot in Windows</span>
+<span style="color: #7984D1;">&gt;&gt;&gt; REQUIRES ?? 5 ?? "sl"; // this is a ValueError - only sources [0,4] are available</span>
+</pre>
+</div>
+
+<p>
+So, in summary:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">First Argument</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">Install using the system&rsquo;s package manager.</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Install using ContenterX.</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">Install using <code>pip.</code></td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">Install using <code>npm</code>.</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">Download a binary via a direct link.</td>
+</tr>
+
+<tr>
+<td class="org-right">Anything else</td>
+<td class="org-left"><code>ValueError</code>: only sources 0 to 4 are available.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Marks something as a dependency but does not install it.</td>
+<td class="org-left"><code>Source</code> - integer, the <i>source</i> to use; <code>DependencyName</code> - string, the name of the dependency (or its link if the <code>Source</code> is <code>4</code>).</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>ValueError</code> - invalid source ID</td>
+<td class="org-left"><code>REQUIRES ?? 0 ?? "neofetch";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgcc9485b" class="outline-3">
+<h3 id="orgcc9485b"><span class="section-number-3">5.17.</span> <code>REQINSTALL</code></h3>
+<div class="outline-text-3" id="text-5-17">
+<p>
+After marking all the dependencies you need, it&rsquo;s time to install them. And that&rsquo;s exactly what this command does. Now, you can call <code>REQINSTALL</code> more than once in the same script, but keep in mind that after each call, the list of dependencies is wiped clean.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Installs previously marked dependencies.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SyntaxError</code> - <code>REQINSTALL</code> takes 0 arguments, but more than 0 were given</td>
+<td class="org-left"><code>REQINSTALL;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org800da90" class="outline-2">
+<h2 id="org800da90"><span class="section-number-2">6.</span> Cache</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+We have not discussed all keywords yet, but they operate on something slightly more complex: <b>cache</b>.
+</p>
+
+<p>
+Instead of variables, in CXSetup, you have cache. We&rsquo;ve already discussed certain commands that modify it (such as <code>CIN</code>), but what more can be done with it?
+</p>
+</div>
+<div id="outline-container-orgf762dec" class="outline-3">
+<h3 id="orgf762dec"><span class="section-number-3">6.1.</span> Reading</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+There&rsquo;s a whole new syntax when it comes to accessing caches. Its official name is <b>cache grabbing</b>.
+</p>
+
+<p>
+A cache grab can have any data type, since it does not matter which command saved the cache.
+</p>
+
+<p>
+For example, you can do a <code>CIN</code> operation, which saves a <b>string</b>. But that hardly matters, because you can access that same cache as if it were an integer.
+</p>
+
+<p>
+The syntax for cache grabs is the following and can be used as arguments for keywords:
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">AB:CD:E:F:G
+</pre>
+</div>
+
+<p>
+So what does each letter stand for? Let&rsquo;s see:
+</p>
+<ul class="org-ul">
+<li><b>A:</b> this must always be set to a lowercase <b>C</b> (<code>c</code>).</li>
+<li><b>B:</b> an integer. This is used as the start index for the cache grab. For example, <code>0</code> in this case means <b>start from the beginning</b>.</li>
+<li><b>C:</b> an integer. Can be an <b>end index</b> or the <b>length of the cache grab</b>. For example, <code>5</code> can either mean <b>end at the index before 5 (4)</b> or <b>end 5 bytes after the starting index (with 0 as the starting index, it would be 5)</b>.</li>
+<li><b>D:</b> a single character, must be one of <code>l</code> or <code>e</code>. This is the value that decides whether value <b>C</b> is interpreted as the <b>end index</b> (<code>e</code>) or the <b>length of the cache grab</b> (<code>l</code>).</li>
+<li><b>E:</b> an integer. Represents the <b>step value</b>. This represents the pattern to perform. Let&rsquo;s say we&rsquo;re cache grabbing <code>Hello, World!</code>. Using a <b>step value</b> of 1 (default), we&rsquo;d get <code>Hello, World!</code> but a <b>step value of 2</b> would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, <code>Hlo ol!</code>.</li>
+<li><b>F:</b> an integer. Represents the data type the cache grab must be casted as. (See table below.)</li>
+<li><b>G:</b> a single character, must be one of <code>b</code>, <code>r</code>, <code>l</code>, <code>n</code>. This value must always be set to <code>n</code> if we&rsquo;re not dealing with cache grabbed strings. If it&rsquo;s strings we&rsquo;re dealing with, however, we can use this value to decide whether spaces should be trimmed or not (<code>n</code> is trim none), and from what direction (<code>r</code> is trim right, <code>l</code> is trim left and <code>b</code> is trim both sides). This is useful when used alongside <code>SAFECIN</code>, for example (since it pads the input with spaces).</li>
+</ul>
+
+<p>
+Here&rsquo;s an example:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">6</span> ?? <span style="color: #7984D1;">"6 characters only please: "</span>;
+<span style="color: #ffd400; font-weight: bold;">6</span> characters only please: Hello!
+&gt;&gt;&gt; COUT ?? c0:6l:1:3:b; // the first <span style="color: #ffd400; font-weight: bold;">6</span> characters, no pattern, output as string, trim both sides
+Hello!
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>D</b> Value (Interpret Value <b>C</b> as)</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>l</code></td>
+<td class="org-left"><b>Length of the cache grab.</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>e</code></td>
+<td class="org-left"><b>End index.</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Anything Else</td>
+<td class="org-left"><code>ValueError</code>: only <code>l</code> and <code>e</code> are allowed as values</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><b>F</b> Value (Data Type Conversion)</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left"><b>Void</b> - incompatible, will throw an error.</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left"><b>Integer</b> - a whole number</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left"><b>Floating point</b> - requires <b>EXACTLY</b> 4 bytes for a successful cache grab conversion. Any more or any less will throw an error.</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left"><b>String</b></td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left"><b>Boolean</b> - a True or False value. If the bytes are not empty, it will <b>ALWAYS</b> be True.</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left"><b>Single Character</b> - a single character, not widely used</td>
+</tr>
+
+<tr>
+<td class="org-right">6+</td>
+<td class="org-left"><b>Bytes/Garbage Values</b> - the bytes themselves - not widely used</td>
+</tr>
+
+<tr>
+<td class="org-right">-1 or lower</td>
+<td class="org-left"><code>ValueError</code>: only positive values are allowed</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>G</b> Value (Trim Direction)</th>
+<th scope="col" class="org-left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>n</code></td>
+<td class="org-left"><b>Don&rsquo;t trim.</b> IF dealing with anything other than strings, this is the only option that won&rsquo;t raise an error.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>l</code></td>
+<td class="org-left"><b>Trim left.</b> Trim whitespace characters to the left of the string.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>r</code></td>
+<td class="org-left"><b>Trim right.</b> Trim whitespace characters to the right of the string.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>b</code></td>
+<td class="org-left"><b>Trim both sides.</b> Trim whitespace characters at both ends of the string.</td>
+</tr>
+
+<tr>
+<td class="org-left">Anything Else</td>
+<td class="org-left"><code>ValueError</code>: only <code>n</code>, <code>l</code>, <code>r</code> and <code>b</code> are allowed as values</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org11100cb" class="outline-3">
+<h3 id="org11100cb"><span class="section-number-3">6.2.</span> Writing</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Writing can only be done through keywords, albeit in 2 different ways:
+</p>
+<ul class="org-ul">
+<li><b>Directly:</b> A direct modification involves the script creator themselves using a method that does not require any sort of confirmation from the user when it comes to modifying the cache.</li>
+<li><b>Indirectly:</b> An indirect modification involves obtaining input from the user or the environment.</li>
+</ul>
+</div>
+<div id="outline-container-org10b0fc3" class="outline-4">
+<h4 id="org10b0fc3"><span class="section-number-4">6.2.1.</span> Keywords that Write to the Cache Directly</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ul class="org-ul">
+<li><a href="#orgaeb1a20"><b><code>CLEAR</code></b></a> - clears the cache</li>
+<li><a href="#org2d0143f"><b><code>SET</code></b></a> - writes to the cache</li>
+<li><a href="#org7a32fd1"><b>All Mathematical Operations</b> (new in version 2)</a> - all of them write the result to the cache</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgaeb1a20"></a><code>CLEAR</code><br />
+<div class="outline-text-5" id="text-6-2-1-1">
+<p>
+This command clears the cache (fills it with empty bytes).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Clears the cache.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SyntaxError</code> - <code>CLEAR</code> takes 0 arguments, but more than 0 were given</td>
+<td class="org-left"><code>CLEAR;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="org2d0143f"></a><code>SET</code><br />
+<div class="outline-text-5" id="text-6-2-1-2">
+<p>
+This command writes a value to the cache.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Writes a value to the cache.</td>
+<td class="org-left"><code>Value</code> - the value to write to the cache, can be of any data type</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SET ?? 44.5;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org5e607ee" class="outline-4">
+<h4 id="org5e607ee"><span class="section-number-4">6.2.2.</span> List of Keywords that Write to the Cache Indirectly</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<ul class="org-ul">
+<li><a href="#orge130f5f"><b><code>CIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+<li><a href="#org0659034"><b><code>GETPASS</code></b></a> - writes user input to cache</li>
+<li><a href="#org2bf3de1"><b><code>SAFECIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org26b895e" class="outline-3">
+<h3 id="org26b895e"><span class="section-number-3">6.3.</span> Benefits of caching</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
+</p>
+<ul class="org-ul">
+<li><b>Constants.</b> The equivalent to constants would be this (at the start of the script): <code>SET ?? 7;</code> and accessing it like this: <code>c0:1l:1:1:n</code>.</li>
+<li><b>User Feedback.</b> Hey, the user knows best, right? You can obtain file paths, make decisions and much more, based on the user input.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5ebd060" class="outline-2">
+<h2 id="org5ebd060"><span class="section-number-2">7.</span> Environment Variables</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
+</p>
+
+<p>
+Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&gt;&gt;&gt; COUT ?? v<span style="color: #7984D1;">'HOME'</span>; // For this example, we<span style="color: #7984D1;">'re on Linux</span>
+<span style="color: #7984D1;">/home/username</span>
+<span style="color: #7984D1;">&gt;&gt;&gt; COUT ?? v'</span>VAR_THAT_DOESNT_EXIST<span style="color: #7984D1;">';</span>
+<span style="color: #7984D1;">VAR_THAT_DOESNT_EXIST</span>
+</pre>
+</div>
+
+<p>
+Syntax:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">v<span style="color: #7984D1;">'VARNAME'</span>
+</pre>
+</div>
+
+<p>
+This is a great way to find values such as home directories, that are OS and usually machine-dependent.
+</p>
+</div>
+</div>
+<div id="outline-container-org9203040" class="outline-2">
+<h2 id="org9203040"><span class="section-number-2">8.</span> CX Vars (v2.0.0+)</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Other than environment variables, there are also <b>CX Setup Variables</b>, new to v2.0.0.
+</p>
+
+<p>
+While the feature is still pretty limited, the next versions will have more variables.
+</p>
+
+<p>
+Variables can be used as arguments. In such case, they&rsquo;re written WITHOUT double quotes, just like regular text. They will be recognized as variables in case they are valid ones.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Variable</th>
+<th scope="col" class="org-left">Data Type</th>
+<th scope="col" class="org-left">Value</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>polarity</code></td>
+<td class="org-left">Boolean/integer</td>
+<td class="org-left">The polarity of the script.</td>
+<td class="org-left"><code>PROD ?? 7 ?? polarity; // 0 if negative</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>cxSetup.Version</code></td>
+<td class="org-left">String</td>
+<td class="org-left">The version of CX Setup.</td>
+<td class="org-left"><code>COUT ?? "You're running: CXSetup "; COUT ?? cxSetup.Version;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org2134bd2" class="outline-2">
+<h2 id="org2134bd2"><span class="section-number-2">9.</span> Polarity</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Alongside cache, there&rsquo;s yet one more extremely useful feature that needs to be discussed: <b>polarity</b>. Its official name is <b>Specialized Boolean Cache</b> and it allows for <b>code paths</b>, kind of the same way <b>if/else</b> allows for different operations based on a comparison, in other languages.
+</p>
+
+<p>
+There are exactly 2 commands that can modify the <b>polarity</b> of the script, but before we discuss them, we should discuss how to add polarity to our scripts.
+</p>
+</div>
+<div id="outline-container-org2e99972" class="outline-3">
+<h3 id="org2e99972"><span class="section-number-3">9.1.</span> Defining code paths</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+Let&rsquo;s say, for example, there&rsquo;s a dependency our setup script needs, but in a version of the OS, it&rsquo;s named <code>x-dev</code> and in another version of the very same OS, it&rsquo;s named <code>x-pkg</code>. Clearly, this is going to raise issues. Thankfully, we can instruct the user on how to check what the name is and then ask them if it&rsquo;s one or the other. The only problem is that we cannot achieve comparisons.
+</p>
+
+<p>
+Sure, we could do something like this, since both package names have exactly 5 characters:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">COUT ?? <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span>;
+ENDL;
+SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">5</span> ?? <span style="color: #7984D1;">"The name: "</span>;
+PKGRUN ?? <span style="color: #7984D1;">"install"</span> ?? c0:5l:1:3:b;
+TERMINATE;
+</pre>
+</div>
+
+<p>
+However, there are several issues with this script.
+</p>
+<ol class="org-ol">
+<li>The user can input <b>ANY</b> name, which is problematic: they could be installing something they don&rsquo;t know is safe.</li>
+<li>The user isn&rsquo;t restricted to 5 characters, they can insert a string with 1, 2, 3, etc.</li>
+</ol>
+
+<p>
+So, how can we fix this code? Using <b>polarity</b>. Polarity has quite an unusual syntax.
+</p>
+
+<p>
+In a script, <b>polarity</b> always starts off positive. Here&rsquo;s an example of a positive keyword:
+</p>
+<div class="org-src-container">
+<pre class="src src-C">+<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">positive keyword - can only be done like this in v2.0.0 and above</span>
+</pre>
+</div>
+
+<p>
+You can, however, omit the <code>+</code> sign and it will still be interpreted as a positive keyword:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">still a positive keyword - the only correct way to use one in v1.0.0</span>
+</pre>
+</div>
+
+<p>
+A negative keyword would look like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">negative keyword</span>
+</pre>
+</div>
+
+<p>
+There is also another <b>behavior declaration</b> available - the <b>indifferent</b> declaration, <b>introduced in v2.0.0</b>:
+</p>
+<div class="org-src-container">
+<pre class="src src-C">&amp;<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">indifferent keyword - new in v2.0.0</span>
+</pre>
+</div>
+
+<p>
+Indifferent keywords will run no matter what: they&rsquo;re indifferent to the <b>polarity</b>.
+</p>
+
+<p>
+Getting back to our script, here&rsquo;s a refined version:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #546A90;">// </span><span style="color: #546A90;">the polarity starts off positive so we don't have to worry about COUT not running</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span>;
+<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">command is positive so it runs, because the polarity is also positive</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Is the correct name 'x-dev'?"</span>; <span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>;
+<span style="color: #546A90;">// </span><span style="color: #546A90;">polarity has now changed: YAYORNAY modified it</span>
+<span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"x-dev"</span>;
+<span style="color: #546A90;">// </span><span style="color: #546A90;">the command above is positive so it will only run if the polairty is positive (if the user pressed 'y')</span>
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"x-pkg"</span>;
+<span style="color: #546A90;">// </span><span style="color: #546A90;">the command above is negative so it will only run if the polarity is negative (if the user pressed 'n')</span>
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">we can clear the polarity by doing an indifferent reset</span>
+&amp;<span style="color: #df85ff; font-weight: bold;">RESET</span>;
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">That way, we don't have to do TERMINATE; !TERMINATE;, because we already know the polarity is going to be positive</span>
+<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>;
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">or, better: we could have just done &amp;TERMINATE;</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Done!</span>
+</pre>
+</div>
+
+<p>
+Quite a complex example, I admit. Any command can be negated.
+</p>
+</div>
+</div>
+<div id="outline-container-org7a96580" class="outline-3">
+<h3 id="org7a96580"><span class="section-number-3">9.2.</span> <code>RESET</code></h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+This keyword simply resets the cache back to positive.
+</p>
+
+<p>
+That is why it should only be used with a <code>!</code> or a <code>&amp;</code> declarations, as it does not make sense to RESET an already positive polarity.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Resets the script&rsquo;s polarity back to <b>POSITIVE</b>.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SyntaxError</code> - <code>RESET</code> takes 0 arguments, but more than 0 were given</td>
+<td class="org-left"><code>RESET;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga32937e" class="outline-3">
+<h3 id="orga32937e"><span class="section-number-3">9.3.</span> <code>INVERT</code></h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+This keyword inverts the polarity.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Inverts the script&rsquo;s polarity.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SyntaxError</code> - <code>INVERT</code> takes 0 arguments, but more than 0 were given</td>
+<td class="org-left"><code>INVERT;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org8d8b53d" class="outline-3">
+<h3 id="org8d8b53d"><span class="section-number-3">9.4.</span> <code>YAYORNAY</code></h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+Gets input from the user and adjusts the polarity accordingly (<code>y</code> = POSITIVE, <code>n</code> = NEGATIVE)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Summary</th>
+<th scope="col" class="org-left">Arguments</th>
+<th scope="col" class="org-left">Returns</th>
+<th scope="col" class="org-left">Exceptions</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Changes the polarity to positive if the user input is <b>y</b> or to negative if it&rsquo;s <b>n</b>.</td>
+<td class="org-left">None</td>
+<td class="org-left">None</td>
+<td class="org-left"><code>SyntaxError</code> - <code>YAYORNAY</code> takes 0 arguments, but more than 0 were given</td>
+<td class="org-left"><code>YAYORNAY;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgdff97b5" class="outline-3">
+<h3 id="orgdff97b5"><span class="section-number-3">9.5.</span> Other polarity-related keywords</h3>
+<div class="outline-text-3" id="text-9-5">
+<p>
+There are other keywords that can affect the polarity of the script, however. They are:
+</p>
+
+<ul class="org-ul">
+<li><a href="#orga353f59"><b><code>PATH.EXISTS</code></b></a> - Verifies if a given path exists</li>
+<li><a href="#orga353f59"><b><code>DIR.EXISTS</code></b></a> - Verifies if a given directory exists</li>
+<li><a href="#orga353f59"><b><code>FILE.EXISTS</code></b></a> - Verifies if a given file exists</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7a32fd1" class="outline-2">
+<h2 id="org7a32fd1"><span class="section-number-2">10.</span> Mathematical Operations (v2.0.0+)</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Mathematical operations, a new v2.0.0 feature, can prove themselves useful from time to time.
+</p>
+
+<p>
+They are done through keywords:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Keyword</th>
+<th scope="col" class="org-right">Amount of arguments</th>
+<th scope="col" class="org-left">Underlying Operation (Return Result)</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SUM</code></td>
+<td class="org-right">Any</td>
+<td class="org-left">Sum of all numeric values.</td>
+<td class="org-left"><code>SUM ?? 4 ?? 7; // this will write 11 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SUB</code></td>
+<td class="org-right">2</td>
+<td class="org-left">Subtracts the second argument from the first.</td>
+<td class="org-left"><code>SUB ?? 4 ?? 7; // this will write -3 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>DIV</code></td>
+<td class="org-right">2</td>
+<td class="org-left">Divides the first number for the second. Truncates if they&rsquo;re both integers.</td>
+<td class="org-left"><code>DIV ?? 10 ?? 5; // this will write 2 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>PROD</code></td>
+<td class="org-right">2</td>
+<td class="org-left">Multiplies the first argument with the second one.</td>
+<td class="org-left"><code>PROD ?? 2 ?? 7; // this will write 14 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>REM</code></td>
+<td class="org-right">2</td>
+<td class="org-left">Calculates the remainder of a division between the first argument and the second one.</td>
+<td class="org-left"><code>REM ?? 10 ?? 7; // this will write 3 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ABS</code></td>
+<td class="org-right">1</td>
+<td class="org-left">Calculates the absolute value of a number.</td>
+<td class="org-left"><code>ABS ?? -5; // this will write 5 to the cache</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ROUND</code></td>
+<td class="org-right">2</td>
+<td class="org-left">Rounds a float (first argument) to N decimal digits, where N is an integer (second argument).</td>
+<td class="org-left"><code>ROUND ?? 5.764 ?? 2; // this will write 5.76 to the cache</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orga353f59" class="outline-2">
+<h2 id="orga353f59"><span class="section-number-2">11.</span> File Operations (v2.0.0+)</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<b>What&rsquo;s a setup script without file-related operations?</b> Well, these are new in v2.0.0 and are already powerful enough for most use cases.
+</p>
+
+<p>
+They can be split into 2 groups:
+</p>
+<ul class="org-ul">
+<li><b>The ones who modify the polarity.</b> These evaluate a boolean value (such as: &ldquo;does this file exist?&rdquo;) and modify the polarity accordingly.</li>
+<li><b>The ones who modify the cache.</b> These return a value that is written to the cache.</li>
+<li><b>The ones who don&rsquo;t return anything.</b> These operate on the environment without modifying the cache or the polarity.</li>
+</ul>
+
+<p>
+They are done through keywords:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Keyword</th>
+<th scope="col" class="org-left">Modifies what?</th>
+<th scope="col" class="org-left">Underlying Operation (Return Result)</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>PATH.EXISTS</code></td>
+<td class="org-left">Polarity</td>
+<td class="org-left">Verifies if a given path (string) exists.</td>
+<td class="org-left"><code>PATH.EXISTS ?? "/path/to/file";</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>DIR.EXISTS</code></td>
+<td class="org-left">Polarity</td>
+<td class="org-left">Verifies if a given path (string) exists and is a directory.</td>
+<td class="org-left"><code>DIR.EXISTS ?? "/path/to/dir";</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>FILE.EXISTS</code></td>
+<td class="org-left">Polarity</td>
+<td class="org-left">Verifies if a given path (string) exists and is a regular file.</td>
+<td class="org-left"><code>FILE.EXISTS ?? "/path/to/file";</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ECHO</code></td>
+<td class="org-left">N/A</td>
+<td class="org-left">Writes data (string) to a file path (string) without overwriting files.</td>
+<td class="org-left"><code>ECHO ?? "hello" ?? "/path/to/file";</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ECHORDIE</code></td>
+<td class="org-left">N/A</td>
+<td class="org-left">Same as <code>ECHO</code> but overwrites files if necessary.</td>
+<td class="org-left"><code>ECHORDIE ?? "hello" ?? "/path/to/file";</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org17ec4fa" class="outline-2">
+<h2 id="org17ec4fa"><span class="section-number-2">12.</span> Cache Size Declaration</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+By default, the cache takes up 256 bytes, which may be too much for some scenarios.
+</p>
+
+<p>
+Thankfully, you can define exactly how many bytes you want using <b>cache size declarations</b>.
+</p>
+
+<p>
+These are performed at the very start of the file (first line). If the first line is equals to an integer, that integer will be interpreted as the cache size.
+</p>
+
+<p>
+You may omit it, if you&rsquo;re fine with the default, but it&rsquo;s good practice to always define it.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">70</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">that was the cache size declaration</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">make sure there is nothing else but the integer in the first line, as that is very important</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">negative cache sizes or ones that equal 0 are invalid (minimum is 1 byte)</span>
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Your code goes here...</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Hello, World!"</span>;
+<span style="color: #546A90;">// </span><span style="color: #546A90;">...</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org40bcf0a" class="outline-2">
+<h2 id="org40bcf0a"><span class="section-number-2">13.</span> Examples</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Below, you can find example scripts.
+</p>
+</div>
+<div id="outline-container-orge8976cc" class="outline-3">
+<h3 id="orge8976cc"><span class="section-number-3">13.1.</span> Writing Hello, World! to a file called cxsetup-playground</h3>
+<div class="outline-text-3" id="text-13-1">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">200</span>
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Constants</span>
+<span style="color: #df85ff; font-weight: bold;">SET</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">HOME</span><span style="color: #ffd400;">'</span>;
+<span style="color: #df85ff; font-weight: bold;">SET</span> ?? <span style="color: #7984D1;">"/cxsetup-playground"</span>;
+
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Does a file named cxsetup-playground exist in your home directory?"</span>;
+<span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>;
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">If it doesn't exist, we'll get rid of it.</span>
+<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"rm"</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">199l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">trim both sides -&gt; very important</span>
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Invert the polarity to negative if positive</span>
+<span style="color: #df85ff; font-weight: bold;">INVERT</span>;
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">now, the polarity is 100% sure negative</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Let's save the file</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Of coruse we could have just used ECHORDIE, but this is supposed to showoff the power of this language sooo</span>
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">199l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b;
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Finished."</span>; <span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">done</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga022007" class="outline-3">
+<h3 id="orga022007"><span class="section-number-3">13.2.</span> Global Cheat Sheet (for v1.0.0)</h3>
+<div class="outline-text-3" id="text-13-2">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">50</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">That is a cache size declaration</span>
+
+<span style="color: #546A90;">// </span><span style="color: #546A90;">This is a comment.</span>
+
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"String"</span>;
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Integer</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #ffd400; font-weight: bold;">5.7</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Float</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">HOME</span><span style="color: #ffd400;">'</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">If the variable exists, its value is used</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">TESTING</span><span style="color: #ffd400;">'</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">If it doesn't, its name is used instead</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"a"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Single character</span>
+
+<span style="color: #df85ff; font-weight: bold;">CIN</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">get input</span>
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">clear the cache</span>
+<span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">5</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">5 character limit</span>
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span>; <span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">you don't have to split instructions across lines if you don't want to</span>
+<span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Your input, if you may: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
+
+<span style="color: #df85ff; font-weight: bold;">SAFECIN</span> ?? <span style="color: #ffd400; font-weight: bold;">5</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">better input management</span>
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #df85ff; font-weight: bold;">SAFECIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Better input: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
+
+ENDL2; <span style="color: #546A90;">// </span><span style="color: #546A90;">2 new lines</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">4l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">Cache Grab: starts at 0, length = 4, no pattern, as string, trim both sides</span>
+<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">1 new line</span>
+
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run since the polarity is positive</span>
+
+<span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">inverts the polarity</span>
+<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run because, now, the polarity is negative</span>
+<span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">neither will this</span>
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">but this will</span>
+
+<span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Back to normal."</span> ?? <span style="color: #7984D1;">""</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">the filepath is empty, so this will just COUT</span>
+<span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+
+<span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? <span style="color: #7984D1;">"hello.txt"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, as long as it does not exist</span>
+<span style="color: #df85ff; font-weight: bold;">ECHORDIE</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? <span style="color: #7984D1;">"forced_hello.txt"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, even if that means overwriting it</span>
+
+<span style="color: #df85ff; font-weight: bold;">FORE</span> ?? <span style="color: #7984D1;">"BLUE"</span>;
+<span style="color: #df85ff; font-weight: bold;">BACK</span> ?? <span style="color: #7984D1;">"YELLOW"</span>;
+<span style="color: #df85ff; font-weight: bold;">STYLE</span> ?? <span style="color: #7984D1;">"DIM"</span>;
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Blue text on a yellow background, with a dim style"</span>;
+<span style="color: #df85ff; font-weight: bold;">STYLE</span> ?? <span style="color: #7984D1;">"RESET_ALL"</span>;
+ENDL2;
+
+<span style="color: #df85ff; font-weight: bold;">GETPASS</span> ?? <span style="color: #7984D1;">"Enter the secret code: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Same as CIN ?? 0 ?? "Enter the secret code: " but hides the characters that are being typed</span>
+
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
+
+<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"neofetch"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">runs a subprocess</span>
+<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"clear"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this will clear the screen, for example</span>
+
+<span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"figlet"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">on Debian, this would be the same as RUN ?? "apt" ?? "install" ?? "figlet";</span>
+<span style="color: #df85ff; font-weight: bold;">PIPRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"PyLocalizer"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "pip" ?? "install" ?? "PyLocalizer", but uses the pip version recommended by the system</span>
+<span style="color: #df85ff; font-weight: bold;">NPMRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"express"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "npm" ?? "install" ?? "express", but makes sure the global npm installation is used</span>
+
+<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
+<span style="color: #df85ff; font-weight: bold;">SET</span> ?? <span style="color: #7984D1;">"sl"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">save PyLocalizer as a constant to the cache</span>
+<span style="color: #df85ff; font-weight: bold;">REQUIRES</span> ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">2l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">mark sl as a requirement for the package manager</span>
+<span style="color: #df85ff; font-weight: bold;">REQUIRES</span> ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"PyLocalizer"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">mark PyLocalizer as a requirement for PIP</span>
+
+<span style="color: #df85ff; font-weight: bold;">REQINSTALL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">install all previously marked requirements</span>
+
+<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">if the user inputs y, the polarity becomes positive. Otherwise, it becomes negative</span>
+
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Polarity is negative. Exiting with error code 1"</span>;
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span> ?? <span style="color: #ffd400; font-weight: bold;">1</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with error code 1</span>
+
+<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with success code 0, same as TERMINATE ?? 0;</span>
+<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Hi"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5129cef" class="outline-2">
+<h2 id="org5129cef"><span class="section-number-2">14.</span> Other tools</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+CXSetup isn&rsquo;t limited to the interpreter.
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/MF366-Coding/CXSetup/blob/main/cxhighlight.py"><b>CX Setup Syntax Highlighter</b></a> (can be used in the terminal or imported and used from a Python file)</li>
+<li><b>CX Setup Linter</b> (coming soon)</li>
+<li><a href="https://marketplace.visualstudio.com/items/?itemName=MF366.cxsetup"><b>CX Setup Language for VSCode</b></a> (syntax highlighting for Visual Studio Code)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matthew (MF366)</p>
+<p class="date">Created: 2025-04-18 sex 20:27</p>
+</div>
+</body>
+</html>

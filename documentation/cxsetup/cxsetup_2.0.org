@@ -1,0 +1,728 @@
+#+title: CX Setup Official Documentation (v2.0.N)
+#+description: The official documentation for the CX Setup language.
+#+author: Matthew (MF366)
+
+#+options: toc:nil
+
+#+TOC: headlines 3
+
+* About the Documentation
+The page/document you are currently looking at is the *Official Documentation for the CX Setup scripting language*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+
+** Licensing (Docs)
+This documentation is licensed under the [[https://www.gnu.org/licenses/fdl-1.3.txt][*GNU Free Documentation License (GFDL)*]]. Therefore, all edits, reuses and whatnot of this documentation (valid for both ~Org~ and ~HTML~ versions of the docs) must comply with GFDL's terms and conditions.
+
+** Contributing
+If you wish to contribute to the documentation, I'd really appreciate it. However, there are some rules and guidelines you must follow:
+- *KISS: Keep It Simple, Stupid.* Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.
+- *If it ain’t broken, don’t redesign it.* Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it's very objective.
+- *Editing the HTML export is like painting a screenshot — impressive, but pointless.* Make /Pull Requests/ for the ~Org~ files, not the ~HTML~ ones.
+- *Fixing typos is noble; flooding PRs with them is chaos.* Typo squatting is perfectly fine and helpful, but don't make too many /Pull Requests/ to fix typos in a row, as it causes unnecessary spam. The best alternative is to "bundle" several typo fixes in one PR.
+- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][~real_mf366@yahoo.com~]].
+
+If those rules did not scare you away, the GitHub repository is [[https://github.com/MF366-Coding/mf366-coding.github.io][right here]]. Thanks ahead for your contributions.
+
+* Comments
+Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
+
+#+begin_src
+// This is a comment
+// This is another comment
+# This is a syntax error
+<!-- So is this -->
+// Comments must start with //
+// They also last until the end of the line, semicolon or not
+#+end_src
+
+* Data Types
+Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
+
+The available data types are:
+- *Bytes* (rarely used - cannot be represented without a cache grab)
+- *String* (text data - ="Hello, World"=)
+- *Character* (single character - ="a"=)
+- *Integer* (whole number, can be positive or negative - =5=)
+- *Float* (decimal number - =3.14=)
+
+* String Escape Characters (v2.0.0+)
+This new feature available in version 2.0.0 and above is extremely useful when you need to create strings with characters *CX Setup* would otherwise consider to be special.
+
+| Escape Character | Conversion        |
+|------------------+-------------------|
+| ~\S~               | *Semicolon* (~;~)     |
+| ~\?~               | *Question Mark* (~?~) |
+| ~\2~               | *Double Quotes* (~"~) |
+| ~\\~               | *Backslash* (~\~)     |
+
+* Keywords
+In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
+
+Here is an example of keywords in use:
+#+begin_src
+// COUT outputs something to the screen with no newline
+COUT ?? "Hello, World!";
+
+// Let's try doing a neofetch
+RUN ?? "neofetch";
+#+end_src
+
+Below are the available keywords in CXSetup.
+
+------------------------------------------------------------
+
+** =COUT=
+Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
+
+| Summary                 | Arguments                                                     | Returns | Exceptions | Example                  |
+|-------------------------+---------------------------------------------------------------+---------+------------+--------------------------|
+| Outputs text to ~stdout~. | Accepts any amount of string arguments as the text to output. | None    | None       | =COUT ?? "Hello, World!";= |
+
+** =ENDL= and =ENDL2=
+These ones are also extremely simple: all they do is output new lines to the screen. =ENDL= outputs 1 newline, while =ENDL2= outputs 2.
+
+| Summary                                             | Arguments                              | Returns | Exceptions | Example      |
+|-----------------------------------------------------+----------------------------------------+---------+------------+--------------|
+| Outputs newlines to ~stdout~ (1 if =ENDL=, 2 if =ENDL2=). | Does not accept or need any arguments. | None    | None       | =ENDL; ENDL2;= |
+
+** =STYLE=, =FORE= and =BACK=
+These 3 keywords all serve the same general purpose: styling text. To better understand them, they've been split into 3 tables, one for each.
+
+| =STYLE=                                                          | Arguments                                                                                                                                            | Returns | Exceptions                          | Example            |
+|----------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+---------+-------------------------------------+--------------------|
+| Applies a style to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";=). | Accepts one string argument representing the style to apply (must be one of: ~DIM~, ~RESET~, ~RESET_ALL~, ~BRIGHT~, ~NORMAL~). ~RESET~ is the same as ~RESET_ALL~. | None    | ~ValueError~ - invalid style argument | =STYLE ?? "BRIGHT";= |
+
+| =FORE=                                                                                          | Arguments                                                                                                                                                                                                                                                          | Returns | Exceptions                                     | Example           |
+|-----------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+------------------------------------------------+-------------------|
+| Applies a foreground color to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";= or =FORE ?? "RESET";=). | Accepts one string argument representing the color to apply (must be one of: ~RESET~, ~BLACK~, ~BLUE~, ~GREEN~, ~YELLOW~, ~MAGENTA~, ~RED~, ~CYAN~, ~WHITE~, ~LIGHTBLACK_EX~, ~LIGHTBLUE_EX~, ~LIGHTGREEN_EX~, ~LIGHTYELLOW_EX~, ~LIGHTMAGENTA_EX~, ~LIGHTRED_EX~, ~LIGHTCYAN_EX~, ~LIGHTWHITE_EX~). | None    | ~ValueError~ - invalid foreground color argument | =FORE ?? "YELLOW";= |
+
+| =BACK=                                                                                          | Arguments                                                                                                                                                                                                                                                          | Returns | Exceptions                                     | Example                 |
+|-----------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+------------------------------------------------+-------------------------|
+| Applies a background color to ~stdout~ (lasts until =STYLE ?? "RESET_ALL";= or =BACK ?? "RESET";=). | Accepts one string argument representing the color to apply (must be one of: ~RESET~, ~BLACK~, ~BLUE~, ~GREEN~, ~YELLOW~, ~MAGENTA~, ~RED~, ~CYAN~, ~WHITE~, ~LIGHTBLACK_EX~, ~LIGHTBLUE_EX~, ~LIGHTGREEN_EX~, ~LIGHTYELLOW_EX~, ~LIGHTMAGENTA_EX~, ~LIGHTRED_EX~, ~LIGHTCYAN_EX~, ~LIGHTWHITE_EX~). | None    | ~ValueError~ - invalid background color argument | =BACK ?? "LIGHTBLUE_EX";= |
+
+** =TERMINATE= (0/1 argument overload)
+This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
+
+| Summary                                                  | Arguments                                  | Returns | Exceptions                             | Example                         |
+|----------------------------------------------------------+--------------------------------------------+---------+----------------------------------------+---------------------------------|
+| Terminates the execution of the current CX Setup script. | ~ExitCode~ - optional integer, defaults to 0 | None    | ~TypeError~ - ~ExitCode~ is not an integer | =TERMINATE ?? 4; // error code 4= |
+
+** =TERMINATE= (2 arguments overload - v2.0.0+)
+New in v2.0.0, this overload of =TERMINATE= allows for more verbosity.
+
+It can be given a custom exit message that will be shown if the ~ExitCode~ is *not* 0.
+
+| Summary                                                  | Arguments                                   | Returns | Exceptions                                                                  | Example                                                             |
+|----------------------------------------------------------+---------------------------------------------+---------+-----------------------------------------------------------------------------+---------------------------------------------------------------------|
+| Terminates the execution of the current CX Setup script. | ~ExitCode~ - integer; ~CustomMessage~ - string; | None    | ~TypeError~ - ~ExitCode~ is not an integer / ~CustomMessage~ is not a string/char | =TERMINATE ?? 4 ?? "Something unexpected happened!"; // error code 4= |
+
+** =CIN= (0 arguments overload)
+This is the overload of =CIN= that requires no arguments.
+
+=CIN= is the most basic tool for getting input from the user (more specifically, ~stdin~).
+
+| Summary                            | Arguments                                                                                                                                            | Returns         | Exceptions | Example                                   |
+|------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~). | This is the 0 arguments overload. For the other overloads, look up ~CIN (x arguments overload)~ in the *Table of Contents*, where ~x~ is either 0, 1 or 2. | The user input. | None       | =CIN; // this will get input from the user= |
+
+** =CIN= (1 argument overload)
+This is the overload of =CIN= that requires 1 argument.
+
+Sometimes, you might need to set a character limit on a user's input. That way, even if they type more than that, only the first ~x~ characters actually get cached.
+
+#+begin_center
+If the character limit is set to *0 or a negative number*, it will be ignored and it'll be the same as calling =CIN= with no arguments at all.
+#+end_center
+
+| Summary                                                              | Arguments                                         | Returns                                                             | Exceptions | Example                                                                 |
+|----------------------------------------------------------------------+---------------------------------------------------+---------------------------------------------------------------------+------------+-------------------------------------------------------------------------|
+| Reads input from the user (~stdin~), while applying a character limit. | ~CharLimit~ - integer, the character limit to apply | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4; // this will cache the first 4 characters of the user's input= |
+
+** =RUN=
+Given CXSetup is used in ContenterX's setup scripts, it's kind of an obligation for it to allow the creator of the script to *run sub-processes* programatically.
+
+| Summary                                   | Arguments                                                                                                                                                                    | Returns | Exceptions                                                                     | Example                                                                    |
+|-------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------|
+| Runs a command with arguments (optional). | At least 1 argument must be given. The first argument is the *command/process* and the others are the arguments. Split the process's arguments across different =RUN= arguments. | None    | ~InternalError~ - split process arguments across different arguments (see below) | =RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs"; // this will install Emacs. If you're root, that is :)= |
+
+*** The Number 1 cause of error when using =RUN=
+The following statements are all incorrect:
+#+begin_src
+RUN ?? "sudo apt install emacs";
+RUN ?? "sudo" ?? "apt install emacs";
+RUN ?? "sudo apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt" ?? "install emacs";
+RUN ?? "sudo" ?? "apt install" ?? "emacs";
+RUN ?? "sudo apt install" ? "emacs";
+#+end_src
+
+The reason for it is that arguments for the process must be split across arguments for =RUN=.
+
+The correct way to do this installation would be:
+#+begin_src
+RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
+#+end_src
+
+** =CIN= (2 arguments overload)
+This is the overload of =CIN= that requires 2 arguments.
+
+Other than setting a character limit, this overload also allows you to set a custom prompt message for the input.
+
+The only disadvantage is that applying a character limit becomes mandatory. However, you can get past that due to how the character limit works.
+
+#+begin_center
+If the character limit is *0 or a negative number*, no limit will be applied.
+#+end_center
+
+| Summary                                                                                                                | Arguments                                                                     | Returns                                                             | Exceptions | Example                                   |
+|------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~), while applying a character limit (if applicable) and using a custom prompt message. | ~CharLimit~ - integer; ~PromptMessage~ - string, the custom prompt message to use | The user input, with the character limit applied if greater than 0. | None       | =CIN ?? 4 ?? "Only 4 characters please: ";= |
+
+** =GETPASS=
+Sometimes, you may need to be more discreet with your inputs. For example, it's not really a great idea to get *passwords* with =CIN=, since it shows what is being typed.
+
+=GETPASS= solves such issue. With this keyword, you can safely get passwords without showing them on screen. This keyword's only limitation is, unironically, the fact it cannot be limited to a certain number of characters (any amount is accepted).
+
+| Summary                                                                                                                   | Arguments                                                          | Returns         | Exceptions | Example                                      |
+|---------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------+------------+----------------------------------------------|
+| Reads input from the user (~stdin~) with ~echo~ disabled, meaning it does not show on screen what is being typed by the user. | ~PromptMessage~ - mandatory string, the custom prompt message to use | The user input. | None       | =GETPASS ?? "Insert your password, please: ";= |
+
+** =SAFECIN= (1 argument overload)
+=CIN= has yet another big issue: when it is given a character limit, it makes sure the input doesn't go beyond the limit. However, it does *not* make sure the input has the specified length.
+
+This might not seem problematic, but it becomes when *cache grabs* are involved. Cache grabs will be a matter of discussing later, due to their complexity. However, here is a small representation of the issue.
+
+#+begin_src bash
+>>> CIN ?? 4 ?? "Your input please: ";
+Your input please: Good
+>>> COUT ?? c0:4l:1:3:n;
+Good
+#+end_src
+
+No issue at first. Well let's move on to the second example.
+#+begin_src bash
+>>> CIN ?? 4 ?? "Input: ";
+Input: Ok
+>>> COUT ?? c0:4l:1:3:n;
+Ok
+>>> CIN ?? 1 ?? "Input: ";
+Input: A
+>>> COUT ?? c0:4l:1:3:n;
+OkA
+#+end_src
+
+Now, imagine the first input was done to ask for the path of a very important file. But, before the file is used, another input is done.
+
+Now, CXSetup would think the file is named =OkA=, when it is actually named =Ok=.
+
+To avoid this issue, we can safely use =SAFECIN=. To make sure the input is as long as we want it to be, =SAFECIN= pads the right of the input with spaces (if necessary) until the length of the input matches.
+
+Then, when doing the cache grab, we can trim the spaces if necessary.
+
+Here's our example, but /refined/. To better illustrate it, the meaningful whitespace characters have been represented as ~[SPACE]~.
+#+begin_src bash
+>>> SAFECIN ?? 4;
+An input is required (press Enter to ignore it): Ok
+>>> CIN;
+An input is required (press Enter to ignore it): A
+>>> COUT ?? c0:4l:1:3:n;
+Ok[SPACE][SPACE]
+>> COUT ?? c0:4l:1:3:b; // the little b means trim both sides - we'll talk about it soon
+Ok
+#+end_src
+
+| Summary                                                                                         | Arguments                                | Returns                                             | Exceptions | Example       |
+|-------------------------------------------------------------------------------------------------+------------------------------------------+-----------------------------------------------------+------------+---------------|
+| Reads input from the user (~stdin~), making sure its length matches the character limit we apply. | ~CharLimit~ - integer, length of the input | The user input, with length matching the ~CharLimit~. | None       | =SAFECIN ?? 4;= |
+
+** =SAFECIN= (2 arguments overload)
+Sometimes, it might also be useful to specify exactly what input must be given.
+
+For example, which of these scenarios is clearer from the user side (a.k.a. by someone who doesn't see the underlying script), A or B?
+
+*Scenario A:*
+#+begin_src bash
+Your input, please:
+#+end_src
+
+*Scenario B:*
+#+begin_src bash
+Please insert a valid path to the configuration file:
+#+end_src
+
+| Summary                                                                                                                                    | Arguments                                                                           | Returns                                             | Exceptions | Example                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------+------------+-------------------------------------------|
+| Reads input from the user (~stdin~), making sure its length matches the character limit we apply. Is compatible with custom prompt messages. | ~CharLimit~ - integer; ~PromptMessage~ - string, the prompt message to show to the user | The user input, with length matching the ~CharLimit~. | None       | =SAFECIN ?? 8 ?? "Your username please: ";= |
+
+** =ECHO=
+#+begin_quote
+~ECHO~ does not write to the screen by default. It is used to write to a file instead. If you wish to output to ~stdout~, please use [[=COUT=][the =COUT= keyword]].
+#+end_quote
+
+Another useful feature in a scripting language is the ability to write to a file. Even though =ECHO= is limited, it is still a very good option when it comes to writing to files.
+
+Note that *=ECHO= does not overwrite files*. In fact, there are 2 special cases and a more generic one:
+1. *Generic Case:* =ECHO= successfully writes to a file.
+2. *~FileExistsError~:* =ECHO= fails and throws an Exception. This happens if the file already exists.
+3. *Reverts to =COUT=:* Yes, in theory, you /can/ use =ECHO= instead of =COUT=, if you give =ECHO= an empty string instead of an actual file path. However, it's not really that good of an idea.
+
+| Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions                        | Example                                 |
+|------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+-----------------------------------+-----------------------------------------|
+| Writes to a file or reverts back to =COUT= if the file path is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the file path to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | ~FileExistsError~ - the file exists | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+
+** =ECHORDIE=
+A more extreme version of =ECHO=, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
+
+| Summary                                                                      | Arguments                                                                                                                             | Returns | Exceptions | Example                                 |
+|------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+---------+------------+-----------------------------------------|
+| Writes to a file or reverts back to =COUT= if the file path is an empty string. | ~DataToWrite~ - string, the data to write; ~FilePath~ - string, the file path to write to (if empty, reverts back to =COUT ?? /DataToWrite/;=) | None    | None       | =ECHO ?? "Hello, World!" ?? "hello.txt";= |
+
+** =PIPRUN=, =PKGRUN=, =NPMRUN=
+The main issue with =RUN= is the fact it ends up *hardcoding* values.
+
+For example:
+#+begin_src bash
+RUN ?? "pip" ?? "install" ?? "simple_webbrowser";
+#+end_src
+
+What if we want the system to tells us exactly what version of ~pip~, ~npm~ or the package manager to use?
+The solution is extremely easy.
+#+begin_src bash
+PIPRUN ?? "install" ?? "simple_webbrowser";
+#+end_src
+
+All of these work essentially the same way as =RUN= (they're wrappers), so their tables have been omitted (see [[=RUN=][the =RUN= command]] for more information).
+
+** =REQUIRES=
+Another important thing when it comes to installing software are requirements!
+
+Note that =REQUIRES= merely defines requirements, it does not install them.
+
+Due to the slight complexity of one of its arguments, instead of just showing the table we'll also show a demonstration with comments.
+#+begin_src bash
+>>> REQUIRES ?? 0 ?? "neofetch"; // the 0 stands for "Install using system package manager"
+>>> REQUIRES ?? 0 ?? "cowsay"; // worth mentioning the command does not output anything or install anything
+>>> REQUIRES ?? 1 ?? "MF366-Coding/WPlugZ-CLI"; // the 1 uses ContenterX itself to install ("Install using ContenterX")
+>>> REQUIRES ?? 2 ?? "NCapybaraLib"; // the 2 stands for "Install using pip"
+>>> REQUIRES ?? 3 ?? "express"; // source number 3 stands for "Install using npm"
+>>> REQUIRES ?? 4 ?? "https://github.com/MF366-Coding/WriterClassic/releases/download/v11.0.0/WriterClassic_v11.0.0_SetupWizard_x64.exe"; // source number 4 stands for "Get binary from a direct link" - you'll be using this a lot in Windows
+>>> REQUIRES ?? 5 ?? "sl"; // this is a ValueError - only sources [0,4] are available
+#+end_src
+
+So, in summary:
+| First Argument | Meaning                                        |
+|----------------+------------------------------------------------|
+|              0 | Install using the system's package manager.    |
+|              1 | Install using ContenterX.                      |
+|              2 | Install using ~pip.~                              |
+|              3 | Install using ~npm~.                             |
+|              4 | Download a binary via a direct link.           |
+|  Anything else | ~ValueError~: only sources 0 to 4 are available. |
+
+--------------------------------------
+
+| Summary                                                  | Arguments                                                                                                                  | Returns | Exceptions                     | Example                      |
+|----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------+--------------------------------+------------------------------|
+| Marks something as a dependency but does not install it. | ~Source~ - integer, the /source/ to use; ~DependencyName~ - string, the name of the dependency (or its link if the ~Source~ is ~4~). | None    | ~ValueError~ - invalid source ID | =REQUIRES ?? 0 ?? "neofetch";= |
+
+** =REQINSTALL=
+After marking all the dependencies you need, it's time to install them. And that's exactly what this command does. Now, you can call =REQINSTALL= more than once in the same script, but keep in mind that after each call, the list of dependencies is wiped clean.
+
+| Summary                                  | Arguments | Returns | Exceptions                                                             | Example     |
+|------------------------------------------+-----------+---------+------------------------------------------------------------------------+-------------|
+| Installs previously marked dependencies. | None      | None    | ~SyntaxError~ - =REQINSTALL= takes 0 arguments, but more than 0 were given | =REQINSTALL;= |
+
+* Cache
+We have not discussed all keywords yet, but they operate on something slightly more complex: *cache*.
+
+Instead of variables, in CXSetup, you have cache. We've already discussed certain commands that modify it (such as =CIN=), but what more can be done with it?
+
+** Reading
+There's a whole new syntax when it comes to accessing caches. Its official name is *cache grabbing*.
+
+A cache grab can have any data type, since it does not matter which command saved the cache.
+
+For example, you can do a =CIN= operation, which saves a *string*. But that hardly matters, because you can access that same cache as if it were an integer.
+
+The syntax for cache grabs is the following and can be used as arguments for keywords:
+#+begin_src
+AB:CD:E:F:G
+#+end_src
+
+So what does each letter stand for? Let's see:
+- *A:* this must always be set to a lowercase *C* (~c~).
+- *B:* an integer. This is used as the start index for the cache grab. For example, ~0~ in this case means *start from the beginning*.
+- *C:* an integer. Can be an *end index* or the *length of the cache grab*. For example, ~5~ can either mean *end at the index before 5 (4)* or *end 5 bytes after the starting index (with 0 as the starting index, it would be 5)*.
+- *D:* a single character, must be one of ~l~ or ~e~. This is the value that decides whether value *C* is interpreted as the *end index* (~e~) or the *length of the cache grab* (~l~).
+- *E:* an integer. Represents the *step value*. This represents the pattern to perform. Let's say we're cache grabbing ~Hello, World!~. Using a *step value* of 1 (default), we'd get ~Hello, World!~ but a *step value of 2* would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, ~Hlo ol!~.
+- *F:* an integer. Represents the data type the cache grab must be casted as. (See table below.)
+- *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
+
+Here's an example:
+#+begin_src bash
+>>> SAFECIN ?? 6 ?? "6 characters only please: ";
+6 characters only please: Hello!
+>>> COUT ?? c0:6l:1:3:b; // the first 6 characters, no pattern, output as string, trim both sides
+Hello!
+#+end_src
+
+| *D* Value (Interpret Value *C* as) | Meaning                                        |
+|--------------------------------+------------------------------------------------|
+| ~l~                              | *Length of the cache grab.*                      |
+| ~e~                              | *End index.*                                     |
+| Anything Else                  | ~ValueError~: only ~l~ and ~e~ are allowed as values |
+
+--------------------------
+
+| *F* Value (Data Type Conversion) | Meaning                                                                                                                     |
+|-------------------------------+-----------------------------------------------------------------------------------------------------------------------------|
+|                             0 | *Void* - incompatible, will throw an error.                                                                                   |
+|                             1 | *Integer* - a whole number                                                                                                    |
+|                             2 | *Floating point* - requires *EXACTLY* 4 bytes for a successful cache grab conversion. Any more or any less will throw an error. |
+|                             3 | *String*                                                                                                                      |
+|                             4 | *Boolean* - a True or False value. If the bytes are not empty, it will *ALWAYS* be True.                                        |
+|                             5 | *Single Character* - a single character, not widely used                                                                      |
+|                            6+ | *Bytes/Garbage Values* - the bytes themselves - not widely used                                                               |
+|                   -1 or lower | ~ValueError~: only positive values are allowed                                                                                |
+
+-------------------------
+
+| *G* Value (Trim Direction) | Meaning                                                                                                     |
+|--------------------------+-------------------------------------------------------------------------------------------------------------|
+| ~n~                        | *Don't trim.* IF dealing with anything other than strings, this is the only option that won't raise an error. |
+| ~l~                        | *Trim left.* Trim whitespace characters to the left of the string.                                            |
+| ~r~                        | *Trim right.* Trim whitespace characters to the right of the string.                                          |
+| ~b~                        | *Trim both sides.* Trim whitespace characters at both ends of the string.                                     |
+| Anything Else            | ~ValueError~: only ~n~, ~l~, ~r~ and ~b~ are allowed as values                                                        |
+
+** Writing
+Writing can only be done through keywords, albeit in 2 different ways:
+- *Directly:* A direct modification involves the script creator themselves using a method that does not require any sort of confirmation from the user when it comes to modifying the cache.
+- *Indirectly:* An indirect modification involves obtaining input from the user or the environment.
+
+*** Keywords that Write to the Cache Directly
+- [[=CLEAR=][*=CLEAR=*]] - clears the cache
+- [[=SET=][*=SET=*]] - writes to the cache
+- [[Mathematical Operations (v2.0.0+)][*All Mathematical Operations* (new in version 2)]] - all of them write the result to the cache
+
+**** =CLEAR=
+This command clears the cache (fills it with empty bytes).
+
+| Summary           | Arguments | Returns | Exceptions                                                        | Example |
+|-------------------+-----------+---------+-------------------------------------------------------------------+---------|
+| Clears the cache. | None      | None    | ~SyntaxError~ - =CLEAR= takes 0 arguments, but more than 0 were given | =CLEAR;=  |
+
+**** =SET=
+This command writes a value to the cache.
+
+| Summary                      | Arguments                                                        | Returns | Exceptions | Example      |
+|------------------------------+------------------------------------------------------------------+---------+------------+--------------|
+| Writes a value to the cache. | ~Value~ - the value to write to the cache, can be of any data type | None    | None       | =SET ?? 44.5;= |
+
+*** List of Keywords that Write to the Cache Indirectly
+- [[=CIN= (2 arguments overload)][*=CIN= (any of the overloads)*]] - writes user input to cache
+- [[=GETPASS=][*=GETPASS=*]] - writes user input to cache
+- [[=SAFECIN= (2 arguments overload)][*=SAFECIN= (any of the overloads)*]] - writes user input to cache
+
+** Benefits of caching
+Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
+- *Constants.* The equivalent to constants would be this (at the start of the script): =SET ?? 7;= and accessing it like this: =c0:1l:1:1:n=.
+- *User Feedback.* Hey, the user knows best, right? You can obtain file paths, make decisions and much more, based on the user input.
+
+* Environment Variables
+Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
+
+Example:
+#+begin_src bash
+>>> COUT ?? v'HOME'; // For this example, we're on Linux
+/home/username
+>>> COUT ?? v'VAR_THAT_DOESNT_EXIST';
+VAR_THAT_DOESNT_EXIST
+#+end_src
+
+Syntax:
+#+begin_src bash
+v'VARNAME'
+#+end_src
+
+This is a great way to find values such as home directories, that are OS and usually machine-dependent.
+
+* CX Vars (v2.0.0+)
+Other than environment variables, there are also *CX Setup Variables*, new to v2.0.0.
+
+While the feature is still pretty limited, the next versions will have more variables.
+
+Variables can be used as arguments. In such case, they're written WITHOUT double quotes, just like regular text. They will be recognized as variables in case they are valid ones.
+
+| Variable        | Data Type       | Value                       | Example                                                      |
+|-----------------+-----------------+-----------------------------+--------------------------------------------------------------|
+| =polarity=        | Boolean/integer | The polarity of the script. | =PROD ?? 7 ?? polarity; // 0 if negative=                      |
+| =cxSetup.Version= | String          | The version of CX Setup.    | =COUT ?? "You're running: CXSetup "; COUT ?? cxSetup.Version;= |
+
+* Polarity
+Alongside cache, there's yet one more extremely useful feature that needs to be discussed: *polarity*. Its official name is *Specialized Boolean Cache* and it allows for *code paths*, kind of the same way *if/else* allows for different operations based on a comparison, in other languages.
+
+There are exactly 2 commands that can modify the *polarity* of the script, but before we discuss them, we should discuss how to add polarity to our scripts.
+
+** Defining code paths
+Let's say, for example, there's a dependency our setup script needs, but in a version of the OS, it's named ~x-dev~ and in another version of the very same OS, it's named ~x-pkg~. Clearly, this is going to raise issues. Thankfully, we can instruct the user on how to check what the name is and then ask them if it's one or the other. The only problem is that we cannot achieve comparisons.
+
+Sure, we could do something like this, since both package names have exactly 5 characters:
+#+begin_src bash
+COUT ?? "Here's how to check whether the name is x-dev or x-pkg: etc etc etc...";
+ENDL;
+SAFECIN ?? 5 ?? "The name: ";
+PKGRUN ?? "install" ?? c0:5l:1:3:b;
+TERMINATE;
+#+end_src
+
+However, there are several issues with this script.
+1. The user can input *ANY* name, which is problematic: they could be installing something they don't know is safe.
+2. The user isn't restricted to 5 characters, they can insert a string with 1, 2, 3, etc.
+
+So, how can we fix this code? Using *polarity*. Polarity has quite an unusual syntax.
+
+In a script, *polarity* always starts off positive. Here's an example of a positive keyword:
+#+begin_src C
++ENDL; // positive keyword - can only be done like this in v2.0.0 and above
+#+end_src
+
+You can, however, omit the ~+~ sign and it will still be interpreted as a positive keyword:
+#+begin_src C
+ENDL; // still a positive keyword - the only correct way to use one in v1.0.0
+#+end_src
+
+A negative keyword would look like this:
+#+begin_src C
+!ENDL; // negative keyword
+#+end_src
+
+There is also another *behavior declaration* available - the *indifferent* declaration, *introduced in v2.0.0*:
+#+begin_src C
+&ENDL; // indifferent keyword - new in v2.0.0
+#+end_src
+
+Indifferent keywords will run no matter what: they're indifferent to the *polarity*.
+
+Getting back to our script, here's a refined version:
+#+begin_src C
+// the polarity starts off positive so we don't have to worry about COUT not running
+COUT ?? "Here's how to check whether the name is x-dev or x-pkg: etc etc etc...";
+ENDL; // command is positive so it runs, because the polarity is also positive
+COUT ?? "Is the correct name 'x-dev'?"; ENDL;
+YAYORNAY;
+// polarity has now changed: YAYORNAY modified it
+PKGRUN ?? "install" ?? "x-dev";
+// the command above is positive so it will only run if the polairty is positive (if the user pressed 'y')
+!PKGRUN ?? "install" ?? "x-pkg";
+// the command above is negative so it will only run if the polarity is negative (if the user pressed 'n')
+
+// we can clear the polarity by doing an indifferent reset
+&RESET;
+
+// That way, we don't have to do TERMINATE; !TERMINATE;, because we already know the polarity is going to be positive
+TERMINATE;
+
+// or, better: we could have just done &TERMINATE;
+// Done!
+#+end_src
+
+Quite a complex example, I admit. Any command can be negated.
+
+** =RESET=
+This keyword simply resets the cache back to positive.
+
+That is why it should only be used with a =!= or a =&= declarations, as it does not make sense to RESET an already positive polarity.
+
+| Summary                                        | Arguments | Returns | Exceptions                                                        | Example |
+|------------------------------------------------+-----------+---------+-------------------------------------------------------------------+---------|
+| Resets the script's polarity back to *POSITIVE*. | None      | None    | ~SyntaxError~ - =RESET= takes 0 arguments, but more than 0 were given | =RESET;=  |
+
+** =INVERT=
+This keyword inverts the polarity.
+
+| Summary                        | Arguments | Returns | Exceptions                                                         | Example |
+|--------------------------------+-----------+---------+--------------------------------------------------------------------+---------|
+| Inverts the script's polarity. | None      | None    | ~SyntaxError~ - =INVERT= takes 0 arguments, but more than 0 were given | =INVERT;= |
+
+** =YAYORNAY=
+Gets input from the user and adjusts the polarity accordingly (~y~ = POSITIVE, ~n~ = NEGATIVE)
+
+| Summary                                                                           | Arguments | Returns | Exceptions                                                           | Example   |
+|-----------------------------------------------------------------------------------+-----------+---------+----------------------------------------------------------------------+-----------|
+| Changes the polarity to positive if the user input is *y* or to negative if it's *n*. | None      | None    | ~SyntaxError~ - =YAYORNAY= takes 0 arguments, but more than 0 were given | =YAYORNAY;= |
+
+** Other polarity-related keywords
+There are other keywords that can affect the polarity of the script, however. They are:
+
+- [[File Operations (v2.0.0+)][*=PATH.EXISTS=*]] - Verifies if a given path exists
+- [[File Operations (v2.0.0+)][*=DIR.EXISTS=*]] - Verifies if a given directory exists
+- [[File Operations (v2.0.0+)][*=FILE.EXISTS=*]] - Verifies if a given file exists
+
+* Mathematical Operations (v2.0.0+)
+Mathematical operations, a new v2.0.0 feature, can prove themselves useful from time to time.
+
+They are done through keywords:
+| Keyword | Amount of arguments | Underlying Operation (Return Result)                                                         | Example                                                   |
+|---------+---------------------+----------------------------------------------------------------------------------------------+-----------------------------------------------------------|
+| =SUM=     |                 Any | Sum of all numeric values.                                                                   | =SUM ?? 4 ?? 7; // this will write 11 to the cache=         |
+| =SUB=     |                   2 | Subtracts the second argument from the first.                                                | =SUB ?? 4 ?? 7; // this will write -3 to the cache=         |
+| =DIV=     |                   2 | Divides the first number for the second. Truncates if they're both integers.                 | =DIV ?? 10 ?? 5; // this will write 2 to the cache=         |
+| =PROD=    |                   2 | Multiplies the first argument with the second one.                                           | =PROD ?? 2 ?? 7; // this will write 14 to the cache=        |
+| =REM=     |                   2 | Calculates the remainder of a division between the first argument and the second one.        | =REM ?? 10 ?? 7; // this will write 3 to the cache=         |
+| =ABS=     |                   1 | Calculates the absolute value of a number.                                                   | =ABS ?? -5; // this will write 5 to the cache=              |
+| =ROUND=   |                   2 | Rounds a float (first argument) to N decimal digits, where N is an integer (second argument). | =ROUND ?? 5.764 ?? 2; // this will write 5.76 to the cache= |
+
+* File Operations (v2.0.0+)
+*What's a setup script without file-related operations?* Well, these are new in v2.0.0 and are already powerful enough for most use cases.
+
+They can be split into 2 groups:
+- *The ones who modify the polarity.* These evaluate a boolean value (such as: "does this file exist?") and modify the polarity accordingly.
+- *The ones who modify the cache.* These return a value that is written to the cache.
+- *The ones who don't return anything.* These operate on the environment without modifying the cache or the polarity.
+
+They are done through keywords:
+| Keyword     | Modifies what? | Underlying Operation (Return Result)                                   | Example                                 |
+|-------------+----------------+------------------------------------------------------------------------+-----------------------------------------|
+| =PATH.EXISTS= | Polarity       | Verifies if a given path (string) exists.                              | =PATH.EXISTS ?? "/path/to/file";=         |
+| =DIR.EXISTS=  | Polarity       | Verifies if a given path (string) exists and is a directory.           | =DIR.EXISTS ?? "/path/to/dir";=           |
+| =FILE.EXISTS= | Polarity       | Verifies if a given path (string) exists and is a regular file.        | =FILE.EXISTS ?? "/path/to/file";=         |
+| =ECHO=        | N/A            | Writes data (string) to a file path (string) without overwriting files. | =ECHO ?? "hello" ?? "/path/to/file";=     |
+| =ECHORDIE=    | N/A            | Same as =ECHO= but overwrites files if necessary.                        | =ECHORDIE ?? "hello" ?? "/path/to/file";= |
+
+* Cache Size Declaration
+By default, the cache takes up 256 bytes, which may be too much for some scenarios.
+
+Thankfully, you can define exactly how many bytes you want using *cache size declarations*.
+
+These are performed at the very start of the file (first line). If the first line is equals to an integer, that integer will be interpreted as the cache size.
+
+You may omit it, if you're fine with the default, but it's good practice to always define it.
+
+#+begin_src C
+70
+// that was the cache size declaration
+// make sure there is nothing else but the integer in the first line, as that is very important
+// negative cache sizes or ones that equal 0 are invalid (minimum is 1 byte)
+
+// Your code goes here...
+COUT ?? "Hello, World!";
+// ...
+#+end_src
+
+* Examples
+Below, you can find example scripts.
+
+** Writing Hello, World! to a file called cxsetup-playground
+#+begin_src C
+200
+
+// Constants
+SET ?? v'HOME';
+SET ?? "/cxsetup-playground";
+
+COUT ?? "Does a file named cxsetup-playground exist in your home directory?";
+ENDL;
+YAYORNAY;
+
+// If it doesn't exist, we'll get rid of it.
+RUN ?? "rm" ?? c0:199l:1:3:b; // trim both sides -> very important
+
+// Invert the polarity to negative if positive
+INVERT;
+
+// now, the polarity is 100% sure negative
+// Let's save the file
+// Of coruse we could have just used ECHORDIE, but this is supposed to showoff the power of this language sooo
+!ECHO ?? "Hello, World!" ?? c0:199l:1:3:b;
+!COUT ?? "Finished."; !ENDL;
+!TERMINATE; // done
+#+end_src
+
+** Global Cheat Sheet (for v1.0.0)
+#+begin_src C
+50
+// That is a cache size declaration
+
+// This is a comment.
+
+COUT ?? "String";
+COUT ?? 4; // Integer
+COUT ?? 5.7; // Float
+COUT ?? v'HOME'; // If the variable exists, its value is used
+COUT ?? v'TESTING'; // If it doesn't, its name is used instead
+COUT ?? "a"; // Single character
+
+CIN; // get input
+CLEAR; // clear the cache
+CIN ?? 5; // 5 character limit
+CLEAR; CIN ?? 4; CLEAR; // you don't have to split instructions across lines if you don't want to
+CIN ?? 4 ?? "Your input, if you may: "; // custom prompt message
+CLEAR;
+
+SAFECIN ?? 5; // better input management
+CLEAR; SAFECIN ?? 4 ?? "Better input: "; // custom prompt message
+
+ENDL2; // 2 new lines
+COUT ?? c0:4l:1:3:b; // Cache Grab: starts at 0, length = 4, no pattern, as string, trim both sides
+ENDL; // 1 new line
+
+!TERMINATE; // this won't run since the polarity is positive
+
+INVERT; // inverts the polarity
+TERMINATE; // this won't run because, now, the polarity is negative
+INVERT; // neither will this
+!INVERT; // but this will
+
+ECHO ?? "Back to normal." ?? ""; // the filepath is empty, so this will just COUT
+ENDL;
+
+ECHO ?? "Hello, World!" ?? "hello.txt"; // write to a file, as long as it does not exist
+ECHORDIE ?? "Hello, World!" ?? "forced_hello.txt"; // write to a file, even if that means overwriting it
+
+FORE ?? "BLUE";
+BACK ?? "YELLOW";
+STYLE ?? "DIM";
+COUT ?? "Blue text on a yellow background, with a dim style";
+STYLE ?? "RESET_ALL";
+ENDL2;
+
+GETPASS ?? "Enter the secret code: "; // Same as CIN ?? 0 ?? "Enter the secret code: " but hides the characters that are being typed
+
+CLEAR;
+
+RUN ?? "neofetch"; // runs a subprocess
+RUN ?? "clear"; // this will clear the screen, for example
+
+PKGRUN ?? "install" ?? "figlet"; // on Debian, this would be the same as RUN ?? "apt" ?? "install" ?? "figlet";
+PIPRUN ?? "install" ?? "PyLocalizer"; // same as RUN ?? "pip" ?? "install" ?? "PyLocalizer", but uses the pip version recommended by the system
+NPMRUN ?? "install" ?? "express"; // same as RUN ?? "npm" ?? "install" ?? "express", but makes sure the global npm installation is used
+
+CLEAR;
+SET ?? "sl"; // save PyLocalizer as a constant to the cache
+REQUIRES ?? 0 ?? c0:2l:1:3:b; // mark sl as a requirement for the package manager
+REQUIRES ?? 1 ?? "PyLocalizer"; // mark PyLocalizer as a requirement for PIP
+
+REQINSTALL; // install all previously marked requirements
+
+YAYORNAY; // if the user inputs y, the polarity becomes positive. Otherwise, it becomes negative
+
+!COUT ?? "Polarity is negative. Exiting with error code 1";
+!ENDL;
+!TERMINATE ?? 1; // terminate with error code 1
+
+TERMINATE; // terminate with success code 0, same as TERMINATE ?? 0;
+COUT ?? "Hi"; // this won't run
+#+end_src
+
+* Other tools
+CXSetup isn't limited to the interpreter.
+- [[https://github.com/MF366-Coding/CXSetup/blob/main/cxhighlight.py][*CX Setup Syntax Highlighter*]] (can be used in the terminal or imported and used from a Python file)
+- *CX Setup Linter* (coming soon)
+- [[https://marketplace.visualstudio.com/items/?itemName=MF366.cxsetup][*CX Setup Language for VSCode*]] (syntax highlighting for Visual Studio Code)
+
+
+#  LocalWords:  toc GFDL's COUT ENDL2 LIGHTBLACK LIGHTBLUE LIGHTGREEN LIGHTRED
+#  LocalWords:  LIGHTYELLOW LIGHTMAGENTA LIGHTCYAN LIGHTWHITE CIN CharLimit OkA
+#  LocalWords:  InternalError PromptMessage GETPASS SAFECIN FileExistsError npm
+#  LocalWords:  DataToWrite FilePath ECHORDIE PIPRUN PKGRUN NPMRUN REQINSTALL
+#  LocalWords:  DependencyName Hlo ol

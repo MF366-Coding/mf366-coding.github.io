@@ -355,7 +355,7 @@ So what does each letter stand for? Let's see:
 - *D:* a single character, must be one of ~l~ or ~e~. This is the value that decides whether value *C* is interpreted as the *end index* (~e~) or the *length of the cache grab* (~l~).
 - *E:* an integer. Represents the *step value*. This represents the pattern to perform. Let's say we're cache grabbing ~Hello, World!~. Using a *step value* of 1 (default), we'd get ~Hello, World!~ but a *step value of 2* would give us the same string, but skipping each odd-indexed character (indexing starts at 0). So, ~Hlo ol!~.
 - *F:* an integer. Represents the data type the cache grab must be casted as. (See table below.)
-- *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
+- *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~, ~B~, ~R~, ~L~, ~N~, ~v~, ~e~, ~k~, ~m~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
 
 Here's an example:
 #+begin_src bash
@@ -388,11 +388,19 @@ Hello!
 
 | *G* Value (Trim Direction) | Meaning                                                                                                     |
 |--------------------------+-------------------------------------------------------------------------------------------------------------|
-| ~n~                        | *Don't trim.* IF dealing with anything other than strings, this is the only option that won't raise an error. |
+| ~n~                        | *Don't trim.* If dealing with anything other than strings, this is the only option that won't raise an error.  |
 | ~l~                        | *Trim left.* Trim whitespace characters to the left of the string.                                            |
 | ~r~                        | *Trim right.* Trim whitespace characters to the right of the string.                                          |
 | ~b~                        | *Trim both sides.* Trim whitespace characters at both ends of the string.                                     |
-| Anything Else            | ~ValueError~: only ~n~, ~l~, ~r~ and ~b~ are allowed as values                                                        |
+| ~N~                        | *Don't trim, but change to uppercase.*                                                                        |
+| ~L~                        | *Trim left, but change to uppercase.*                                                                         |
+| ~R~                        | *Trim right, but change to uppercase.*                                                                        |
+| ~B~                        | *Trim both sides, but change to uppercase.*                                                                   |
+| ~m~                        | *Don't trim, but change to lowercase.*                                                                        |
+| ~k~                        | *Trim left, but change to lowercase.*                                                                         |
+| ~e~                        | *Trim right, but change to lowercase.*                                                                        |
+| ~v~                        | *Trim both sides, but change to lowercase.*                                                                   |
+| Anything Else            | ~ValueError~: only the above specified values are allowed                                                     |
 
 ** Writing
 Writing can only be done through keywords, albeit in 2 different ways:

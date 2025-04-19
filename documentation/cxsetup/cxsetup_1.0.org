@@ -25,7 +25,7 @@ If those rules did not scare you away, the GitHub repository is [[https://github
 * Comments
 Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
 
-#+begin_src
+#+begin_src cxsetup
 // This is a comment
 // This is another comment
 # This is a syntax error
@@ -48,7 +48,7 @@ The available data types are:
 In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
 
 Here is an example of keywords in use:
-#+begin_src
+#+begin_src cxsetup
 // COUT outputs something to the screen with no newline
 COUT ?? "Hello, World!";
 
@@ -127,7 +127,7 @@ Given CXSetup is used in ContenterX's setup scripts, it's kind of an obligation 
 
 *** The Number 1 cause of error when using =RUN=
 The following statements are all incorrect:
-#+begin_src
+#+begin_src cxsetup
 RUN ?? "sudo apt install emacs";
 RUN ?? "sudo" ?? "apt install emacs";
 RUN ?? "sudo apt" ?? "install emacs";
@@ -139,7 +139,7 @@ RUN ?? "sudo apt install" ? "emacs";
 The reason for it is that arguments for the process must be split across arguments for =RUN=.
 
 The correct way to do this installation would be:
-#+begin_src
+#+begin_src cxsetup
 RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
 #+end_src
 
@@ -172,7 +172,7 @@ Sometimes, you may need to be more discreet with your inputs. For example, it's 
 
 This might not seem problematic, but it becomes when *cache grabs* are involved. Cache grabs will be a matter of discussing later, due to their complexity. However, here is a small representation of the issue.
 
-#+begin_src bash
+#+begin_src cxsetup
 >>> CIN ?? 4 ?? "Your input please: ";
 Your input please: Good
 >>> COUT ?? c0:4l:1:3:n;
@@ -180,7 +180,7 @@ Good
 #+end_src
 
 No issue at first. Well let's move on to the second example.
-#+begin_src bash
+#+begin_src cxsetup
 >>> CIN ?? 4 ?? "Input: ";
 Input: Ok
 >>> COUT ?? c0:4l:1:3:n;
@@ -200,7 +200,7 @@ To avoid this issue, we can safely use =SAFECIN=. To make sure the input is as l
 Then, when doing the cache grab, we can trim the spaces if necessary.
 
 Here's our example, but /refined/. To better illustrate it, the meaningful whitespace characters have been represented as ~[SPACE]~.
-#+begin_src bash
+#+begin_src cxsetup
 >>> SAFECIN ?? 4;
 An input is required (press Enter to ignore it): Ok
 >>> CIN;
@@ -221,12 +221,12 @@ Sometimes, it might also be useful to specify exactly what input must be given.
 For example, which of these scenarios is clearer from the user side (a.k.a. by someone who doesn't see the underlying script), A or B?
 
 *Scenario A:*
-#+begin_src bash
+#+begin_src cxsetup
 Your input, please:
 #+end_src
 
 *Scenario B:*
-#+begin_src bash
+#+begin_src cxsetup
 Please insert a valid path to the configuration file:
 #+end_src
 
@@ -261,13 +261,13 @@ A more extreme version of =ECHO=, this one is fine with the possibility of overw
 The main issue with =RUN= is the fact it ends up *hardcoding* values.
 
 For example:
-#+begin_src bash
+#+begin_src cxsetup
 RUN ?? "pip" ?? "install" ?? "simple_webbrowser";
 #+end_src
 
 What if we want the system to tells us exactly what version of ~pip~, ~npm~ or the package manager to use?
 The solution is extremely easy.
-#+begin_src bash
+#+begin_src cxsetup
 PIPRUN ?? "install" ?? "simple_webbrowser";
 #+end_src
 
@@ -279,7 +279,7 @@ Another important thing when it comes to installing software are requirements!
 Note that =REQUIRES= merely defines requirements, it does not install them.
 
 Due to the slight complexity of one of its arguments, instead of just showing the table we'll also show a demonstration with comments.
-#+begin_src bash
+#+begin_src cxsetup
 >>> REQUIRES ?? 0 ?? "neofetch"; // the 0 stands for "Install using system package manager"
 >>> REQUIRES ?? 0 ?? "cowsay"; // worth mentioning the command does not output anything or install anything
 >>> REQUIRES ?? 1 ?? "MF366-Coding/WPlugZ-CLI"; // the 1 uses ContenterX itself to install ("Install using ContenterX")
@@ -325,7 +325,7 @@ A cache grab can have any data type, since it does not matter which command save
 For example, you can do a =CIN= operation, which saves a *string*. But that hardly matters, because you can access that same cache as if it were an integer.
 
 The syntax for cache grabs is the following and can be used as arguments for keywords:
-#+begin_src
+#+begin_src cxsetup
 AB:CD:E:F:G
 #+end_src
 
@@ -339,7 +339,7 @@ So what does each letter stand for? Let's see:
 - *G:* a single character, must be one of ~b~, ~r~, ~l~, ~n~. This value must always be set to ~n~ if we're not dealing with cache grabbed strings. If it's strings we're dealing with, however, we can use this value to decide whether spaces should be trimmed or not (~n~ is trim none), and from what direction (~r~ is trim right, ~l~ is trim left and ~b~ is trim both sides). This is useful when used alongside =SAFECIN=, for example (since it pads the input with spaces).
 
 Here's an example:
-#+begin_src bash
+#+begin_src cxsetup
 >>> SAFECIN ?? 6 ?? "6 characters only please: ";
 6 characters only please: Hello!
 >>> COUT ?? c0:6l:1:3:b; // the first 6 characters, no pattern, output as string, trim both sides
@@ -412,7 +412,7 @@ Cache is an extremely powerful tool, as it allows for many things. 2 examples ar
 Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
 
 Example:
-#+begin_src bash
+#+begin_src cxsetup
 >>> COUT ?? v'HOME'; // For this example, we're on Linux
 /home/username
 >>> COUT ?? v'VAR_THAT_DOESNT_EXIST';
@@ -420,7 +420,7 @@ VAR_THAT_DOESNT_EXIST
 #+end_src
 
 Syntax:
-#+begin_src bash
+#+begin_src cxsetup
 v'VARNAME'
 #+end_src
 
@@ -435,7 +435,7 @@ There are exactly 2 commands that can modify the *polarity* of the script, but b
 Let's say, for example, there's a dependency our setup script needs, but in a version of the OS, it's named ~x-dev~ and in another version of the very same OS, it's named ~x-pkg~. Clearly, this is going to raise issues. Thankfully, we can instruct the user on how to check what the name is and then ask them if it's one or the other. The only problem is that we cannot achieve comparisons.
 
 Sure, we could do something like this, since both package names have exactly 5 characters:
-#+begin_src bash
+#+begin_src cxsetup
 COUT ?? "Here's how to check whether the name is x-dev or x-pkg: etc etc etc...";
 ENDL;
 SAFECIN ?? 5 ?? "The name: ";
@@ -450,17 +450,17 @@ However, there are several issues with this script.
 So, how can we fix this code? Using *polarity*. Polarity has quite an unusual syntax.
 
 In a script, *polarity* always starts off positive. Here's an example of a positive keyword:
-#+begin_src basho
+#+begin_src cxsetup
 ENDL;
 #+end_src
 
 A negative keyword would look like this:
-#+begin_src bash
+#+begin_src cxsetup
 !ENDL;
 #+end_src
 
 Getting back to our script, here's a refined version:
-#+begin_src C
+#+begin_src cxsetup
 // the polarity starts off positive so we don't have to worry about COUT not running
 COUT ?? "Here's how to check whether the name is x-dev or x-pkg: etc etc etc...";
 ENDL; // command is positive so it runs, because the polarity is also positive
@@ -503,7 +503,7 @@ These are performed at the very start of the file (first line). If the first lin
 
 You may omit it, if you're fine with the default, but it's good practice to always define it.
 
-#+begin_src C
+#+begin_src cxsetup
 70
 // that was the cache size declaration
 // make sure there is nothing else but the integer in the first line, as that is very important
@@ -518,7 +518,7 @@ COUT ?? "Hello, World!";
 Below, you can find example scripts.
 
 ** Writing Hello, World! to a file called cxsetup-playground
-#+begin_src C
+#+begin_src cxsetup
 200
 
 // Constants
@@ -544,7 +544,7 @@ INVERT;
 #+end_src
 
 ** Global Cheat Sheet
-#+begin_src C
+#+begin_src cxsetup
 50
 // That is a cache size declaration
 

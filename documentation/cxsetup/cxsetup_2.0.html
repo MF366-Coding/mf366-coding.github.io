@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-18 sex 22:07 -->
+<!-- 2025-04-19 sáb 16:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CX Setup Official Documentation (v2.0.N)</title>
@@ -202,93 +202,93 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org787e2bc">1. About the Documentation</a>
+<li><a href="#org9df94c4">1. About the Documentation</a>
 <ul>
-<li><a href="#org23950d4">1.1. Licensing (Docs)</a></li>
-<li><a href="#org285a2ec">1.2. Contributing</a></li>
+<li><a href="#orgb973ef3">1.1. Licensing (Docs)</a></li>
+<li><a href="#orgb30e232">1.2. Contributing</a></li>
 </ul>
 </li>
-<li><a href="#org9fdeceb">2. Comments</a></li>
-<li><a href="#org66a457a">3. Data Types</a></li>
-<li><a href="#orgb54e2c6">4. String Escape Characters (v2.0.0+)</a></li>
-<li><a href="#org1bebbe6">5. Keywords</a>
+<li><a href="#org6320148">2. Comments</a></li>
+<li><a href="#org1e0e264">3. Data Types</a></li>
+<li><a href="#orgb935af8">4. String Escape Characters (v2.0.0+)</a></li>
+<li><a href="#orgc2ddde0">5. Keywords</a>
 <ul>
-<li><a href="#org772a6f6">5.1. <code>COUT</code></a></li>
-<li><a href="#org768f92f">5.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
-<li><a href="#orga16b7cf">5.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
-<li><a href="#org53e67c8">5.4. <code>TERMINATE</code> (0/1 argument overload)</a></li>
-<li><a href="#orgaf57f17">5.5. <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</a></li>
-<li><a href="#org97a1a9c">5.6. <code>CIN</code> (0 arguments overload)</a></li>
-<li><a href="#orgf8a6e67">5.7. <code>CIN</code> (1 argument overload)</a></li>
-<li><a href="#orgf2063f6">5.8. <code>RUN</code></a>
+<li><a href="#orgf8b2946">5.1. <code>COUT</code></a></li>
+<li><a href="#orgfc07ebc">5.2. <code>ENDL</code> and <code>ENDL2</code></a></li>
+<li><a href="#orgbcbef4a">5.3. <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></a></li>
+<li><a href="#orgfa49d84">5.4. <code>TERMINATE</code> (0/1 argument overload)</a></li>
+<li><a href="#org691d5f5">5.5. <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</a></li>
+<li><a href="#org5718d0a">5.6. <code>CIN</code> (0 arguments overload)</a></li>
+<li><a href="#orge887466">5.7. <code>CIN</code> (1 argument overload)</a></li>
+<li><a href="#orgb999fde">5.8. <code>RUN</code></a>
 <ul>
-<li><a href="#orge7f3d08">5.8.1. The Number 1 cause of error when using <code>RUN</code></a></li>
+<li><a href="#orgca763dd">5.8.1. The Number 1 cause of error when using <code>RUN</code></a></li>
 </ul>
 </li>
-<li><a href="#orgabeb59d">5.9. <code>CIN</code> (2 arguments overload)</a></li>
-<li><a href="#orgac42406">5.10. <code>GETPASS</code></a></li>
-<li><a href="#org5165197">5.11. <code>SAFECIN</code> (1 argument overload)</a></li>
-<li><a href="#orgb34f3f0">5.12. <code>SAFECIN</code> (2 arguments overload)</a></li>
-<li><a href="#org30fb577">5.13. <code>ECHO</code></a></li>
-<li><a href="#orgce6f152">5.14. <code>ECHORDIE</code></a></li>
-<li><a href="#org5ee177a">5.15. <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></a></li>
-<li><a href="#org70f42bc">5.16. <code>REQUIRES</code></a></li>
-<li><a href="#org99a97d6">5.17. <code>REQINSTALL</code></a></li>
+<li><a href="#orgda4256f">5.9. <code>CIN</code> (2 arguments overload)</a></li>
+<li><a href="#orgbdfe5d0">5.10. <code>GETPASS</code></a></li>
+<li><a href="#org5449209">5.11. <code>SAFECIN</code> (1 argument overload)</a></li>
+<li><a href="#org8e9c7a1">5.12. <code>SAFECIN</code> (2 arguments overload)</a></li>
+<li><a href="#org0abf46d">5.13. <code>ECHO</code></a></li>
+<li><a href="#orgcfdf6cf">5.14. <code>ECHORDIE</code></a></li>
+<li><a href="#orgcd4d5b3">5.15. <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></a></li>
+<li><a href="#org7e2fe12">5.16. <code>REQUIRES</code></a></li>
+<li><a href="#orga696051">5.17. <code>REQINSTALL</code></a></li>
 </ul>
 </li>
-<li><a href="#org2559739">6. Cache</a>
+<li><a href="#org54590e0">6. Cache</a>
 <ul>
-<li><a href="#org08fb1e6">6.1. Reading</a></li>
-<li><a href="#org53bef30">6.2. Writing</a>
+<li><a href="#orgbdf96c7">6.1. Reading</a></li>
+<li><a href="#org9d4d629">6.2. Writing</a>
 <ul>
-<li><a href="#orgf239d62">6.2.1. Keywords that Write to the Cache Directly</a></li>
-<li><a href="#org135da83">6.2.2. List of Keywords that Write to the Cache Indirectly</a></li>
+<li><a href="#org791c1a5">6.2.1. Keywords that Write to the Cache Directly</a></li>
+<li><a href="#org3780a61">6.2.2. List of Keywords that Write to the Cache Indirectly</a></li>
 </ul>
 </li>
-<li><a href="#org8109540">6.3. Benefits of caching</a></li>
+<li><a href="#orgdb8cd88">6.3. Benefits of caching</a></li>
 </ul>
 </li>
-<li><a href="#org7e877bb">7. Environment Variables</a></li>
-<li><a href="#org2f33149">8. CX Vars (v2.0.0+)</a></li>
-<li><a href="#orgae89be1">9. Polarity</a>
+<li><a href="#org04646df">7. Environment Variables</a></li>
+<li><a href="#org4d651a4">8. CX Vars (v2.0.0+)</a></li>
+<li><a href="#org881df68">9. Polarity</a>
 <ul>
-<li><a href="#orgb7d2774">9.1. Defining code paths</a></li>
-<li><a href="#orge45f9d2">9.2. <code>RESET</code></a></li>
-<li><a href="#org75364cd">9.3. <code>INVERT</code></a></li>
-<li><a href="#orgce0de6b">9.4. <code>YAYORNAY</code></a></li>
-<li><a href="#org720ce68">9.5. Other polarity-related keywords</a></li>
+<li><a href="#orgc3c98a3">9.1. Defining code paths</a></li>
+<li><a href="#org3bff196">9.2. <code>RESET</code></a></li>
+<li><a href="#org5401456">9.3. <code>INVERT</code></a></li>
+<li><a href="#org10d0dc8">9.4. <code>YAYORNAY</code></a></li>
+<li><a href="#orgdceecee">9.5. Other polarity-related keywords</a></li>
 </ul>
 </li>
-<li><a href="#orgaf319b0">10. Mathematical Operations (v2.0.0+)</a></li>
-<li><a href="#org0e6abbf">11. File Operations (v2.0.0+)</a></li>
-<li><a href="#org92ac6e6">12. Cache Size Declaration</a></li>
-<li><a href="#org81930d7">13. Examples</a>
+<li><a href="#org02a6acc">10. Mathematical Operations (v2.0.0+)</a></li>
+<li><a href="#org600f810">11. File Operations (v2.0.0+)</a></li>
+<li><a href="#org06951c4">12. Cache Size Declaration</a></li>
+<li><a href="#orgbf088d8">13. Examples</a>
 <ul>
-<li><a href="#org86ea18d">13.1. Writing Hello, World! to a file called cxsetup-playground</a></li>
-<li><a href="#org4c7c62b">13.2. Global Cheat Sheet (for v1.0.0)</a></li>
+<li><a href="#org8ae5983">13.1. Writing Hello, World! to a file called cxsetup-playground</a></li>
+<li><a href="#org776201a">13.2. Global Cheat Sheet (for v1.0.0)</a></li>
 </ul>
 </li>
-<li><a href="#org2e66dbb">14. Other tools</a></li>
+<li><a href="#orgca8876e">14. Other tools</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org787e2bc" class="outline-2">
-<h2 id="org787e2bc"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div id="outline-container-org9df94c4" class="outline-2">
+<h2 id="org9df94c4"><span class="section-number-2">1.</span> About the Documentation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The page/document you are currently looking at is the <b>Official Documentation for the CX Setup scripting language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
 </p>
 </div>
-<div id="outline-container-org23950d4" class="outline-3">
-<h3 id="org23950d4"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div id="outline-container-orgb973ef3" class="outline-3">
+<h3 id="orgb973ef3"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
 </p>
 </div>
 </div>
-<div id="outline-container-org285a2ec" class="outline-3">
-<h3 id="org285a2ec"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div id="outline-container-orgb30e232" class="outline-3">
+<h3 id="orgb30e232"><span class="section-number-3">1.2.</span> Contributing</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
@@ -307,26 +307,26 @@ If those rules did not scare you away, the GitHub repository is <a href="https:/
 </div>
 </div>
 </div>
-<div id="outline-container-org9fdeceb" class="outline-2">
-<h2 id="org9fdeceb"><span class="section-number-2">2.</span> Comments</h2>
+<div id="outline-container-org6320148" class="outline-2">
+<h2 id="org6320148"><span class="section-number-2">2.</span> Comments</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Just like in any other scripting language, CXSetup allows comments, albeit only single-line ones.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nil">// This is a comment
-// This is another comment
+<pre class="src src-cxsetup"><span style="color: #546A90;">// </span><span style="color: #546A90;">This is a comment</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">This is another comment</span>
 # This is a syntax error
 &lt;!-- So is this --&gt;
-// Comments must start with //
-// They also last until the end of the line, semicolon or not
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Comments must start with //</span>
+<span style="color: #546A90;">// </span><span style="color: #546A90;">They also last until the end of the line, semicolon or not</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org66a457a" class="outline-2">
-<h2 id="org66a457a"><span class="section-number-2">3.</span> Data Types</h2>
+<div id="outline-container-org1e0e264" class="outline-2">
+<h2 id="org1e0e264"><span class="section-number-2">3.</span> Data Types</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Keywords will be a matter of discussion later on, but they require arguments, which must be passed programatically. Each keyword argument must conform to a supported data type.
@@ -344,8 +344,8 @@ The available data types are:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb54e2c6" class="outline-2">
-<h2 id="orgb54e2c6"><span class="section-number-2">4.</span> String Escape Characters (v2.0.0+)</h2>
+<div id="outline-container-orgb935af8" class="outline-2">
+<h2 id="orgb935af8"><span class="section-number-2">4.</span> String Escape Characters (v2.0.0+)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 This new feature available in version 2.0.0 and above is extremely useful when you need to create strings with characters <b>CX Setup</b> would otherwise consider to be special.
@@ -389,8 +389,8 @@ This new feature available in version 2.0.0 and above is extremely useful when y
 </table>
 </div>
 </div>
-<div id="outline-container-org1bebbe6" class="outline-2">
-<h2 id="org1bebbe6"><span class="section-number-2">5.</span> Keywords</h2>
+<div id="outline-container-orgc2ddde0" class="outline-2">
+<h2 id="orgc2ddde0"><span class="section-number-2">5.</span> Keywords</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In CXSetup, there are no functions, classes, or even variables. Scripts are built entirely from keywords — each acting like a mini-command that does one specific job.
@@ -400,11 +400,11 @@ In CXSetup, there are no functions, classes, or even variables. Scripts are buil
 Here is an example of keywords in use:
 </p>
 <div class="org-src-container">
-<pre class="src src-nil">// COUT outputs something to the screen with no newline
-COUT ?? "Hello, World!";
+<pre class="src src-cxsetup"><span style="color: #546A90;">// </span><span style="color: #546A90;">COUT outputs something to the screen with no newline</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hello, World!"</span><span style="color: #1ea8fc;">;</span>
 
-// Let's try doing a neofetch
-RUN ?? "neofetch";
+<span style="color: #546A90;">// </span><span style="color: #546A90;">Let's try doing a neofetch</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"neofetch"</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 
@@ -414,8 +414,8 @@ Below are the available keywords in CXSetup.
 
 <hr />
 </div>
-<div id="outline-container-org772a6f6" class="outline-3">
-<h3 id="org772a6f6"><span class="section-number-3">5.1.</span> <code>COUT</code></h3>
+<div id="outline-container-orgf8b2946" class="outline-3">
+<h3 id="orgf8b2946"><span class="section-number-3">5.1.</span> <code>COUT</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Quite possibly, one of the simplest keywords. Outputs something to the screen without a newline.
@@ -456,8 +456,8 @@ Quite possibly, one of the simplest keywords. Outputs something to the screen wi
 </table>
 </div>
 </div>
-<div id="outline-container-org768f92f" class="outline-3">
-<h3 id="org768f92f"><span class="section-number-3">5.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
+<div id="outline-container-orgfc07ebc" class="outline-3">
+<h3 id="orgfc07ebc"><span class="section-number-3">5.2.</span> <code>ENDL</code> and <code>ENDL2</code></h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 These ones are also extremely simple: all they do is output new lines to the screen. <code>ENDL</code> outputs 1 newline, while <code>ENDL2</code> outputs 2.
@@ -498,8 +498,8 @@ These ones are also extremely simple: all they do is output new lines to the scr
 </table>
 </div>
 </div>
-<div id="outline-container-orga16b7cf" class="outline-3">
-<h3 id="orga16b7cf"><span class="section-number-3">5.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
+<div id="outline-container-orgbcbef4a" class="outline-3">
+<h3 id="orgbcbef4a"><span class="section-number-3">5.3.</span> <code>STYLE</code>, <code>FORE</code> and <code>BACK</code></h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 These 3 keywords all serve the same general purpose: styling text. To better understand them, they&rsquo;ve been split into 3 tables, one for each.
@@ -608,8 +608,8 @@ These 3 keywords all serve the same general purpose: styling text. To better und
 </table>
 </div>
 </div>
-<div id="outline-container-org53e67c8" class="outline-3">
-<h3 id="org53e67c8"><span class="section-number-3">5.4.</span> <code>TERMINATE</code> (0/1 argument overload)</h3>
+<div id="outline-container-orgfa49d84" class="outline-3">
+<h3 id="orgfa49d84"><span class="section-number-3">5.4.</span> <code>TERMINATE</code> (0/1 argument overload)</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 This is the keyword responsible for terminating the script safely instead of waiting for the end of the file.
@@ -650,8 +650,8 @@ This is the keyword responsible for terminating the script safely instead of wai
 </table>
 </div>
 </div>
-<div id="outline-container-orgaf57f17" class="outline-3">
-<h3 id="orgaf57f17"><span class="section-number-3">5.5.</span> <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</h3>
+<div id="outline-container-org691d5f5" class="outline-3">
+<h3 id="org691d5f5"><span class="section-number-3">5.5.</span> <code>TERMINATE</code> (2 arguments overload - v2.0.0+)</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 New in v2.0.0, this overload of <code>TERMINATE</code> allows for more verbosity.
@@ -696,8 +696,8 @@ It can be given a custom exit message that will be shown if the <code>ExitCode</
 </table>
 </div>
 </div>
-<div id="outline-container-org97a1a9c" class="outline-3">
-<h3 id="org97a1a9c"><span class="section-number-3">5.6.</span> <code>CIN</code> (0 arguments overload)</h3>
+<div id="outline-container-org5718d0a" class="outline-3">
+<h3 id="org5718d0a"><span class="section-number-3">5.6.</span> <code>CIN</code> (0 arguments overload)</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 This is the overload of <code>CIN</code> that requires no arguments.
@@ -742,8 +742,8 @@ This is the overload of <code>CIN</code> that requires no arguments.
 </table>
 </div>
 </div>
-<div id="outline-container-orgf8a6e67" class="outline-3">
-<h3 id="orgf8a6e67"><span class="section-number-3">5.7.</span> <code>CIN</code> (1 argument overload)</h3>
+<div id="outline-container-orge887466" class="outline-3">
+<h3 id="orge887466"><span class="section-number-3">5.7.</span> <code>CIN</code> (1 argument overload)</h3>
 <div class="outline-text-3" id="text-5-7">
 <p>
 This is the overload of <code>CIN</code> that requires 1 argument.
@@ -794,8 +794,8 @@ If the character limit is set to <b>0 or a negative number</b>, it will be ignor
 </table>
 </div>
 </div>
-<div id="outline-container-orgf2063f6" class="outline-3">
-<h3 id="orgf2063f6"><span class="section-number-3">5.8.</span> <code>RUN</code></h3>
+<div id="outline-container-orgb999fde" class="outline-3">
+<h3 id="orgb999fde"><span class="section-number-3">5.8.</span> <code>RUN</code></h3>
 <div class="outline-text-3" id="text-5-8">
 <p>
 Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an obligation for it to allow the creator of the script to <b>run sub-processes</b> programatically.
@@ -835,19 +835,19 @@ Given CXSetup is used in ContenterX&rsquo;s setup scripts, it&rsquo;s kind of an
 </tbody>
 </table>
 </div>
-<div id="outline-container-orge7f3d08" class="outline-4">
-<h4 id="orge7f3d08"><span class="section-number-4">5.8.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
+<div id="outline-container-orgca763dd" class="outline-4">
+<h4 id="orgca763dd"><span class="section-number-4">5.8.1.</span> The Number 1 cause of error when using <code>RUN</code></h4>
 <div class="outline-text-4" id="text-5-8-1">
 <p>
 The following statements are all incorrect:
 </p>
 <div class="org-src-container">
-<pre class="src src-nil">RUN ?? "sudo apt install emacs";
-RUN ?? "sudo" ?? "apt install emacs";
-RUN ?? "sudo apt" ?? "install emacs";
-RUN ?? "sudo" ?? "apt" ?? "install emacs";
-RUN ?? "sudo" ?? "apt install" ?? "emacs";
-RUN ?? "sudo apt install" ? "emacs";
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo apt install emacs"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"apt install emacs"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo apt"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install emacs"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"apt"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install emacs"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"apt install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"emacs"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo apt install"</span> <span style="color: #1ea8fc;">?</span> <span style="color: #7984D1;">"emacs"</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 
@@ -859,14 +859,14 @@ The reason for it is that arguments for the process must be split across argumen
 The correct way to do this installation would be:
 </p>
 <div class="org-src-container">
-<pre class="src src-nil">RUN ?? "sudo" ?? "apt" ?? "install" ?? "emacs";
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sudo"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"apt"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"emacs"</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orgabeb59d" class="outline-3">
-<h3 id="orgabeb59d"><span class="section-number-3">5.9.</span> <code>CIN</code> (2 arguments overload)</h3>
+<div id="outline-container-orgda4256f" class="outline-3">
+<h3 id="orgda4256f"><span class="section-number-3">5.9.</span> <code>CIN</code> (2 arguments overload)</h3>
 <div class="outline-text-3" id="text-5-9">
 <p>
 This is the overload of <code>CIN</code> that requires 2 arguments.
@@ -921,8 +921,8 @@ If the character limit is <b>0 or a negative number</b>, no limit will be applie
 </table>
 </div>
 </div>
-<div id="outline-container-orgac42406" class="outline-3">
-<h3 id="orgac42406"><span class="section-number-3">5.10.</span> <code>GETPASS</code></h3>
+<div id="outline-container-orgbdfe5d0" class="outline-3">
+<h3 id="orgbdfe5d0"><span class="section-number-3">5.10.</span> <code>GETPASS</code></h3>
 <div class="outline-text-3" id="text-5-10">
 <p>
 Sometimes, you may need to be more discreet with your inputs. For example, it&rsquo;s not really a great idea to get <b>passwords</b> with <code>CIN</code>, since it shows what is being typed.
@@ -967,8 +967,8 @@ Sometimes, you may need to be more discreet with your inputs. For example, it&rs
 </table>
 </div>
 </div>
-<div id="outline-container-org5165197" class="outline-3">
-<h3 id="org5165197"><span class="section-number-3">5.11.</span> <code>SAFECIN</code> (1 argument overload)</h3>
+<div id="outline-container-org5449209" class="outline-3">
+<h3 id="org5449209"><span class="section-number-3">5.11.</span> <code>SAFECIN</code> (1 argument overload)</h3>
 <div class="outline-text-3" id="text-5-11">
 <p>
 <code>CIN</code> has yet another big issue: when it is given a character limit, it makes sure the input doesn&rsquo;t go beyond the limit. However, it does <b>not</b> make sure the input has the specified length.
@@ -979,9 +979,9 @@ This might not seem problematic, but it becomes when <b>cache grabs</b> are invo
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Your input please: "</span>;
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Your input please: "</span><span style="color: #1ea8fc;">;</span>
 Your input please: Good
-&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:n<span style="color: #1ea8fc;">;</span>
 Good
 </pre>
 </div>
@@ -990,13 +990,13 @@ Good
 No issue at first. Well let&rsquo;s move on to the second example.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Input: "</span><span style="color: #1ea8fc;">;</span>
 Input: Ok
-&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:n<span style="color: #1ea8fc;">;</span>
 Ok
-&gt;&gt;&gt; CIN ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"Input: "</span>;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">1</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Input: "</span><span style="color: #1ea8fc;">;</span>
 Input: A
-&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:n<span style="color: #1ea8fc;">;</span>
 OkA
 </pre>
 </div>
@@ -1021,14 +1021,14 @@ Then, when doing the cache grab, we can trim the spaces if necessary.
 Here&rsquo;s our example, but <i>refined</i>. To better illustrate it, the meaningful whitespace characters have been represented as <code>[SPACE]</code>.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">4</span>;
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">SAFECIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span><span style="color: #1ea8fc;">;</span>
 An input is required (press Enter to ignore it): Ok
-&gt;&gt;&gt; CIN;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">CIN</span><span style="color: #1ea8fc;">;</span>
 An input is required (press Enter to ignore it): A
-&gt;&gt;&gt; COUT ?? c0:4l:1:3:n;
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:n<span style="color: #1ea8fc;">;</span>
 Ok[SPACE][SPACE]
-&gt;&gt; COUT ?? c0:4l:1:3:b; // the little b means trim both sides - we<span style="color: #7984D1;">'ll talk about it soon</span>
-<span style="color: #7984D1;">Ok</span>
+&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the little b means trim both sides - we'll talk about it soon</span>
+Ok
 </pre>
 </div>
 
@@ -1067,8 +1067,8 @@ Ok[SPACE][SPACE]
 </table>
 </div>
 </div>
-<div id="outline-container-orgb34f3f0" class="outline-3">
-<h3 id="orgb34f3f0"><span class="section-number-3">5.12.</span> <code>SAFECIN</code> (2 arguments overload)</h3>
+<div id="outline-container-org8e9c7a1" class="outline-3">
+<h3 id="org8e9c7a1"><span class="section-number-3">5.12.</span> <code>SAFECIN</code> (2 arguments overload)</h3>
 <div class="outline-text-3" id="text-5-12">
 <p>
 Sometimes, it might also be useful to specify exactly what input must be given.
@@ -1082,7 +1082,7 @@ For example, which of these scenarios is clearer from the user side (a.k.a. by s
 <b>Scenario A:</b>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">Your input, please:
+<pre class="src src-cxsetup">Your input, please:
 </pre>
 </div>
 
@@ -1090,7 +1090,7 @@ For example, which of these scenarios is clearer from the user side (a.k.a. by s
 <b>Scenario B:</b>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">Please insert a valid path to the configuration file:
+<pre class="src src-cxsetup">Please insert a valid path to the configuration file:
 </pre>
 </div>
 
@@ -1129,12 +1129,12 @@ For example, which of these scenarios is clearer from the user side (a.k.a. by s
 </table>
 </div>
 </div>
-<div id="outline-container-org30fb577" class="outline-3">
-<h3 id="org30fb577"><span class="section-number-3">5.13.</span> <code>ECHO</code></h3>
+<div id="outline-container-org0abf46d" class="outline-3">
+<h3 id="org0abf46d"><span class="section-number-3">5.13.</span> <code>ECHO</code></h3>
 <div class="outline-text-3" id="text-5-13">
 <blockquote>
 <p>
-<code>ECHO</code> does not write to the screen by default. It is used to write to a file instead. If you wish to output to <code>stdout</code>, please use <a href="#org772a6f6">the <code>COUT</code> keyword</a>.
+<code>ECHO</code> does not write to the screen by default. It is used to write to a file instead. If you wish to output to <code>stdout</code>, please use <a href="#orgf8b2946">the <code>COUT</code> keyword</a>.
 </p>
 </blockquote>
 
@@ -1186,8 +1186,8 @@ Note that <b><code>ECHO</code> does not overwrite files</b>. In fact, there are 
 </table>
 </div>
 </div>
-<div id="outline-container-orgce6f152" class="outline-3">
-<h3 id="orgce6f152"><span class="section-number-3">5.14.</span> <code>ECHORDIE</code></h3>
+<div id="outline-container-orgcfdf6cf" class="outline-3">
+<h3 id="orgcfdf6cf"><span class="section-number-3">5.14.</span> <code>ECHORDIE</code></h3>
 <div class="outline-text-3" id="text-5-14">
 <p>
 A more extreme version of <code>ECHO</code>, this one is fine with the possibility of overwriting files. Due to this fact, it ought to be used carefully.
@@ -1228,8 +1228,8 @@ A more extreme version of <code>ECHO</code>, this one is fine with the possibili
 </table>
 </div>
 </div>
-<div id="outline-container-org5ee177a" class="outline-3">
-<h3 id="org5ee177a"><span class="section-number-3">5.15.</span> <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></h3>
+<div id="outline-container-orgcd4d5b3" class="outline-3">
+<h3 id="orgcd4d5b3"><span class="section-number-3">5.15.</span> <code>PIPRUN</code>, <code>PKGRUN</code>, <code>NPMRUN</code></h3>
 <div class="outline-text-3" id="text-5-15">
 <p>
 The main issue with <code>RUN</code> is the fact it ends up <b>hardcoding</b> values.
@@ -1239,7 +1239,7 @@ The main issue with <code>RUN</code> is the fact it ends up <b>hardcoding</b> va
 For example:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">RUN ?? <span style="color: #7984D1;">"pip"</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"simple_webbrowser"</span>;
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"pip"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"simple_webbrowser"</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 
@@ -1248,17 +1248,17 @@ What if we want the system to tells us exactly what version of <code>pip</code>,
 The solution is extremely easy.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">PIPRUN ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"simple_webbrowser"</span>;
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">PIPRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"simple_webbrowser"</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 
 <p>
-All of these work essentially the same way as <code>RUN</code> (they&rsquo;re wrappers), so their tables have been omitted (see <a href="#orgf2063f6">the <code>RUN</code> command</a> for more information).
+All of these work essentially the same way as <code>RUN</code> (they&rsquo;re wrappers), so their tables have been omitted (see <a href="#orgb999fde">the <code>RUN</code> command</a> for more information).
 </p>
 </div>
 </div>
-<div id="outline-container-org70f42bc" class="outline-3">
-<h3 id="org70f42bc"><span class="section-number-3">5.16.</span> <code>REQUIRES</code></h3>
+<div id="outline-container-org7e2fe12" class="outline-3">
+<h3 id="org7e2fe12"><span class="section-number-3">5.16.</span> <code>REQUIRES</code></h3>
 <div class="outline-text-3" id="text-5-16">
 <p>
 Another important thing when it comes to installing software are requirements!
@@ -1272,13 +1272,13 @@ Note that <code>REQUIRES</code> merely defines requirements, it does not install
 Due to the slight complexity of one of its arguments, instead of just showing the table we&rsquo;ll also show a demonstration with comments.
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? <span style="color: #7984D1;">"neofetch"</span>; // the <span style="color: #ffd400; font-weight: bold;">0</span> stands for <span style="color: #7984D1;">"Install using system package manager"</span>
-&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? <span style="color: #7984D1;">"cowsay"</span>; // worth mentioning the command does not output anything or install anything
-&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"MF366-Coding/WPlugZ-CLI"</span>; // the <span style="color: #ffd400; font-weight: bold;">1</span> uses ContenterX itself to install (<span style="color: #7984D1;">"Install using ContenterX"</span>)
-&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">2</span> ?? <span style="color: #7984D1;">"NCapybaraLib"</span>; // the <span style="color: #ffd400; font-weight: bold;">2</span> stands for <span style="color: #7984D1;">"Install using pip"</span>
-&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">3</span> ?? <span style="color: #7984D1;">"express"</span>; // source number <span style="color: #ffd400; font-weight: bold;">3</span> stands for <span style="color: #7984D1;">"Install using npm"</span>
-&gt;&gt;&gt; REQUIRES ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"https://github.com/MF366-Coding/WriterClassic/releases/download/v11.0.0/WriterClassic_v11.0.0_SetupWizard_x64.exe"</span>; // source number <span style="color: #ffd400; font-weight: bold;">4</span> stands for <span style="color: #7984D1;">"Get binary from a direct link"</span> - you<span style="color: #7984D1;">'ll be using this a lot in Windows</span>
-<span style="color: #7984D1;">&gt;&gt;&gt; REQUIRES ?? 5 ?? "sl"; // this is a ValueError - only sources [0,4] are available</span>
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">0</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"neofetch"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the 0 stands for "Install using system package manager"</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">0</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"cowsay"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">worth mentioning the command does not output anything or install anything</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">1</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"MF366-Coding/WPlugZ-CLI"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the 1 uses ContenterX itself to install ("Install using ContenterX")</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">2</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"NCapybaraLib"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the 2 stands for "Install using pip"</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">3</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"express"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">source number 3 stands for "Install using npm"</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"https://github.com/MF366-Coding/WriterClassic/releases/download/v11.0.0/WriterClassic_v11.0.0_SetupWizard_x64.exe"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">source number 4 stands for "Get binary from a direct link" - you'll be using this a lot in Windows</span>
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">5</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sl"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">this is a ValueError - only sources [0,4] are available</span>
 </pre>
 </div>
 
@@ -1369,8 +1369,8 @@ So, in summary:
 </table>
 </div>
 </div>
-<div id="outline-container-org99a97d6" class="outline-3">
-<h3 id="org99a97d6"><span class="section-number-3">5.17.</span> <code>REQINSTALL</code></h3>
+<div id="outline-container-orga696051" class="outline-3">
+<h3 id="orga696051"><span class="section-number-3">5.17.</span> <code>REQINSTALL</code></h3>
 <div class="outline-text-3" id="text-5-17">
 <p>
 After marking all the dependencies you need, it&rsquo;s time to install them. And that&rsquo;s exactly what this command does. Now, you can call <code>REQINSTALL</code> more than once in the same script, but keep in mind that after each call, the list of dependencies is wiped clean.
@@ -1412,8 +1412,8 @@ After marking all the dependencies you need, it&rsquo;s time to install them. An
 </div>
 </div>
 </div>
-<div id="outline-container-org2559739" class="outline-2">
-<h2 id="org2559739"><span class="section-number-2">6.</span> Cache</h2>
+<div id="outline-container-org54590e0" class="outline-2">
+<h2 id="org54590e0"><span class="section-number-2">6.</span> Cache</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 We have not discussed all keywords yet, but they operate on something slightly more complex: <b>cache</b>.
@@ -1423,8 +1423,8 @@ We have not discussed all keywords yet, but they operate on something slightly m
 Instead of variables, in CXSetup, you have cache. We&rsquo;ve already discussed certain commands that modify it (such as <code>CIN</code>), but what more can be done with it?
 </p>
 </div>
-<div id="outline-container-org08fb1e6" class="outline-3">
-<h3 id="org08fb1e6"><span class="section-number-3">6.1.</span> Reading</h3>
+<div id="outline-container-orgbdf96c7" class="outline-3">
+<h3 id="orgbdf96c7"><span class="section-number-3">6.1.</span> Reading</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 There&rsquo;s a whole new syntax when it comes to accessing caches. Its official name is <b>cache grabbing</b>.
@@ -1442,7 +1442,7 @@ For example, you can do a <code>CIN</code> operation, which saves a <b>string</b
 The syntax for cache grabs is the following and can be used as arguments for keywords:
 </p>
 <div class="org-src-container">
-<pre class="src src-nil">AB:CD:E:F:G
+<pre class="src src-cxsetup">AB:CD:E:F:G
 </pre>
 </div>
 
@@ -1463,9 +1463,9 @@ So what does each letter stand for? Let&rsquo;s see:
 Here&rsquo;s an example:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">6</span> ?? <span style="color: #7984D1;">"6 characters only please: "</span>;
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">SAFECIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">6</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"6 characters only please: "</span><span style="color: #1ea8fc;">;</span>
 <span style="color: #ffd400; font-weight: bold;">6</span> characters only please: Hello!
-&gt;&gt;&gt; COUT ?? c0:6l:1:3:b; // the first <span style="color: #ffd400; font-weight: bold;">6</span> characters, no pattern, output as string, trim both sides
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:6l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the first 6 characters, no pattern, output as string, trim both sides</span>
 Hello!
 </pre>
 </div>
@@ -1646,8 +1646,8 @@ Hello!
 </table>
 </div>
 </div>
-<div id="outline-container-org53bef30" class="outline-3">
-<h3 id="org53bef30"><span class="section-number-3">6.2.</span> Writing</h3>
+<div id="outline-container-org9d4d629" class="outline-3">
+<h3 id="org9d4d629"><span class="section-number-3">6.2.</span> Writing</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Writing can only be done through keywords, albeit in 2 different ways:
@@ -1657,17 +1657,17 @@ Writing can only be done through keywords, albeit in 2 different ways:
 <li><b>Indirectly:</b> An indirect modification involves obtaining input from the user or the environment.</li>
 </ul>
 </div>
-<div id="outline-container-orgf239d62" class="outline-4">
-<h4 id="orgf239d62"><span class="section-number-4">6.2.1.</span> Keywords that Write to the Cache Directly</h4>
+<div id="outline-container-org791c1a5" class="outline-4">
+<h4 id="org791c1a5"><span class="section-number-4">6.2.1.</span> Keywords that Write to the Cache Directly</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <ul class="org-ul">
-<li><a href="#orgd985ffe"><b><code>CLEAR</code></b></a> - clears the cache</li>
-<li><a href="#org3c43955"><b><code>SET</code></b></a> - writes to the cache</li>
-<li><a href="#orgaf319b0"><b>All Mathematical Operations</b> (new in version 2)</a> - all of them write the result to the cache</li>
+<li><a href="#org8875f97"><b><code>CLEAR</code></b></a> - clears the cache</li>
+<li><a href="#org008bcd2"><b><code>SET</code></b></a> - writes to the cache</li>
+<li><a href="#org02a6acc"><b>All Mathematical Operations</b> (new in version 2)</a> - all of them write the result to the cache</li>
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orgd985ffe"></a><code>CLEAR</code><br />
+<li><a id="org8875f97"></a><code>CLEAR</code><br />
 <div class="outline-text-5" id="text-6-2-1-1">
 <p>
 This command clears the cache (fills it with empty bytes).
@@ -1708,7 +1708,7 @@ This command clears the cache (fills it with empty bytes).
 </table>
 </div>
 </li>
-<li><a id="org3c43955"></a><code>SET</code><br />
+<li><a id="org008bcd2"></a><code>SET</code><br />
 <div class="outline-text-5" id="text-6-2-1-2">
 <p>
 This command writes a value to the cache.
@@ -1751,19 +1751,19 @@ This command writes a value to the cache.
 </li>
 </ol>
 </div>
-<div id="outline-container-org135da83" class="outline-4">
-<h4 id="org135da83"><span class="section-number-4">6.2.2.</span> List of Keywords that Write to the Cache Indirectly</h4>
+<div id="outline-container-org3780a61" class="outline-4">
+<h4 id="org3780a61"><span class="section-number-4">6.2.2.</span> List of Keywords that Write to the Cache Indirectly</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <ul class="org-ul">
-<li><a href="#orgabeb59d"><b><code>CIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
-<li><a href="#orgac42406"><b><code>GETPASS</code></b></a> - writes user input to cache</li>
-<li><a href="#orgb34f3f0"><b><code>SAFECIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+<li><a href="#orgda4256f"><b><code>CIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
+<li><a href="#orgbdfe5d0"><b><code>GETPASS</code></b></a> - writes user input to cache</li>
+<li><a href="#org8e9c7a1"><b><code>SAFECIN</code> (any of the overloads)</b></a> - writes user input to cache</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org8109540" class="outline-3">
-<h3 id="org8109540"><span class="section-number-3">6.3.</span> Benefits of caching</h3>
+<div id="outline-container-orgdb8cd88" class="outline-3">
+<h3 id="orgdb8cd88"><span class="section-number-3">6.3.</span> Benefits of caching</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Cache is an extremely powerful tool, as it allows for many things. 2 examples are shown below:
@@ -1775,8 +1775,8 @@ Cache is an extremely powerful tool, as it allows for many things. 2 examples ar
 </div>
 </div>
 </div>
-<div id="outline-container-org7e877bb" class="outline-2">
-<h2 id="org7e877bb"><span class="section-number-2">7.</span> Environment Variables</h2>
+<div id="outline-container-org04646df" class="outline-2">
+<h2 id="org04646df"><span class="section-number-2">7.</span> Environment Variables</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Environment variables are yet another useful tool at your disposal as a creator of a CXSetup script. These are strings, but their syntax is different.
@@ -1786,10 +1786,10 @@ Environment variables are yet another useful tool at your disposal as a creator 
 Example:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">&gt;&gt;&gt; COUT ?? v<span style="color: #7984D1;">'HOME'</span>; // For this example, we<span style="color: #7984D1;">'re on Linux</span>
-<span style="color: #7984D1;">/home/username</span>
-<span style="color: #7984D1;">&gt;&gt;&gt; COUT ?? v'</span>VAR_THAT_DOESNT_EXIST<span style="color: #7984D1;">';</span>
-<span style="color: #7984D1;">VAR_THAT_DOESNT_EXIST</span>
+<pre class="src src-cxsetup">&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> v'HOME'<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">For this example, we're on Linux</span>
+/home/username
+&gt;&gt;&gt; <span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> v'VAR_THAT_DOESNT_EXIST'<span style="color: #1ea8fc;">;</span>
+VAR_THAT_DOESNT_EXIST
 </pre>
 </div>
 
@@ -1797,7 +1797,7 @@ Example:
 Syntax:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">v<span style="color: #7984D1;">'VARNAME'</span>
+<pre class="src src-python">v<span style="color: #A875FF;">'VARNAME'</span>
 </pre>
 </div>
 
@@ -1806,8 +1806,8 @@ This is a great way to find values such as home directories, that are OS and usu
 </p>
 </div>
 </div>
-<div id="outline-container-org2f33149" class="outline-2">
-<h2 id="org2f33149"><span class="section-number-2">8.</span> CX Vars (v2.0.0+)</h2>
+<div id="outline-container-org4d651a4" class="outline-2">
+<h2 id="org4d651a4"><span class="section-number-2">8.</span> CX Vars (v2.0.0+)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Other than environment variables, there are also <b>CX Setup Variables</b>, new to v2.0.0.
@@ -1859,8 +1859,8 @@ Variables can be used as arguments. In such case, they&rsquo;re written WITHOUT 
 </table>
 </div>
 </div>
-<div id="outline-container-orgae89be1" class="outline-2">
-<h2 id="orgae89be1"><span class="section-number-2">9.</span> Polarity</h2>
+<div id="outline-container-org881df68" class="outline-2">
+<h2 id="org881df68"><span class="section-number-2">9.</span> Polarity</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Alongside cache, there&rsquo;s yet one more extremely useful feature that needs to be discussed: <b>polarity</b>. Its official name is <b>Specialized Boolean Cache</b> and it allows for <b>code paths</b>, kind of the same way <b>if/else</b> allows for different operations based on a comparison, in other languages.
@@ -1870,8 +1870,8 @@ Alongside cache, there&rsquo;s yet one more extremely useful feature that needs 
 There are exactly 2 commands that can modify the <b>polarity</b> of the script, but before we discuss them, we should discuss how to add polarity to our scripts.
 </p>
 </div>
-<div id="outline-container-orgb7d2774" class="outline-3">
-<h3 id="orgb7d2774"><span class="section-number-3">9.1.</span> Defining code paths</h3>
+<div id="outline-container-orgc3c98a3" class="outline-3">
+<h3 id="orgc3c98a3"><span class="section-number-3">9.1.</span> Defining code paths</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 Let&rsquo;s say, for example, there&rsquo;s a dependency our setup script needs, but in a version of the OS, it&rsquo;s named <code>x-dev</code> and in another version of the very same OS, it&rsquo;s named <code>x-pkg</code>. Clearly, this is going to raise issues. Thankfully, we can instruct the user on how to check what the name is and then ask them if it&rsquo;s one or the other. The only problem is that we cannot achieve comparisons.
@@ -1881,11 +1881,11 @@ Let&rsquo;s say, for example, there&rsquo;s a dependency our setup script needs,
 Sure, we could do something like this, since both package names have exactly 5 characters:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">COUT ?? <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span>;
-ENDL;
-SAFECIN ?? <span style="color: #ffd400; font-weight: bold;">5</span> ?? <span style="color: #7984D1;">"The name: "</span>;
-PKGRUN ?? <span style="color: #7984D1;">"install"</span> ?? c0:5l:1:3:b;
-TERMINATE;
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">SAFECIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">5</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"The name: "</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">PKGRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> c0:5l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">TERMINATE</span><span style="color: #1ea8fc;">;</span>
 </pre>
 </div>
 
@@ -1905,7 +1905,7 @@ So, how can we fix this code? Using <b>polarity</b>. Polarity has quite an unusu
 In a script, <b>polarity</b> always starts off positive. Here&rsquo;s an example of a positive keyword:
 </p>
 <div class="org-src-container">
-<pre class="src src-C">+<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">positive keyword - can only be done like this in v2.0.0 and above</span>
+<pre class="src src-cxsetup">+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">positive keyword - can only be done like this in v2.0.0 and above</span>
 </pre>
 </div>
 
@@ -1913,7 +1913,7 @@ In a script, <b>polarity</b> always starts off positive. Here&rsquo;s an example
 You can, however, omit the <code>+</code> sign and it will still be interpreted as a positive keyword:
 </p>
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">still a positive keyword - the only correct way to use one in v1.0.0</span>
+<pre class="src src-cxsetup"><span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">still a positive keyword - the only correct way to use one in v1.0.0</span>
 </pre>
 </div>
 
@@ -1921,7 +1921,7 @@ You can, however, omit the <code>+</code> sign and it will still be interpreted 
 A negative keyword would look like this:
 </p>
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">negative keyword</span>
+<pre class="src src-cxsetup"><span style="color: #ffd400;">!ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">negative keyword</span>
 </pre>
 </div>
 
@@ -1929,7 +1929,7 @@ A negative keyword would look like this:
 There is also another <b>behavior declaration</b> available - the <b>indifferent</b> declaration, <b>introduced in v2.0.0</b>:
 </p>
 <div class="org-src-container">
-<pre class="src src-C">&amp;<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">indifferent keyword - new in v2.0.0</span>
+<pre class="src src-cxsetup"><span style="color: #df85ff; font-weight: bold;">&amp;ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">indifferent keyword - new in v2.0.0</span>
 </pre>
 </div>
 
@@ -1941,22 +1941,22 @@ Indifferent keywords will run no matter what: they&rsquo;re indifferent to the <
 Getting back to our script, here&rsquo;s a refined version:
 </p>
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #546A90;">// </span><span style="color: #546A90;">the polarity starts off positive so we don't have to worry about COUT not running</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span>;
-<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">command is positive so it runs, because the polarity is also positive</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Is the correct name 'x-dev'?"</span>; <span style="color: #df85ff; font-weight: bold;">ENDL</span>;
-<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>;
+<pre class="src src-cxsetup"><span style="color: #546A90;">// </span><span style="color: #546A90;">the polarity starts off positive so we don't have to worry about COUT not running</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Here's how to check whether the name is x-dev or x-pkg: etc etc etc..."</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">command is positive so it runs, because the polarity is also positive</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Is the correct name 'x-dev'?"</span><span style="color: #1ea8fc;">;</span> <span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">YAYORNAY</span><span style="color: #1ea8fc;">;</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">polarity has now changed: YAYORNAY modified it</span>
-<span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"x-dev"</span>;
+<span style="color: #ff2afc; font-weight: bold;">PKGRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"x-dev"</span><span style="color: #1ea8fc;">;</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">the command above is positive so it will only run if the polairty is positive (if the user pressed 'y')</span>
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"x-pkg"</span>;
+<span style="color: #ffd400;">!PKGRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"x-pkg"</span><span style="color: #1ea8fc;">;</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">the command above is negative so it will only run if the polarity is negative (if the user pressed 'n')</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">we can clear the polarity by doing an indifferent reset</span>
-&amp;<span style="color: #df85ff; font-weight: bold;">RESET</span>;
+<span style="color: #df85ff; font-weight: bold;">&amp;RESET</span><span style="color: #1ea8fc;">;</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">That way, we don't have to do TERMINATE; !TERMINATE;, because we already know the polarity is going to be positive</span>
-<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>;
+<span style="color: #ff2afc; font-weight: bold;">TERMINATE</span><span style="color: #1ea8fc;">;</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">or, better: we could have just done &amp;TERMINATE;</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Done!</span>
@@ -1968,8 +1968,8 @@ Quite a complex example, I admit. Any command can be negated.
 </p>
 </div>
 </div>
-<div id="outline-container-orge45f9d2" class="outline-3">
-<h3 id="orge45f9d2"><span class="section-number-3">9.2.</span> <code>RESET</code></h3>
+<div id="outline-container-org3bff196" class="outline-3">
+<h3 id="org3bff196"><span class="section-number-3">9.2.</span> <code>RESET</code></h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
 This keyword simply resets the cache back to positive.
@@ -2014,8 +2014,8 @@ That is why it should only be used with a <code>!</code> or a <code>&amp;</code>
 </table>
 </div>
 </div>
-<div id="outline-container-org75364cd" class="outline-3">
-<h3 id="org75364cd"><span class="section-number-3">9.3.</span> <code>INVERT</code></h3>
+<div id="outline-container-org5401456" class="outline-3">
+<h3 id="org5401456"><span class="section-number-3">9.3.</span> <code>INVERT</code></h3>
 <div class="outline-text-3" id="text-9-3">
 <p>
 This keyword inverts the polarity.
@@ -2056,8 +2056,8 @@ This keyword inverts the polarity.
 </table>
 </div>
 </div>
-<div id="outline-container-orgce0de6b" class="outline-3">
-<h3 id="orgce0de6b"><span class="section-number-3">9.4.</span> <code>YAYORNAY</code></h3>
+<div id="outline-container-org10d0dc8" class="outline-3">
+<h3 id="org10d0dc8"><span class="section-number-3">9.4.</span> <code>YAYORNAY</code></h3>
 <div class="outline-text-3" id="text-9-4">
 <p>
 Gets input from the user and adjusts the polarity accordingly (<code>y</code> = POSITIVE, <code>n</code> = NEGATIVE)
@@ -2098,23 +2098,23 @@ Gets input from the user and adjusts the polarity accordingly (<code>y</code> = 
 </table>
 </div>
 </div>
-<div id="outline-container-org720ce68" class="outline-3">
-<h3 id="org720ce68"><span class="section-number-3">9.5.</span> Other polarity-related keywords</h3>
+<div id="outline-container-orgdceecee" class="outline-3">
+<h3 id="orgdceecee"><span class="section-number-3">9.5.</span> Other polarity-related keywords</h3>
 <div class="outline-text-3" id="text-9-5">
 <p>
 There are other keywords that can affect the polarity of the script, however. They are:
 </p>
 
 <ul class="org-ul">
-<li><a href="#org0e6abbf"><b><code>PATH.EXISTS</code></b></a> - Verifies if a given path exists</li>
-<li><a href="#org0e6abbf"><b><code>DIR.EXISTS</code></b></a> - Verifies if a given directory exists</li>
-<li><a href="#org0e6abbf"><b><code>FILE.EXISTS</code></b></a> - Verifies if a given file exists</li>
+<li><a href="#org600f810"><b><code>PATH.EXISTS</code></b></a> - Verifies if a given path exists</li>
+<li><a href="#org600f810"><b><code>DIR.EXISTS</code></b></a> - Verifies if a given directory exists</li>
+<li><a href="#org600f810"><b><code>FILE.EXISTS</code></b></a> - Verifies if a given file exists</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf319b0" class="outline-2">
-<h2 id="orgaf319b0"><span class="section-number-2">10.</span> Mathematical Operations (v2.0.0+)</h2>
+<div id="outline-container-org02a6acc" class="outline-2">
+<h2 id="org02a6acc"><span class="section-number-2">10.</span> Mathematical Operations (v2.0.0+)</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Mathematical operations, a new v2.0.0 feature, can prove themselves useful from time to time.
@@ -2196,8 +2196,8 @@ They are done through keywords:
 </table>
 </div>
 </div>
-<div id="outline-container-org0e6abbf" class="outline-2">
-<h2 id="org0e6abbf"><span class="section-number-2">11.</span> File Operations (v2.0.0+)</h2>
+<div id="outline-container-org600f810" class="outline-2">
+<h2 id="org600f810"><span class="section-number-2">11.</span> File Operations (v2.0.0+)</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 <b>What&rsquo;s a setup script without file-related operations?</b> Well, these are new in v2.0.0 and are already powerful enough for most use cases.
@@ -2274,8 +2274,8 @@ They are done through keywords:
 </table>
 </div>
 </div>
-<div id="outline-container-org92ac6e6" class="outline-2">
-<h2 id="org92ac6e6"><span class="section-number-2">12.</span> Cache Size Declaration</h2>
+<div id="outline-container-org06951c4" class="outline-2">
+<h2 id="org06951c4"><span class="section-number-2">12.</span> Cache Size Declaration</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 By default, the cache takes up 256 bytes, which may be too much for some scenarios.
@@ -2294,138 +2294,138 @@ You may omit it, if you&rsquo;re fine with the default, but it&rsquo;s good prac
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">70</span>
+<pre class="src src-cxsetup"><span style="color: #ffd400; font-weight: bold;">70</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">that was the cache size declaration</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">make sure there is nothing else but the integer in the first line, as that is very important</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">negative cache sizes or ones that equal 0 are invalid (minimum is 1 byte)</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Your code goes here...</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Hello, World!"</span>;
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hello, World!"</span><span style="color: #1ea8fc;">;</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">...</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org81930d7" class="outline-2">
-<h2 id="org81930d7"><span class="section-number-2">13.</span> Examples</h2>
+<div id="outline-container-orgbf088d8" class="outline-2">
+<h2 id="orgbf088d8"><span class="section-number-2">13.</span> Examples</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 Below, you can find example scripts.
 </p>
 </div>
-<div id="outline-container-org86ea18d" class="outline-3">
-<h3 id="org86ea18d"><span class="section-number-3">13.1.</span> Writing Hello, World! to a file called cxsetup-playground</h3>
+<div id="outline-container-org8ae5983" class="outline-3">
+<h3 id="org8ae5983"><span class="section-number-3">13.1.</span> Writing Hello, World! to a file called cxsetup-playground</h3>
 <div class="outline-text-3" id="text-13-1">
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">200</span>
+<pre class="src src-cxsetup"><span style="color: #ffd400; font-weight: bold;">200</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Constants</span>
-<span style="color: #df85ff; font-weight: bold;">SET</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">HOME</span><span style="color: #ffd400;">'</span>;
-<span style="color: #df85ff; font-weight: bold;">SET</span> ?? <span style="color: #7984D1;">"/cxsetup-playground"</span>;
+<span style="color: #ff2afc; font-weight: bold;">SET</span> <span style="color: #1ea8fc;">??</span> v'HOME'<span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">SET</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"/cxsetup-playground"</span><span style="color: #1ea8fc;">;</span>
 
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Does a file named cxsetup-playground exist in your home directory?"</span>;
-<span style="color: #df85ff; font-weight: bold;">ENDL</span>;
-<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>;
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Does a file named cxsetup-playground exist in your home directory?"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">YAYORNAY</span><span style="color: #1ea8fc;">;</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">If it doesn't exist, we'll get rid of it.</span>
-<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"rm"</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">199l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">trim both sides -&gt; very important</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"rm"</span> <span style="color: #1ea8fc;">??</span> c0:199l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">trim both sides -&gt; very important</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Invert the polarity to negative if positive</span>
-<span style="color: #df85ff; font-weight: bold;">INVERT</span>;
+<span style="color: #ff2afc; font-weight: bold;">INVERT</span><span style="color: #1ea8fc;">;</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">now, the polarity is 100% sure negative</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Let's save the file</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">Of coruse we could have just used ECHORDIE, but this is supposed to showoff the power of this language sooo</span>
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">199l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b;
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Finished."</span>; <span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>;
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">done</span>
+<span style="color: #ffd400;">!ECHO</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hello, World!"</span> <span style="color: #1ea8fc;">??</span> c0:199l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span>
+<span style="color: #ffd400;">!COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Finished."</span><span style="color: #1ea8fc;">;</span> <span style="color: #ffd400;">!ENDL</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ffd400;">!TERMINATE</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">done</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org4c7c62b" class="outline-3">
-<h3 id="org4c7c62b"><span class="section-number-3">13.2.</span> Global Cheat Sheet (for v1.0.0)</h3>
+<div id="outline-container-org776201a" class="outline-3">
+<h3 id="org776201a"><span class="section-number-3">13.2.</span> Global Cheat Sheet (for v1.0.0)</h3>
 <div class="outline-text-3" id="text-13-2">
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #ffd400; font-weight: bold;">50</span>
+<pre class="src src-cxsetup"><span style="color: #ffd400; font-weight: bold;">50</span>
 <span style="color: #546A90;">// </span><span style="color: #546A90;">That is a cache size declaration</span>
 
 <span style="color: #546A90;">// </span><span style="color: #546A90;">This is a comment.</span>
 
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"String"</span>;
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Integer</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #ffd400; font-weight: bold;">5.7</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Float</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">HOME</span><span style="color: #ffd400;">'</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">If the variable exists, its value is used</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? v<span style="color: #ffd400;">'</span><span style="color: #df85ff; font-weight: bold;">TESTING</span><span style="color: #ffd400;">'</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">If it doesn't, its name is used instead</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"a"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Single character</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"String"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Integer</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">5.7</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Float</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> v'HOME'<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">If the variable exists, its value is used</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> v'TESTING'<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">If it doesn't, its name is used instead</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"a"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Single character</span>
 
-<span style="color: #df85ff; font-weight: bold;">CIN</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">get input</span>
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">clear the cache</span>
-<span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">5</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">5 character limit</span>
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span>; <span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">you don't have to split instructions across lines if you don't want to</span>
-<span style="color: #df85ff; font-weight: bold;">CIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Your input, if you may: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
+<span style="color: #ff2afc; font-weight: bold;">CIN</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">get input</span>
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">clear the cache</span>
+<span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">5</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">5 character limit</span>
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span> <span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span><span style="color: #1ea8fc;">;</span> <span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">you don't have to split instructions across lines if you don't want to</span>
+<span style="color: #ff2afc; font-weight: bold;">CIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Your input, if you may: "</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span>
 
-<span style="color: #df85ff; font-weight: bold;">SAFECIN</span> ?? <span style="color: #ffd400; font-weight: bold;">5</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">better input management</span>
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>; <span style="color: #df85ff; font-weight: bold;">SAFECIN</span> ?? <span style="color: #ffd400; font-weight: bold;">4</span> ?? <span style="color: #7984D1;">"Better input: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
+<span style="color: #ff2afc; font-weight: bold;">SAFECIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">5</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">better input management</span>
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span> <span style="color: #ff2afc; font-weight: bold;">SAFECIN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">4</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Better input: "</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">custom prompt message</span>
 
-ENDL2; <span style="color: #546A90;">// </span><span style="color: #546A90;">2 new lines</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">4l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">Cache Grab: starts at 0, length = 4, no pattern, as string, trim both sides</span>
-<span style="color: #df85ff; font-weight: bold;">ENDL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">1 new line</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL2</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">2 new lines</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> c0:4l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Cache Grab: starts at 0, length = 4, no pattern, as string, trim both sides</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">1 new line</span>
 
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run since the polarity is positive</span>
+<span style="color: #ffd400;">!TERMINATE</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run since the polarity is positive</span>
 
-<span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">inverts the polarity</span>
-<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run because, now, the polarity is negative</span>
-<span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">neither will this</span>
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">INVERT</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">but this will</span>
+<span style="color: #ff2afc; font-weight: bold;">INVERT</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">inverts the polarity</span>
+<span style="color: #ff2afc; font-weight: bold;">TERMINATE</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run because, now, the polarity is negative</span>
+<span style="color: #ff2afc; font-weight: bold;">INVERT</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">neither will this</span>
+<span style="color: #ffd400;">!INVERT</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">but this will</span>
 
-<span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Back to normal."</span> ?? <span style="color: #7984D1;">""</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">the filepath is empty, so this will just COUT</span>
-<span style="color: #df85ff; font-weight: bold;">ENDL</span>;
+<span style="color: #ff2afc; font-weight: bold;">ECHO</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Back to normal."</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">""</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">the filepath is empty, so this will just COUT</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL</span><span style="color: #1ea8fc;">;</span>
 
-<span style="color: #df85ff; font-weight: bold;">ECHO</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? <span style="color: #7984D1;">"hello.txt"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, as long as it does not exist</span>
-<span style="color: #df85ff; font-weight: bold;">ECHORDIE</span> ?? <span style="color: #7984D1;">"Hello, World!"</span> ?? <span style="color: #7984D1;">"forced_hello.txt"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, even if that means overwriting it</span>
+<span style="color: #ff2afc; font-weight: bold;">ECHO</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hello, World!"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"hello.txt"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, as long as it does not exist</span>
+<span style="color: #ff2afc; font-weight: bold;">ECHORDIE</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hello, World!"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"forced_hello.txt"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">write to a file, even if that means overwriting it</span>
 
-<span style="color: #df85ff; font-weight: bold;">FORE</span> ?? <span style="color: #7984D1;">"BLUE"</span>;
-<span style="color: #df85ff; font-weight: bold;">BACK</span> ?? <span style="color: #7984D1;">"YELLOW"</span>;
-<span style="color: #df85ff; font-weight: bold;">STYLE</span> ?? <span style="color: #7984D1;">"DIM"</span>;
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Blue text on a yellow background, with a dim style"</span>;
-<span style="color: #df85ff; font-weight: bold;">STYLE</span> ?? <span style="color: #7984D1;">"RESET_ALL"</span>;
-ENDL2;
+<span style="color: #ff2afc; font-weight: bold;">FORE</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"BLUE"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">BACK</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"YELLOW"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">STYLE</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"DIM"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Blue text on a yellow background, with a dim style"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">STYLE</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"RESET_ALL"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">ENDL2</span><span style="color: #1ea8fc;">;</span>
 
-<span style="color: #df85ff; font-weight: bold;">GETPASS</span> ?? <span style="color: #7984D1;">"Enter the secret code: "</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">Same as CIN ?? 0 ?? "Enter the secret code: " but hides the characters that are being typed</span>
+<span style="color: #ff2afc; font-weight: bold;">GETPASS</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Enter the secret code: "</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Same as CIN ?? 0 ?? "Enter the secret code: " but hides the characters that are being typed</span>
 
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span>
 
-<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"neofetch"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">runs a subprocess</span>
-<span style="color: #df85ff; font-weight: bold;">RUN</span> ?? <span style="color: #7984D1;">"clear"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this will clear the screen, for example</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"neofetch"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">runs a subprocess</span>
+<span style="color: #ff2afc; font-weight: bold;">RUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"clear"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">this will clear the screen, for example</span>
 
-<span style="color: #df85ff; font-weight: bold;">PKGRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"figlet"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">on Debian, this would be the same as RUN ?? "apt" ?? "install" ?? "figlet";</span>
-<span style="color: #df85ff; font-weight: bold;">PIPRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"PyLocalizer"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "pip" ?? "install" ?? "PyLocalizer", but uses the pip version recommended by the system</span>
-<span style="color: #df85ff; font-weight: bold;">NPMRUN</span> ?? <span style="color: #7984D1;">"install"</span> ?? <span style="color: #7984D1;">"express"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "npm" ?? "install" ?? "express", but makes sure the global npm installation is used</span>
+<span style="color: #ff2afc; font-weight: bold;">PKGRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"figlet"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">on Debian, this would be the same as RUN ?? "apt" ?? "install" ?? "figlet";</span>
+<span style="color: #ff2afc; font-weight: bold;">PIPRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"PyLocalizer"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "pip" ?? "install" ?? "PyLocalizer", but uses the pip version recommended by the system</span>
+<span style="color: #ff2afc; font-weight: bold;">NPMRUN</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"install"</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"express"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">same as RUN ?? "npm" ?? "install" ?? "express", but makes sure the global npm installation is used</span>
 
-<span style="color: #df85ff; font-weight: bold;">CLEAR</span>;
-<span style="color: #df85ff; font-weight: bold;">SET</span> ?? <span style="color: #7984D1;">"sl"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">save PyLocalizer as a constant to the cache</span>
-<span style="color: #df85ff; font-weight: bold;">REQUIRES</span> ?? <span style="color: #ffd400; font-weight: bold;">0</span> ?? c0:<span style="color: #ffd400; font-weight: bold;">2l</span>:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b; <span style="color: #546A90;">// </span><span style="color: #546A90;">mark sl as a requirement for the package manager</span>
-<span style="color: #df85ff; font-weight: bold;">REQUIRES</span> ?? <span style="color: #ffd400; font-weight: bold;">1</span> ?? <span style="color: #7984D1;">"PyLocalizer"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">mark PyLocalizer as a requirement for PIP</span>
+<span style="color: #ff2afc; font-weight: bold;">CLEAR</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ff2afc; font-weight: bold;">SET</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"sl"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">save PyLocalizer as a constant to the cache</span>
+<span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">0</span> <span style="color: #1ea8fc;">??</span> c0:2l:<span style="color: #ffd400; font-weight: bold;">1</span>:<span style="color: #ffd400; font-weight: bold;">3</span>:b<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">mark sl as a requirement for the package manager</span>
+<span style="color: #ff2afc; font-weight: bold;">REQUIRES</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">1</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"PyLocalizer"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">mark PyLocalizer as a requirement for PIP</span>
 
-<span style="color: #df85ff; font-weight: bold;">REQINSTALL</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">install all previously marked requirements</span>
+<span style="color: #ff2afc; font-weight: bold;">REQINSTALL</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">install all previously marked requirements</span>
 
-<span style="color: #df85ff; font-weight: bold;">YAYORNAY</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">if the user inputs y, the polarity becomes positive. Otherwise, it becomes negative</span>
+<span style="color: #ff2afc; font-weight: bold;">YAYORNAY</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">if the user inputs y, the polarity becomes positive. Otherwise, it becomes negative</span>
 
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Polarity is negative. Exiting with error code 1"</span>;
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">ENDL</span>;
-<span style="color: #ff2afc; font-weight: bold;">!</span><span style="color: #df85ff; font-weight: bold;">TERMINATE</span> ?? <span style="color: #ffd400; font-weight: bold;">1</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with error code 1</span>
+<span style="color: #ffd400;">!COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Polarity is negative. Exiting with error code 1"</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ffd400;">!ENDL</span><span style="color: #1ea8fc;">;</span>
+<span style="color: #ffd400;">!TERMINATE</span> <span style="color: #1ea8fc;">??</span> <span style="color: #ffd400; font-weight: bold;">1</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with error code 1</span>
 
-<span style="color: #df85ff; font-weight: bold;">TERMINATE</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with success code 0, same as TERMINATE ?? 0;</span>
-<span style="color: #df85ff; font-weight: bold;">COUT</span> ?? <span style="color: #7984D1;">"Hi"</span>; <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run</span>
+<span style="color: #ff2afc; font-weight: bold;">TERMINATE</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">terminate with success code 0, same as TERMINATE ?? 0;</span>
+<span style="color: #ff2afc; font-weight: bold;">COUT</span> <span style="color: #1ea8fc;">??</span> <span style="color: #7984D1;">"Hi"</span><span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">this won't run</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org2e66dbb" class="outline-2">
-<h2 id="org2e66dbb"><span class="section-number-2">14.</span> Other tools</h2>
+<div id="outline-container-orgca8876e" class="outline-2">
+<h2 id="orgca8876e"><span class="section-number-2">14.</span> Other tools</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 CXSetup isn&rsquo;t limited to the interpreter.
@@ -2434,13 +2434,14 @@ CXSetup isn&rsquo;t limited to the interpreter.
 <li><a href="https://github.com/MF366-Coding/CXSetup/blob/main/cxhighlight.py"><b>CX Setup Syntax Highlighter</b></a> (can be used in the terminal or imported and used from a Python file)</li>
 <li><b>CX Setup Linter</b> (coming soon)</li>
 <li><a href="https://marketplace.visualstudio.com/items/?itemName=MF366.cxsetup"><b>CX Setup Language for VSCode</b></a> (syntax highlighting for Visual Studio Code)</li>
+<li><a href="https://gist.github.com/MF366-Coding/6b65eeb415e3e6bfe86783b496193850"><b>CX Setup Language Major Mode for Emacs</b></a> (syntax highlighting for Emacs)</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matthew (MF366)</p>
-<p class="date">Created: 2025-04-18 sex 22:07</p>
+<p class="date">Created: 2025-04-19 sáb 16:47</p>
 </div>
 </body>
 </html>

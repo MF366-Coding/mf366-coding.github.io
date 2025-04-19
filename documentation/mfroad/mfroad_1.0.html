@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-19 sáb 16:35 -->
+<!-- 2025-04-19 sáb 16:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MFRoad Official Documentation</title>
@@ -202,39 +202,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8ae12d8">1. About the Documentation</a>
+<li><a href="#org754c95d">1. About the Documentation</a>
 <ul>
-<li><a href="#org0814496">1.1. Licensing (Docs)</a></li>
-<li><a href="#org1e1fd9d">1.2. Contributing</a></li>
+<li><a href="#orgc01110a">1.1. Licensing (Docs)</a></li>
+<li><a href="#orgec87b52">1.2. Contributing</a></li>
 </ul>
 </li>
-<li><a href="#orgf6e3624">2. What is MFRoad?</a></li>
-<li><a href="#orgc6854b3">3. Defining a code path</a></li>
-<li><a href="#org4715f3f">4. <code>any</code></a></li>
-<li><a href="#org66047bc">5. Operations</a></li>
-<li><a href="#org3f11da4">6. Behavior on Linux</a></li>
-<li><a href="#org8fd4ae3">7. Parsed V.S. Interpreted</a></li>
-<li><a href="#org02e139f">8. Not in the mood for MFRoad?</a></li>
+<li><a href="#orgfe33800">2. What is MFRoad?</a></li>
+<li><a href="#org31ac6e4">3. Defining a code path</a></li>
+<li><a href="#orge14e795">4. <code>any</code></a></li>
+<li><a href="#org140b70d">5. Operations</a></li>
+<li><a href="#org9f9c07f">6. Behavior on Linux</a></li>
+<li><a href="#org640bd63">7. Parsed V.S. Interpreted</a></li>
+<li><a href="#orgb2cba07">8. Not in the mood for MFRoad?</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8ae12d8" class="outline-2">
-<h2 id="org8ae12d8"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div id="outline-container-org754c95d" class="outline-2">
+<h2 id="org754c95d"><span class="section-number-2">1.</span> About the Documentation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The page/document you are currently looking at is the <b>Official Documentation for the MF Road markup language</b>. It was made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
 </p>
 </div>
-<div id="outline-container-org0814496" class="outline-3">
-<h3 id="org0814496"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div id="outline-container-orgc01110a" class="outline-3">
+<h3 id="orgc01110a"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
 </p>
 </div>
 </div>
-<div id="outline-container-org1e1fd9d" class="outline-3">
-<h3 id="org1e1fd9d"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div id="outline-container-orgec87b52" class="outline-3">
+<h3 id="orgec87b52"><span class="section-number-3">1.2.</span> Contributing</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
@@ -253,19 +253,19 @@ If those rules did not scare you away, the GitHub repository is <a href="https:/
 </div>
 </div>
 </div>
-<div id="outline-container-orgf6e3624" class="outline-2">
-<h2 id="orgf6e3624"><span class="section-number-2">2.</span> What is MFRoad?</h2>
+<div id="outline-container-orgfe33800" class="outline-2">
+<h2 id="orgfe33800"><span class="section-number-2">2.</span> What is MFRoad?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 MFRoad stands for <b>MF&rsquo;s Cross Road Solution</b> and it&rsquo;s a very simple markup language that allows for defining code paths based on what OS and architecture your code is being ran on.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc6854b3" class="outline-2">
-<h2 id="orgc6854b3"><span class="section-number-2">3.</span> Defining a code path</h2>
+<div id="outline-container-org31ac6e4" class="outline-2">
+<h2 id="org31ac6e4"><span class="section-number-2">3.</span> Defining a code path</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-A code path can be defined rather easily. Just keep in mind MFRoad files are parsed from the beggining, so the valid conditions at the start will porevent the ones at the end fron running.
+A code path can be defined rather easily. Just keep in mind MFRoad files are parsed from the beginning, so the valid conditions at the start will prevent the ones at the end from running.
 </p>
 
 <div class="org-src-container">
@@ -288,11 +288,11 @@ The logic is always the same:
 </div>
 </div>
 </div>
-<div id="outline-container-org4715f3f" class="outline-2">
-<h2 id="org4715f3f"><span class="section-number-2">4.</span> <code>any</code></h2>
+<div id="outline-container-orge14e795" class="outline-2">
+<h2 id="orge14e795"><span class="section-number-2">4.</span> <code>any</code></h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Sometimes, the architecture may not matter. Both <code>&lt;system&gt;</code> and <code>&lt;architecture&gt;</code> fields can be repalced by <code>any</code>, which means any system/architecture will be a match.
+Sometimes, the architecture may not matter. Both <code>&lt;system&gt;</code> and <code>&lt;architecture&gt;</code> fields can be replaced by <code>any</code>, which means any system/architecture will be a match.
 </p>
 <div class="org-src-container">
 <pre class="src src-cxsetup">win32:any<span style="color: #1ea8fc;">???</span>windows.cpp<span style="color: #1ea8fc;">;</span> <span style="color: #546A90;">// </span><span style="color: #546A90;">Any Windows system is allowed;</span>
@@ -302,8 +302,8 @@ any:any<span style="color: #1ea8fc;">???</span>general.cpp<span style="color: #1
 </div>
 </div>
 </div>
-<div id="outline-container-org66047bc" class="outline-2">
-<h2 id="org66047bc"><span class="section-number-2">5.</span> Operations</h2>
+<div id="outline-container-org140b70d" class="outline-2">
+<h2 id="org140b70d"><span class="section-number-2">5.</span> Operations</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 There are 3 different operation types that can be performed:
@@ -329,7 +329,7 @@ There are 3 different operation types that can be performed:
 <tr>
 <td class="org-left"><code>???</code></td>
 <td class="org-left">Returns a result - the valid code path to follow.</td>
-<td class="org-left"><code>darwin:any???darwin.cs; // darwin is MacOS;</code></td>
+<td class="org-left"><code>darwin:any???darwin.cs; // darwin is Mac OS;</code></td>
 </tr>
 
 <tr>
@@ -347,8 +347,8 @@ There are 3 different operation types that can be performed:
 </table>
 </div>
 </div>
-<div id="outline-container-org3f11da4" class="outline-2">
-<h2 id="org3f11da4"><span class="section-number-2">6.</span> Behavior on Linux</h2>
+<div id="outline-container-org9f9c07f" class="outline-2">
+<h2 id="org9f9c07f"><span class="section-number-2">6.</span> Behavior on Linux</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Linux comes with a special behavior. Instead of checking if the system is linux, it checks if the distro family is a specific one.
@@ -360,8 +360,8 @@ debian_any&lt;&lt;This, however, may be printed if the Linux distro is part of t
 </div>
 </div>
 </div>
-<div id="outline-container-org8fd4ae3" class="outline-2">
-<h2 id="org8fd4ae3"><span class="section-number-2">7.</span> Parsed V.S. Interpreted</h2>
+<div id="outline-container-org640bd63" class="outline-2">
+<h2 id="org640bd63"><span class="section-number-2">7.</span> Parsed V.S. Interpreted</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Since MFRoad is not a scripting language, it is not interpreted but rather parsed. The official parser converts the MFRoad to valid Python code, but, because I was still new to Regex, patterns and language parsing, the official MFRoad Parser for Python is&#x2026; inferior. I am not sure I&rsquo;ll ever update it again, but, if I do, I probably won&rsquo;t rewrite my parser. That being said, I&rsquo;m pretty sure one could write a much better parser - and for other programming languages too.
@@ -374,15 +374,15 @@ If you do wish to write your own parser, here are some ideas:
 <li><b>Make it less strict.</b> My parser requires comments to end with a semicolon, which is not really&#x2026; amazing.</li>
 <li><b>Add support for spacing.</b> My parser doesn&rsquo;t handle spaces between parts of statements very gracefully.</li>
 <li><b>Add more operations.</b> The current ones are a bit&#x2026; limited.</li>
-<li><b>Parse for your favorite programming language.</b> Python is good, but you proabbly need a parser for a different programming language.</li>
+<li><b>Parse for your favorite programming language.</b> Python is good, but you probably need a parser for a different programming language.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org02e139f" class="outline-2">
-<h2 id="org02e139f"><span class="section-number-2">8.</span> Not in the mood for MFRoad?</h2>
+<div id="outline-container-orgb2cba07" class="outline-2">
+<h2 id="orgb2cba07"><span class="section-number-2">8.</span> Not in the mood for MFRoad?</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-I understand if you ddn&rsquo;t like the language, and that&rsquo;s why I offer an alternative: <b>JSON</b>.
+I understand if you don&rsquo;t like the language, and that&rsquo;s why I offer an alternative: <b>JSON</b>.
 </p>
 
 <div class="org-src-container">
@@ -408,7 +408,7 @@ I understand if you ddn&rsquo;t like the language, and that&rsquo;s why I offer 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matthew (MF366)</p>
-<p class="date">Created: 2025-04-19 sáb 16:35</p>
+<p class="date">Created: 2025-04-19 sáb 16:49</p>
 </div>
 </body>
 </html>

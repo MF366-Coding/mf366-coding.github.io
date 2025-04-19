@@ -26,7 +26,7 @@ If those rules did not scare you away, the GitHub repository is [[https://github
 MFRoad stands for *MF's Cross Road Solution* and it's a very simple markup language that allows for defining code paths based on what OS and architecture your code is being ran on.
 
 * Defining a code path
-A code path can be defined rather easily. Just keep in mind MFRoad files are parsed from the beggining, so the valid conditions at the start will porevent the ones at the end fron running.
+A code path can be defined rather easily. Just keep in mind MFRoad files are parsed from the beginning, so the valid conditions at the start will prevent the ones at the end from running.
 
 #+begin_src cxsetup
 win32:AMD64???windows.cs;
@@ -42,7 +42,7 @@ The logic is always the same:
 #+end_src
 
 * ~any~
-Sometimes, the architecture may not matter. Both ~<system>~ and ~<architecture>~ fields can be repalced by ~any~, which means any system/architecture will be a match.
+Sometimes, the architecture may not matter. Both ~<system>~ and ~<architecture>~ fields can be replaced by ~any~, which means any system/architecture will be a match.
 #+begin_src cxsetup
 win32:any???windows.cpp; // Any Windows system is allowed;
 any:ARM64???arm_systems.cpp; // Any ARM64 architecture is allowed;
@@ -53,7 +53,7 @@ any:any???general.cpp; // This is not allowed -> any:any cannot be used with the
 There are 3 different operation types that can be performed:
 | Operation | Summary                                           | Example                                                                       |
 |-----------+---------------------------------------------------+-------------------------------------------------------------------------------|
-| =???=       | Returns a result - the valid code path to follow. | =darwin:any???darwin.cs; // darwin is MacOS;=                                   |
+| =???=       | Returns a result - the valid code path to follow. | =darwin:any???darwin.cs; // darwin is Mac OS;=                                   |
 | =!!!=       | Throws an error.                                  | =any:any!!!Indeterminate OS.; // any:any can be used !!! and <<, just not ???;= |
 | =<<=        | Outputs to ~stdout~.                                | =any:ARM64<<ARM systems are not supported;=                                     |
 
@@ -71,10 +71,10 @@ If you do wish to write your own parser, here are some ideas:
 - *Make it less strict.* My parser requires comments to end with a semicolon, which is not really... amazing.
 - *Add support for spacing.* My parser doesn't handle spaces between parts of statements very gracefully.
 - *Add more operations.* The current ones are a bit... limited.
-- *Parse for your favorite programming language.* Python is good, but you proabbly need a parser for a different programming language.
+- *Parse for your favorite programming language.* Python is good, but you probably need a parser for a different programming language.
 
 * Not in the mood for MFRoad?
-I understand if you ddn't like the language, and that's why I offer an alternative: *JSON*.
+I understand if you don't like the language, and that's why I offer an alternative: *JSON*.
 
 #+begin_src json
 {

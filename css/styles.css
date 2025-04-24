@@ -11062,3 +11062,8 @@ a:hover .skill-img {
   width: 41.15px;
   padding-bottom: 7.5px;
 }
+
+.emacs {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-purple)), var(--bs-purple) !important;
+}

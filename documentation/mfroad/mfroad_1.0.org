@@ -1,0 +1,94 @@
+#+title: MFRoad Official Documentation
+#+description: The official documentation for the MFRoad language.
+#+author: Matthew (MF366)
+
+#+options: toc:nil
+
+#+TOC: headlines 3
+
+* About the Documentation
+The page/document you are currently looking at is the *Official Documentation for the MF Road markup language*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+
+** Licensing (Docs)
+This documentation is licensed under the [[https://www.gnu.org/licenses/fdl-1.3.txt][*GNU Free Documentation License (GFDL)*]]. Therefore, all edits, reuses and whatnot of this documentation (valid for both ~Org~ and ~HTML~ versions of the docs) must comply with GFDL's terms and conditions.
+
+** Contributing
+If you wish to contribute to the documentation, I'd really appreciate it. However, there are some rules and guidelines you must follow:
+- *KISS: Keep It Simple, Stupid.* Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.
+- *If it ain’t broken, don’t redesign it.* Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it's very objective.
+- *Editing the HTML export is like painting a screenshot — impressive, but pointless.* Make /Pull Requests/ for the ~Org~ files, not the ~HTML~ ones.
+- *Fixing typos is noble; flooding PRs with them is chaos.* Typo squatting is perfectly fine and helpful, but don't make too many /Pull Requests/ to fix typos in a row, as it causes unnecessary spam. The best alternative is to "bundle" several typo fixes in one PR.
+- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][~real_mf366@yahoo.com~]].
+
+If those rules did not scare you away, the GitHub repository is [[https://github.com/MF366-Coding/mf366-coding.github.io][right here]]. Thanks ahead for your contributions.
+
+* What is MFRoad?
+MFRoad stands for *MF's Cross Road Solution* and it's a very simple markup language that allows for defining code paths based on what OS and architecture your code is being ran on.
+
+* Defining a code path
+A code path can be defined rather easily. Just keep in mind MFRoad files are parsed from the beginning, so the valid conditions at the start will prevent the ones at the end from running.
+
+#+begin_src cxsetup
+win32:AMD64???windows.cs;
+#+end_src
+
+#+begin_quote
+~win32~ stands for all versions of Windows. ~AMD64~ refers to the architecture.
+#+end_quote
+
+The logic is always the same:
+#+begin_src cxsetup
+<system>:<architecture><operation><argument>;
+#+end_src
+
+* ~any~
+Sometimes, the architecture may not matter. Both ~<system>~ and ~<architecture>~ fields can be replaced by ~any~, which means any system/architecture will be a match.
+#+begin_src cxsetup
+win32:any???windows.cpp; // Any Windows system is allowed;
+any:ARM64???arm_systems.cpp; // Any ARM64 architecture is allowed;
+any:any???general.cpp; // This is not allowed -> any:any cannot be used with the ??? operation;
+#+end_src
+
+* Operations
+There are 3 different operation types that can be performed:
+| Operation | Summary                                           | Example                                                                       |
+|-----------+---------------------------------------------------+-------------------------------------------------------------------------------|
+| =???=       | Returns a result - the valid code path to follow. | =darwin:any???darwin.cs; // darwin is Mac OS;=                                   |
+| =!!!=       | Throws an error.                                  | =any:any!!!Indeterminate OS.; // any:any can be used !!! and <<, just not ???;= |
+| =<<=        | Outputs to ~stdout~.                                | =any:ARM64<<ARM systems are not supported;=                                     |
+
+* Behavior on Linux
+Linux comes with a special behavior. Instead of checking if the system is linux, it checks if the distro family is a specific one.
+#+begin_src cxsetup
+linux:any<<This will never be printed because linux is not a valid system;
+debian_any<<This, however, may be printed if the Linux distro is part of the Debian family;
+#+end_src
+
+* Parsed V.S. Interpreted
+Since MFRoad is not a scripting language, it is not interpreted but rather parsed. The official parser converts the MFRoad to valid Python code, but, because I was still new to Regex, patterns and language parsing, the official MFRoad Parser for Python is... inferior. I am not sure I'll ever update it again, but, if I do, I probably won't rewrite my parser. That being said, I'm pretty sure one could write a much better parser - and for other programming languages too.
+
+If you do wish to write your own parser, here are some ideas:
+- *Make it less strict.* My parser requires comments to end with a semicolon, which is not really... amazing.
+- *Add support for spacing.* My parser doesn't handle spaces between parts of statements very gracefully.
+- *Add more operations.* The current ones are a bit... limited.
+- *Parse for your favorite programming language.* Python is good, but you probably need a parser for a different programming language.
+
+* Not in the mood for MFRoad?
+I understand if you don't like the language, and that's why I offer an alternative: *JSON*.
+
+#+begin_src json
+{
+    "windows": {
+        "amd64": "path/to/file",
+        "arm64": -1
+    },
+    "linux": {
+        "debian": {
+            "amd64": -1
+        }
+    }
+}
+#+end_src
+
+~-1~ could mean ~"Not supported!"~, for example.
+

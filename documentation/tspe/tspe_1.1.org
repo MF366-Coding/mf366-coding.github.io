@@ -1,0 +1,163 @@
+#+TITLE: Terminal Supaplex Editor Official Documentation (Work in Progress)
+#+DESCRIPTION: The official documentation for TSpE - Terminal Supaplex Editor.
+#+AUTHOR: Matthew (MF366)
+
+#+OPTIONS: toc:nil
+
+#+TOC: headlines 2
+
+* About the Documentation
+The page/document you are currently looking at is the *Official Documentation for Terminal Supaplex Editor a.k.a. TSpE*. It was made primarily by Matthew ([[https://mf366-coding.github.io][MF366]]) using ~Org Mode~ on ~Emacs~, later exported to ~HTML~.
+
+** Licensing (Docs)
+#+BEGIN_QUOTE
+This section is about the LICENSE of this document. For TSpE's LICENSE, see section 2.1: [[Licensing (TSpE)][Licensing (TSpE)]].
+#+END_QUOTE
+
+This documentation is licensed under the [[https://www.gnu.org/licenses/fdl-1.3.txt][*GNU Free Documentation License (GFDL)*]]. Therefore, all edits, reuses and whatnot of this documentation (valid for both ~Org~ and ~HTML~ versions of the docs) must comply with GFDL's terms and conditions.
+
+** Contributing
+If you wish to contribute to the documentation, I'd really appreciate it. However, there are some rules and guidelines you must follow:
+- *KISS: Keep It Simple, Stupid.* Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.
+- *If it ain’t broken, don’t redesign it.* Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it's very objective.
+- *Editing the HTML export is like painting a screenshot — impressive, but pointless.* Make /Pull Requests/ for the ~Org~ files, not the ~HTML~ ones.
+- *Fixing typos is noble; flooding PRs with them is chaos.* Typo squatting is perfectly fine and helpful, but don't make too many /Pull Requests/ to fix typos in a row, as it causes unnecessary spam. The best alternative is to "bundle" several typo fixes in one PR.
+- *There are no stupid questions — only unanswered ones (and I try to avoid those).* If you have any questions, don't hesitate to ask, as I try to reply to all. You can use the following e-mail: [[mailto:real_mf366@yahoo.com][~real_mf366@yahoo.com~]].
+
+If those rules did not scare you away, the GitHub repository is [[https://github.com/MF366-Coding/mf366-coding.github.io][right here]]. Thanks ahead for your contributions.
+
+* What is TSpE?
+#+BEGIN_QUOTE
+For its entirety, this documentation assumes the user knows: what Supaplex is and how to, later on, "use" the levels in software such as Megaplex, or just Supaplex Online. It's highly recommended to have a certain degree of experience around the terminal.
+#+END_QUOTE
+
+Terminal Supaplex Editor - or *TSpE* for short - is one of the most recent Supaplex level editors to have the *terminal* as the main /"target"/.
+
+Fully made in Python, it is capable of handling basic Supaplex level format (no Megaplex support yet) and is bundled with tons of useful features, one of which is the ability to test the level that's being edited with *Supaplex Online*, the main platform for uploading levels and playing other people's ones.
+
+While it's sadly not very extensible, its easy-to-understand =settings.json=, the main file you'll be using - as a user - to enhance your experience.
+
+Without further ado, let's jump into the second topic: *How to install TSpE*.
+
+** Licensing (TSpE)
+TSpE itself is licensed under the [[https://www.gnu.org/licenses/gpl-3.0.txt][*GNU General Public License (GPL v3.0)*]]. All forks, modifications and whatnot of the program must comply with GPL's terms and conditions.
+
+* How to install TSpE
+TSpE does not require any installation - as long as [[https://python.org][*Python 3*]] is installed on your device.
+
+** Requirements
+To get started with TSpE, you'll first need some modules. Thankfully, TSpE comes with a file called ~requirements.txt~ that contains a list of modules that can be instaled with PIP.
+
+*On Unix-based systems:*
+#+BEGIN_SRC shell
+pip install -r requirements.txt --upgrade
+#+END_SRC
+
+*On Windows (assuming Python's installed):*
+#+BEGIN_SRC shell
+python -m pip install -r requirements --upgrade
+#+END_SRC
+
+After the installation of the requirements is finished, we can move to the next step: running =main.py=.
+
+** The Main File
+The file you'll want to run to use TSpE is named ~main.py~ and is placed on the root project folder for TSpE.
+
+When you find it, run:
+- =python3 main.py= on *Unix-based systems*
+- =python main.py= on *Windows*
+
+* Getting started
+To be able to master TSpE, you'll need to understand one of its key components: *Contexts*. Everything the program does is separated by context. There are five contexts, each with its own commands and arguments:
+- *Home:* the first context you'll see whe you run TSpE.
+- *Level Editor:* this is the context you'll be using the most, as it is the actual editor itself.
+- *Levelset Editor:* you'll only use this to organize your levelsets.
+- *Anywhere:* this is a global context that means the commands listed under this context can be used in any of the other contexts. It is not visually shown.
+
+* Commands
+Below, are all of the commands supported by TSpE, separated by context.
+
+** Anywhere
+The first context you'll need to master is the *Anywhere* context. It is extremely easy, however.
+
+Each command will be discussed individually.
+
+----------------------------------------------------------
+
+*** ~imlost~ / ~help~
+The commands ~imlost~ and ~help~ stand for the same thing: *documentation*. More precisely, the documentation you are currently looking at.
+
+*Arguments:* None.
+
+*Learnign Curve:* None.
+
+*Requirements:* Internet Connection.
+
+----------------------------------------------------------
+
+*** ~web~ / ~repo~
+The commands ~web~ and ~repo~ both open [[https://github.com/MF366-Coding/TSpE][TSpE's GitHub Repository]].
+
+*Arguments:* None.
+
+*Learning Curve:* None.
+
+*Requirements:* Internet Connection.
+
+----------------------------------------------------------
+
+*** ~reload~ / ~rl~
+Mistakenly, this command was left tagged as *Anywhere*, which causes it to generate an error:
+#+BEGIN_EXAMPLE
+Oops! Something went wrong... - 'NoneType' object has no attribute 'render_list'
+#+END_EXAMPLE
+
+For the actual working command, see *TODO*.
+
+*Arguments:* None.
+
+*Learning Curve:* Command is incorrectly tagged, so no learning curve.
+
+*Requirements:* None.
+
+----------------------------------------------------------
+
+** Home exclusive
+Below are the commands exclusive to the *Home Context*.
+
+----------------------------------------------------------
+
+*** ~about~
+Will display some very generic information about TSpE. Below is the string that's shown to the user.
+
+#+BEGIN_EXAMPLE
+TSpE - Terminal Supaplex Editor is a backwards-compatible Supaplex level editor made by MF366
+#+END_EXAMPLE
+
+*Arguments:* None.
+
+*Learning Curve:* None.
+
+*Requirements:* None.
+
+----------------------------------------------------------
+
+*** ~cd~
+Changes to a different directory.
+
+Certain special values might be used:
+- ~~~ changes to the ~$HOME~ (on *Linux* and *MacOS*) or ~%USERPROFILE%~ (on *Windows*)
+- ~.~ quite literally does nothing (maintains the same path)
+- ~..~ goes to the parent folder
+
+*Arguments:* One.
+- *~path~ (of type ~string~; mandatory argument):* specifies the path to change to
+
+*Learning Curve:* Nearly none.
+
+*Requirements:* The specified path must be valid, otherwise, there's an error.
+
+---------------------------------------------------------
+
+*** TODO
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

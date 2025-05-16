@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-03-30 dom 15:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terminal Supaplex Editor Official Documentation (Work in Progress)</title>
+<meta name="author" content="Matthew (MF366)" />
+<meta name="description" content="The official documentation for TSpE - Terminal Supaplex Editor." />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Terminal Supaplex Editor Official Documentation (Work in Progress)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org63926f1">1. About the Documentation</a>
+<ul>
+<li><a href="#org9cea861">1.1. Licensing (Docs)</a></li>
+<li><a href="#orgb1bf99c">1.2. Contributing</a></li>
+</ul>
+</li>
+<li><a href="#org1c53a69">2. What is TSpE?</a>
+<ul>
+<li><a href="#orgda3fc0d">2.1. Licensing (TSpE)</a></li>
+</ul>
+</li>
+<li><a href="#org35618fe">3. How to install TSpE</a>
+<ul>
+<li><a href="#orgce9afc5">3.1. Requirements</a></li>
+<li><a href="#orgec92a10">3.2. The Main File</a></li>
+</ul>
+</li>
+<li><a href="#org941ced9">4. Getting started</a></li>
+<li><a href="#org1e28e83">5. Commands</a>
+<ul>
+<li><a href="#org735cc35">5.1. Anywhere</a></li>
+<li><a href="#orgddde54e">5.2. Home exclusive</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org63926f1" class="outline-2">
+<h2 id="org63926f1"><span class="section-number-2">1.</span> About the Documentation</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The page/document you are currently looking at is the <b>Official Documentation for Terminal Supaplex Editor a.k.a. TSpE</b>. It, along with the software itself, is made primarily by Matthew (<a href="https://mf366-coding.github.io">MF366</a>) using <code>Org Mode</code> on <code>Emacs</code>, later exported to <code>HTML</code>.
+</p>
+</div>
+<div id="outline-container-org9cea861" class="outline-3">
+<h3 id="org9cea861"><span class="section-number-3">1.1.</span> Licensing (Docs)</h3>
+<div class="outline-text-3" id="text-1-1">
+<blockquote>
+<p>
+This section is about the LICENSE of this document. For TSpE&rsquo;s LICENSE, see section 2.1: <a href="#orgda3fc0d">Licensing (TSpE)</a>.
+</p>
+</blockquote>
+
+<p>
+This documentation is licensed under the <a href="https://www.gnu.org/licenses/fdl-1.3.txt"><b>GNU Free Documentation License (GFDL)</b></a>. Therefore, all edits, reuses and whatnot of this documentation (valid for both <code>Org</code> and <code>HTML</code> versions of the docs) must comply with GFDL&rsquo;s terms and conditions.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb1bf99c" class="outline-3">
+<h3 id="orgb1bf99c"><span class="section-number-3">1.2.</span> Contributing</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+If you wish to contribute to the documentation, I&rsquo;d really appreciate it. However, there are some rules and guidelines you must follow:
+</p>
+<ul class="org-ul">
+<li><b>KISS: Keep It Simple, Stupid.</b> Make sure your changes do not affect the simplicity and readability of the documentation in a negative way.</li>
+<li><b>If it ain’t broken, don’t redesign it.</b> Do not propose changes to how the UI should look, as the current combination of HTML and CSS aims for simplicity, due to the fact it&rsquo;s very objective.</li>
+<li><b>Editing the HTML export is like painting a screenshot — impressive, but pointless.</b> Make <i>Pull Requests</i> for the <code>Org</code> files, not the <code>HTML</code> ones.</li>
+<li><b>Fixing typos is noble; flooding PRs with them is chaos.</b> Typo squatting is perfectly fine and helpful, but don&rsquo;t make too many <i>Pull Requests</i> to fix typos in a row, as it causes unnecessary spam. The best alternative is to &ldquo;bundle&rdquo; several typo fixes in one PR.</li>
+<li><b>There are no stupid questions — only unanswered ones (and I try to avoid those).</b> If you have any questions, don&rsquo;t hesitate to ask, as I try to reply to all. You can use the following e-mail: <a href="mailto:real_mf366@yahoo.com"><code>real_mf366@yahoo.com</code></a>.</li>
+</ul>
+
+<p>
+If those rules did not scare you away, the GitHub repository is <a href="https://github.com/MF366-Coding/mf366-coding.github.io">right here</a>. Thanks ahead for your contributions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1c53a69" class="outline-2">
+<h2 id="org1c53a69"><span class="section-number-2">2.</span> What is TSpE?</h2>
+<div class="outline-text-2" id="text-2">
+<blockquote>
+<p>
+For its entirety, this documentation assumes the user knows: what Supaplex is and how to, later on, &ldquo;use&rdquo; the levels in software such as Megaplex, or just Supaplex Online. It&rsquo;s highly recommended to have a certain degree of experience around the terminal.
+</p>
+</blockquote>
+
+<p>
+Terminal Supaplex Editor - or <b>TSpE</b> for short - is one of the most recent Supaplex level editors to have the <b>terminal</b> as the main <i>&ldquo;target&rdquo;</i>.
+</p>
+
+<p>
+Fully made in Python, it is capable of handling basic Supaplex level format (no Megaplex support yet) and is bundled with tons of useful features, one of which is the ability to test the level that&rsquo;s being edited with <b>Supaplex Online</b>, the main platform for uploading levels and playing other people&rsquo;s ones.
+</p>
+
+<p>
+While it&rsquo;s sadly not very extensible, its easy-to-understand <code>settings.json</code>, the main file you&rsquo;ll be using - as a user - to enhance your experience.
+</p>
+
+<p>
+Without further ado, let&rsquo;s jump into the second topic: <b>How to install TSpE</b>.
+</p>
+</div>
+<div id="outline-container-orgda3fc0d" class="outline-3">
+<h3 id="orgda3fc0d"><span class="section-number-3">2.1.</span> Licensing (TSpE)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+TSpE itself is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.txt"><b>GNU General Public License (GPL v3.0)</b></a>. All forks, modifications and whatnot of the program must comply with GPL&rsquo;s terms and conditions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org35618fe" class="outline-2">
+<h2 id="org35618fe"><span class="section-number-2">3.</span> How to install TSpE</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+TSpE does not require any installation - as long as <a href="https://python.org"><b>Python 3</b></a> is installed on your device.
+</p>
+</div>
+<div id="outline-container-orgce9afc5" class="outline-3">
+<h3 id="orgce9afc5"><span class="section-number-3">3.1.</span> Requirements</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+To get started with TSpE, you&rsquo;ll first need some modules. Thankfully, TSpE comes with a file called <code>requirements.txt</code> that contains a list of modules that can be instaled with PIP.
+</p>
+
+<p>
+<b>On Unix-based systems:</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pip install -r requirements.txt --upgrade
+</pre>
+</div>
+
+<p>
+<b>On Windows (assuming Python&rsquo;s installed):</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">python -m pip install -r requirements --upgrade
+</pre>
+</div>
+
+<p>
+After the installation of the requirements is finished, we can move to the next step: running <code>main.py</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgec92a10" class="outline-3">
+<h3 id="orgec92a10"><span class="section-number-3">3.2.</span> The Main File</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The file you&rsquo;ll want to run to use TSpE is named <code>main.py</code> and is placed on the root project folder for TSpE.
+</p>
+
+<p>
+When you find it, run:
+</p>
+<ul class="org-ul">
+<li><code>python3 main.py</code> on <b>Unix-based systems</b></li>
+<li><code>python main.py</code> on <b>Windows</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org941ced9" class="outline-2">
+<h2 id="org941ced9"><span class="section-number-2">4.</span> Getting started</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+To be able to master TSpE, you&rsquo;ll need to understand one of its key components: <b>Contexts</b>. Everything the program does is separated by context. There are five contexts, each with its own commands and arguments:
+</p>
+<ul class="org-ul">
+<li><b>Home:</b> the first context you&rsquo;ll see whe you run TSpE.</li>
+<li><b>Level Editor:</b> this is the context you&rsquo;ll be using the most, as it is the actual editor itself.</li>
+<li><b>Levelset Editor:</b> you&rsquo;ll only use this to organize your levelsets.</li>
+<li><b>Anywhere:</b> this is a global context that means the commands listed under this context can be used in any of the other contexts. It is not visually shown.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1e28e83" class="outline-2">
+<h2 id="org1e28e83"><span class="section-number-2">5.</span> Commands</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Below, are all of the commands supported by TSpE, separated by context.
+</p>
+</div>
+<div id="outline-container-org735cc35" class="outline-3">
+<h3 id="org735cc35"><span class="section-number-3">5.1.</span> Anywhere</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+The first context you&rsquo;ll need to master is the <b>Anywhere</b> context. It is extremely easy, however.
+</p>
+
+<p>
+Each command will be discussed individually.
+</p>
+
+<hr />
+</div>
+<div id="outline-container-orgdd04bc2" class="outline-4">
+<h4 id="orgdd04bc2"><span class="section-number-4">5.1.1.</span> <code>imlost</code> / <code>help</code></h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+The commands <code>imlost</code> and <code>help</code> stand for the same thing: <b>documentation</b>. More precisely, the documentation you are currently looking at.
+</p>
+
+<p>
+<b>Arguments:</b> None.
+</p>
+
+<p>
+<b>Learnign Curve:</b> None.
+</p>
+
+<p>
+<b>Requirements:</b> Internet Connection.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-org5ce3d30" class="outline-4">
+<h4 id="org5ce3d30"><span class="section-number-4">5.1.2.</span> <code>web</code> / <code>repo</code></h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+The commands <code>web</code> and <code>repo</code> both open <a href="https://github.com/MF366-Coding/TSpE">TSpE&rsquo;s GitHub Repository</a>.
+</p>
+
+<p>
+<b>Arguments:</b> None.
+</p>
+
+<p>
+<b>Learning Curve:</b> None.
+</p>
+
+<p>
+<b>Requirements:</b> Internet Connection.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-orgc1ef4a4" class="outline-4">
+<h4 id="orgc1ef4a4"><span class="section-number-4">5.1.3.</span> <code>reload</code> / <code>rl</code></h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+Mistakenly, this command was left tagged as <b>Anywhere</b>, which causes it to generate an error:
+</p>
+<pre class="example" id="orgc0b1d4d">
+Oops! Something went wrong... - 'NoneType' object has no attribute 'render_list'
+</pre>
+
+<p>
+For the actual working command, see <b>TODO</b>.
+</p>
+
+<p>
+<b>Arguments:</b> None.
+</p>
+
+<p>
+<b>Learning Curve:</b> Command is incorrectly tagged, so no learning curve.
+</p>
+
+<p>
+<b>Requirements:</b> None.
+</p>
+
+<hr />
+</div>
+</div>
+</div>
+<div id="outline-container-orgddde54e" class="outline-3">
+<h3 id="orgddde54e"><span class="section-number-3">5.2.</span> Home exclusive</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Below are the commands exclusive to the <b>Home Context</b>.
+</p>
+
+<hr />
+</div>
+<div id="outline-container-org2d21206" class="outline-4">
+<h4 id="org2d21206"><span class="section-number-4">5.2.1.</span> <code>about</code></h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+Will display some very generic information about TSpE. Below is the string that&rsquo;s shown to the user.
+</p>
+
+<pre class="example" id="org1e668b6">
+TSpE - Terminal Supaplex Editor is a backwards-compatible Supaplex level editor made by MF366
+</pre>
+
+<p>
+<b>Arguments:</b> None.
+</p>
+
+<p>
+<b>Learning Curve:</b> None.
+</p>
+
+<p>
+<b>Requirements:</b> None.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-orgc7da4b8" class="outline-4">
+<h4 id="orgc7da4b8"><span class="section-number-4">5.2.2.</span> <code>cd</code></h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+Changes to a different directory.
+</p>
+
+<p>
+Certain special values might be used:
+</p>
+<ul class="org-ul">
+<li><code>~</code> changes to the <code>$HOME</code> (on <b>Linux</b> and <b>MacOS</b>) or <code>%USERPROFILE%</code> (on <b>Windows</b>)</li>
+<li><code>.</code> quite literally does nothing (maintains the same path)</li>
+<li><code>..</code> goes to the parent folder</li>
+</ul>
+
+<p>
+<b>Arguments:</b> One.
+</p>
+<ul class="org-ul">
+<li><b><code>path</code> (of type <code>string</code>; mandatory argument):</b> specifies the path to change to</li>
+</ul>
+
+<p>
+<b>Learning Curve:</b> Nearly none.
+</p>
+
+<p>
+<b>Requirements:</b> The specified path must be valid, otherwise, there&rsquo;s an error.
+</p>
+
+<hr />
+</div>
+</div>
+<div id="outline-container-org742548a" class="outline-4">
+<h4 id="org742548a"><span class="section-number-4">5.2.3.</span> <span class="todo TODO">TODO</span> </h4>
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matthew (MF366)</p>
+<p class="date">Created: 2025-03-30 dom 15:44</p>
+</div>
+</body>
+</html>
